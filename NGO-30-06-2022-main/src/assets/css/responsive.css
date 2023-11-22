@@ -1,0 +1,983 @@
+
+/*------------ common css----------------*/
+@media only screen and (max-width: 1366px){
+  .left-header{
+    font-size: 36px;
+  }
+  .page-hd h2{
+    font-size: 36px;
+  }
+
+  .sb-headings {
+      font-size: 36px;
+  }
+  .sb-title{
+    font-size: 20px;
+  }
+  .gn-font{
+    font-size: 16px;
+  }
+  }
+  @media only screen and (max-width: 1366px){
+  .top-bar::before{
+    /* width: 42%; */
+    width: 27%;
+  }
+  }
+  @media only screen and (max-width: 600px){
+  .desk-icons button{
+    font-size:12px;
+    padding:6px 10px;
+  }
+  }
+  @media only screen and (max-width: 400px){
+  .desk-icons button {
+      font-size: 10px;
+      padding: 5px 8px;
+  }
+  }
+  @media only screen and (max-width: 991px){
+    .s-h-icons{
+      text-align:left;
+    }
+  .s-h-icons a {
+      font-size: 16px;
+      margin: 0px 10px;
+  }
+  .s-h-icons a:first-child {
+    display: none;
+  }
+  }
+  @media only screen and (max-width: 600px){
+  .s-h-icons a{
+    font-size: 12px;
+      margin: 0px 5px;
+  }
+  .s-h-icons a i {
+      font-size: 18px;
+  }
+  }
+  @media only screen and (max-width: 991px){
+  .top-bar::before{
+    display: none;
+  }
+  }
+  @media only screen and (max-width: 1486px){
+  .menucell li a {
+      font-weight:600;
+      font-size: 13px;
+  }
+  .d-icons button {
+    padding: 8px 10px;
+      font-weight: 600;
+      font-size: 12px;
+    margin:0px 5px;
+  }
+  }
+  @media only screen and (max-width: 991px){
+    .menucell li:last-child{
+      display: block;
+    }
+    }
+
+
+  /*------------------- page-banner section--------------*/
+  @media only screen and (max-width: 1500px){
+  .page-1400 {
+    max-width:1300px;
+  }
+  }
+  @media only screen and (max-width: 1366px){
+  .page-1400{
+    max-width: 1300px;
+  }
+  .page-caption{
+    padding: 10px 10px;
+  }
+
+  .page-caption h3{
+    font-size: 32px;
+  }
+  .page-caption p{
+    font-size: 18px;
+  }
+  }
+  @media only screen and (max-width: 1200px){
+  .page-1400{
+    max-width: 1200px;
+  }
+  .page-caption {
+      padding: 10px 54px;
+  }
+  .page-caption h3{
+    font-size: 30px;
+  }
+  .page-caption p{
+    font-size: 18px;
+  }
+  }
+  @media only screen and (max-width: 991px){
+  .page-1400{
+    max-width: 800px;
+  }
+  .page-caption{
+    padding: 10px 10px;
+  }
+  .page-caption h3{
+    font-size: 22px;
+  }
+  .page-caption p{
+    font-size: 16px;
+  }
+  }
+  @media only screen and (max-width: 767px){
+  .page-1400{
+    max-width: 700px;
+  }
+  .page-caption h3{
+    font-size: 24px;
+  }
+  .page-caption p{
+    font-size: 14px;
+  }
+  .page-banner ol.carousel-indicators li{
+    display: none;
+  }
+  }
+  @media only screen and (max-width: 576px){
+  .page-banner button.donation{
+    padding: 8px 12px;
+  }
+  .page-caption p{
+    display: none;
+  }
+  }
+  /*-------------------close slider section--------------*/
+  @media only screen and (max-width: 1300px){
+  .navbar-brand img{
+    width:200px;
+  }
+  .d-icons button {
+      padding: 6px 8px;
+  }
+  }
+  @media only screen and (max-width: 1230px){
+  .navbar-brand img{
+    width:160px;
+  }
+  .d-icons button {
+      padding: 6px 8px;
+    margin:0px 5px 0px 0px;
+  }
+  }
+  @media only screen and (max-width: 1200px){
+  .nav-btn{
+    display:none;
+  }
+  .sec-mob-button{
+    display:block;
+    text-align:center;
+    /* background-color:#f3f3f3; */
+    background-color: #c3313e;
+    padding:5px 0px;
+  }
+  }
+
+  /*----------------page slider ---------*/
+
+  @media only screen and (max-width: 991px){
+  .page-hd h2{
+    font-size:35px;
+  }
+  .page-hd li {
+      font-size: 16px;
+  }
+  }
+  @media only screen and (max-width: 600px){
+  .page-hd h2{
+    font-size:30px;
+  }
+  .page-hd li {
+      font-size: 14px;
+  }
+  }
+  @media only screen and (max-width: 991px){
+  .left-header{
+    font-size:35px;
+  }
+  .left-hd-list{
+    font-size:16px;
+  }
+  .scheme-subject h3{
+    font-size:18px;
+  }
+  .social-link li {
+      padding: 6px 10px;
+      font-size: 14px;
+  }
+  .social-link img {
+      width: 30px;
+      padding: 3px 0px 0px 0px;
+  }
+  }
+  @media only screen and (max-width: 600px){
+  .left-header{
+    font-size:22px;
+  }
+  .left-hd-list{
+    font-size:14px;
+    display:none;
+  }
+  }
+  @media only screen and (max-width: 767px){
+    .abt-tab{
+      height: 39vh;
+    }
+    .abt-tab a{
+      padding: 10px 15px;
+    }
+    }
+    @media only screen and (max-width: 990px){
+      .fund-title{
+        bottom: 39px;
+      }
+    }
+    @media only screen and (max-width: 991px){
+      .sbmt-fund{
+        margin: 0 auto;
+        width: 350px;
+        height: 54px;
+        margin-left: 14px;
+    }
+    }
+    @media only screen and (max-width: 768px){
+      .sbmt-fund{
+        margin: 0 auto;
+        width: 350px;
+        height: 54px;
+        margin-left: 148px;
+    }
+    }
+    /*---------------- profile page ------------*/
+    @media only screen and (max-width: 600px){
+    .profile-tab{
+      height: 19vh;
+      line-height: 25px;
+    }
+    .profile-tab a{
+      padding: 0px 15px;
+    }
+    }
+
+  /*---------------- social media bar ---------*/
+  @media only screen and (max-width: 600px){
+  .media-li{
+    width: 150px;
+    margin: 0px 5px 5px 0px;
+  }
+  .media-li img {
+      padding: 0px 8px;
+      float: left;
+      width: 60px;
+  }
+  .media-li p {
+      font-size: 14px;
+  }
+  }
+  /*------------ how it works ------------*/
+  @media only screen and (max-width: 1366px) {
+  .itworks img{
+    display:inline-block;
+    margin:0px 0px 10px 0px;
+    width:80px;
+  }
+  .itworks-info h3{
+    font-size:22px
+  }
+  .itworks-info p{
+    font-size:14px
+  }
+  .dt-menucell img{
+    width:80px;
+    margin: 0px 0px 20px 0px;
+  }
+  .dt-menucell-info h3 {
+      font-size: 22px;
+  }
+  .dt-menucell-info p {
+      font-size: 14px;
+  }
+  }
+  @media only screen and (max-width: 991px) {
+  .itworks-info h3{
+    font-size:20px
+  }
+  .itworks-info p{
+    font-size:14px
+  }
+  }
+  @media only screen and (max-width: 600px) {
+  .itworks-info h3{
+    font-size:18px
+  }
+  .itworks-info p{
+    font-size:12px
+  }
+  }
+  @media only screen and (max-width: 400px) {
+  .itworks-info h3{
+    font-size:20px
+  }
+  .itworks-info p{
+    font-size:20px
+  }
+  }
+  @media only screen and (max-width: 990px){
+    .htw-tab{
+      height: 33vh;
+    }
+    .htw-tab a{
+      padding: 10px 15px;
+    }
+    }
+  /*------------ donate section------------*/
+
+  @media only screen and (max-width: 991px) {
+  .dt-menucell-info h3{
+    font-size:26px
+  }
+  .dt-menucell-info p{
+    font-size:20px
+  }
+  }
+  @media only screen and (max-width: 767px) {
+  .dt-menucell-info h3{
+    font-size:24px
+  }
+  .dt-menucell-info p{
+    font-size:24px
+  }
+  }
+  @media only screen and (max-width: 600px) {
+  .dt-menucell-info h3{
+    font-size:22px
+  }
+  .dt-menucell-info p{
+    font-size:22px
+  }
+  }
+  @media only screen and (max-width: 400px) {
+  .dt-menucell-info h3{
+    font-size:20px
+  }
+  .dt-menucell-info p{
+    font-size:20px
+  }
+  }
+
+  /*------------ Pricing section------------*/
+
+  @media only screen and (max-width: 991px) {
+  .price-it-info h3{
+    font-size:26px
+  }
+  .price-it-info h2{
+    font-size:26px
+  }
+  .price-it-info p{
+    font-size:26px
+  }
+  }
+  @media only screen and (max-width: 767px) {
+  .price-it-info h3{
+    font-size:24px
+  }
+  .price-it-info h2{
+    font-size:24px
+  }
+  .price-it-info p{
+    font-size:24px
+  }
+  }
+  @media only screen and (max-width: 600px) {
+  .price-it-info h3{
+    font-size:22px
+  }
+  .price-it-info h2{
+    font-size:22px
+  }
+  .price-it-info p{
+    font-size:22px
+  }
+  }
+  @media only screen and (max-width: 400px) {
+  .price-it-info h3{
+    font-size:20px
+  }
+  .price-it-info h2{
+    font-size:20px
+  }
+  .price-it-info p{
+    font-size:20px
+  }
+  }
+  /*------------ profile page section------------*/
+  @media only screen and (max-width: 767px){
+  .profile-donation{
+    display: block;
+  }
+  .profile-donation .pf-sub{
+    padding-right: 0px;
+    width: 100%;
+  }
+  .sm-txt-mb0{
+    margin-bottom: 10px;
+  }
+  }
+  @media only screen and (max-width: 500px){
+  .profile-bar{
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding-right:0px;
+  }
+  @media only screen and (max-width: 500px){
+    .profile-bar::before{
+      display: none;
+    }
+    }
+  .profile-img{
+    width: 100px;
+      height: 100px;
+    display: inline-block;
+    margin: 0px 0px 10px 0px;
+    float: none;
+  }
+  .profile-dt{
+    display: block;
+  }
+  .profile-dt h3 {
+      font-size: 26px;
+  }
+  .profile-dt p{
+    font-size: 16px;
+  }
+  .pf-info-table .table tbody tr td {
+    text-align: center;
+  }
+  }
+  @media only screen and (max-width: 500px) {
+  .dt-table .table td.pro-thumbnail {
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      border-radius: 70px;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      justify-content: center;
+      padding: 0px 10px 0px 0px;
+  }
+  .dt-table td.pro-title h4{
+    font-size: 16px;
+  }
+  .dt-table td.pro-btn a{
+    width:auto;
+    padding: 5px 5px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+  }
+  @media only screen and (max-width: 576px){
+  .fd-table .table tbody tr{
+    border-bottom: solid 1px rgba(0,0,0,.1);
+  }
+  .fd-table .table tbody tr td {
+    display: block;
+    width: 100%;
+    padding: 5px 5px;
+    text-align: left;
+    }
+  .fd-table td.pro-title {
+    max-width: 100%;
+    font-size: 16px;
+  }
+  .fd-table td.pro-btn a{
+    float: left;
+    margin: 0px 0px 10px 0px;
+  }
+  }
+  /*------------ detail page section------------*/
+  @media only screen and (max-width: 767px){
+  .dtp-rw .dtp-campaign{
+    padding: 0px 0px 20px 0px;
+  }
+  .dtp-rw .dtp-campaign::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,.34);
+    bottom: 0px;
+    margin: 0px 0px 0px 0px;
+  }
+  }
+  @media only screen and (max-width: 576px){
+  .dtp-adv h3{
+    font-size: 22px;
+  }
+  .dtp-payment p{
+    font-size: 20px;
+    margin: 0px 0px 10px 0px;
+  }
+  .sl-md-link button{
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+  .sl-md-link-img img {
+      width: 30px !important;
+      margin: 0px 5px 10px 0px;
+      padding: 0px 0px 0px 0px;
+  }
+  .dtp-totals li{
+    font-size: 16px;
+  }
+  .supports-custom-li .pro-title{
+    min-width: 0px;
+  }
+  .supports-custom-li .pro-btn{
+    min-width:150px;
+  }
+  }
+  /*-------- assured-modal section -----------*/
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .assured-modal .modal-content {
+      max-height: auto;
+    }
+    .assured-modal .modal-body {
+      padding: 30px 30px 30px 30px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .assured-modal .modal-dialog {
+      max-width: 95%;
+    }
+    .assured-modal .modal-body {
+      padding: 25px 25px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .assured-modal .modal-dialog {
+      max-width: 100%;
+    }
+    .assured-modal .modal-body {
+      padding: 15px 15px 15px 15px;
+    }
+    .assured-modal .modal-header .close {
+      margin: 0rem 0rem -2rem auto;
+    }
+  }
+  /*------------ start fundraiser------------*/
+  /*-- start fd moadl-----*/
+  @media only screen and (max-width: 991px) {
+    .st-fd-modal .modal-content {
+      background: #32374a;
+    }
+    .st-fd-modal .modal-dialog {
+      max-width: 80%;
+  }
+    .st-fd-modal .modal-body {
+      padding: 20px 20px;
+  }
+  }
+  @media only screen and (max-width: 767px) {
+    .st-fd-modal .modal-dialog {
+      max-width: 100%;
+  }
+    .st-fd-modal .modal-body {
+      padding: 20px 10px;
+  }
+  }
+  /*-- otp modal start fundraiser moadl-----*/
+  @media only screen and (max-width: 991px) {
+    .st-fd-otp-modal .modal-content {
+      background: #fff;
+    }
+    .st-fd-otp-modal .modal-dialog {
+      max-width: 80%;
+  }
+    .st-fd-otp-modal .modal-body {
+      padding: 20px 20px;
+  }
+  }
+  @media only screen and (max-width: 767px) {
+    .st-fd-otp-modal .modal-dialog {
+      max-width: 100%;
+  }
+    .st-fd-otp-modal .modal-body {
+      padding: 20px 10px;
+  }
+  }
+  @media only screen and (max-width: 992px) {
+    .start-fundraiser::before {
+      display: block;
+      width: 100%;
+      transform: none;
+      left:0;
+    }
+    .Fund-hd h2{
+      font-size: 40px;
+    }
+    .Fund-hd li{
+      font-size: 18px;
+    }
+    .fundraiser-btn{
+      background-color: #fff !important;
+      color:#c3313e !important;
+    }
+    }
+    @media only screen and (max-width: 600px) {
+    .Fund-hd h2{
+      font-size: 34px;
+    }
+    .Fund-hd li{
+      font-size: 14px;
+    }
+    }
+    @media only screen and (max-width: 400px) {
+    .Fund-hd h2{
+      font-size: 26px;
+    }
+    .Fund-hd li{
+      font-size: 12px;
+    }
+    }
+  /*------------ volunteer page section------------*/
+  @media only screen and (max-width: 991px){
+  .volunteer-img{
+    display: none;
+  }
+  }
+  /*------------ sign in modal section------------*/
+  @media only screen and (max-width: 1199px) {
+  .sign-in .modal-body {
+    padding: 30px 30px 30px 30px;
+  }
+  .sign-in .modal-content {
+    overflow: auto;
+    background-position: right right;
+  }
+  }
+  @media only screen and (max-width: 991px) {
+  .sign-in .modal-content {
+      overflow: auto;
+      background-image: none;
+      background-color: #fff;
+  }
+  .sign-in .modal-dialog {
+      max-width: 95%;
+  }
+  .sign-in .modal-body {
+    padding: 30px 30px 30px 30px;
+  }
+  }
+  @media only screen and (max-width: 767px) {
+  .sign-in-wrap{
+    min-height: 0px;
+  }
+  .sign-in .modal-dialog {
+    max-width: 100%;
+  }
+  .sign-in .modal-body {
+    padding: 15px 15px 15px 15px;
+  }
+  .sign-in .modal-content {
+      overflow: auto;
+      border:solid 5px #c3313e;
+  }
+  }
+  @media only screen and (max-width: 575px) {
+  .sign-in .modal-dialog {
+      max-width: 100%;
+    }
+  }
+  @media only screen and (max-width: 479px) {
+  .sign-in .modal-body {
+      padding: 10px 10px 10px 10px;
+    }
+  }
+  /*------------ sign up modal section------------*/
+  @media only screen and (max-width: 1199px) {
+  .sign-up .modal-body {
+    padding: 30px 30px 30px 30px;
+  }
+  .sign-up .modal-content {
+    overflow: auto;
+    background-position: right right;
+  }
+  }
+  @media only screen and (max-width: 991px) {
+  .sign-up .modal-content {
+      overflow: auto;
+      background-image: none;
+      background-color: #fff;
+  }
+  .sign-up .modal-dialog {
+      max-width: 95%;
+  }
+  .sign-up .modal-body {
+    padding: 30px 30px 30px 30px;
+  }
+  }
+  @media only screen and (max-width: 767px) {
+  .sign-up-wrap{
+    min-height: 0px;
+  }
+  .sign-up .modal-dialog {
+    max-width: 100%;
+  }
+  .sign-up .modal-body {
+    padding: 15px 15px 15px 15px;
+  }
+  .sign-up .modal-content {
+      overflow: auto;
+      border:solid 5px #c3313e;
+  }
+  }
+  @media only screen and (max-width: 575px) {
+  .sign-up .modal-dialog {
+      max-width: 100%;
+    }
+  }
+  @media only screen and (max-width: 479px) {
+  .sign-up .modal-body {
+      padding: 10px 10px 10px 10px;
+    }
+  }
+  /*--------------- wizard section--------*/
+  /*---------------- contact page ---------*/
+  @media only screen and (max-width: 991px){
+  .contact-adress h2 {
+    font-size: 40px;
+  }
+  .contact-adress li {
+      font-size: 18px;
+  }
+  .contact-us::before {
+    display: block;
+      width: 100%;
+      transform: none;
+      left:0;
+  }
+  .ct-icon-bar p.cadrs, .ct-icon-bar p.cmail{
+    font-size: 18px;
+  }
+  .contact-form{
+    background-color: #fff;
+    padding: 20px 20px;
+  }
+  }
+  @media only screen and (max-width: 600px){
+  .contact-adress h2 {
+    font-size: 30px;
+  }
+  .contact-adress li {
+      font-size: 16px;
+  }
+  .ct-icon-bar p.cadrs, .ct-icon-bar p.cmail{
+    font-size: 14px;
+  }
+  .input-box, .textarea-div {
+      padding: 12px 10px;
+      margin: 0px 0px 10px 0px;
+  }
+  .contact-btn{
+    padding: 15px 0px;
+  }
+  }
+  @media only screen and (max-width: 991px){
+  .footer-widget .title {
+    font-size: 20px;
+  }
+  .footer-widget ul.ft-menu li a{
+    font-size: 14px;
+
+  }
+  .logo-footer img{
+    max-width: 200px;
+  }
+  }
+  /*----------- footer section ------*/
+  @media only screen and (max-width: 1366px){
+  .footer-botm{
+    padding:15px;
+  }
+  .footer-botm p{
+    font-size:14px;
+  }
+  }
+
+  /* //gallery */
+
+  @media only screen and (max-width: 1199px) {
+    .wrap-gallery {
+      width: 320px !important;
+    }
+
+    }
+    @media only screen and (max-width: 991px) {
+    .wrap-gallery {
+      /* width: 320px !important; */
+      width: 100% !important;
+    }
+    }
+    @media only screen and (max-width: 767px) {
+    .wrap-gallery{
+      width: 320px !important;
+
+    }
+
+    }
+    @media only screen and (max-width: 575px) {
+    .wrap-gallery {
+      width: 320px !important;
+    }
+    }
+    @media only screen and (max-width: 479px) {
+    .wrap-gallery {
+      width: 100% !important;
+    }
+  }
+    @media only screen and (max-width: 479px) {
+      .upi-modal .modal-dialog {
+        width: 100% !important;
+      }
+    }
+
+    @media only screen and (max-width: 991px){
+      .hd-tab-btn{
+        display: block;
+        position: relative;
+        text-align: center;
+      }
+      }
+      @media only screen and (max-width: 991px){
+        .hidelogOut{
+          display: none;
+        }
+        }
+        @media only screen and (max-width: 991px){
+          .align-rght{
+            float: right;
+            padding: 30px 0px 0px 0px;
+          }
+          }
+          @media only screen and (max-width: 768px){
+            .align-rght{
+              float: right;
+              padding: 0px 0px 0px 0px;
+            }
+            .profile-img {
+              width: 86px;
+              height: 67px;
+              background-color: #fff;
+              border-radius: 48%;
+              /* float: left; */
+              object-fit: contain;
+              overflow: hidden;
+            }
+            .profile-dt h3 {
+              display: block;
+              width: 100%;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 24px;
+              color: #fff;
+              text-transform: capitalize;
+              font-weight: 600;
+          }
+
+          .profile-dt p {
+            color: #fff;
+            font-size: 16px;
+
+        }
+
+        }
+        @media only screen and (max-width: 540px){
+          .supports-div{
+            margin-top: -29px !important;
+          }
+          .sup-div-p {
+            min-height: 80px;
+            width: auto !important;
+        }
+
+        }
+        @media only screen and (min-width: 540px){
+        .container-fluid{
+          padding-left: 56px !important;
+        }
+      }
+        @media only screen and (max-width: 767px) {
+        .lend-head{
+          font-size: 18px  !important;
+        }
+        .hide-social-txt{
+          display: none;
+        }
+        .social-li {
+          display: flex;
+          align-items: center;
+          width: 56px;
+          float: left;
+          height: auto;
+          margin: 0 4px 16px 0;
+      }
+      .lend-btn{
+        text-align: center;
+      }
+
+      }
+      @media only screen and (min-width: 768px) {
+        .lend-head{
+          font-size: 40px  !important;
+        }
+        .show-txt{
+          display: none;
+        }
+        .page-caption{
+          text-align: left;
+          font-family: 'Montserrat';
+          color:#fff;
+          vertical-align: middle;
+          padding: 11px 59px;
+        }
+
+      }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .navbar-expand-lg .navbar-nav .nav-link {
+           /* background-color: green; */
+            font-size: 10px !important;
+            font-weight: 600;
+            color:#000;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+
+        .navbar-brand img{
+          width:150px;
+        }
+        button.btn.btn-sm.btn-active.ng-star-inserted {
+        
+          font-size: 10px;
+        }
+        #b1{
+            font-size: 10px; 
+           width: 100px;
+            /* display: none; */
+        }
+        
+        }

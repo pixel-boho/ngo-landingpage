@@ -1,0 +1,353 @@
+
+
+
+<!-- slider area -->
+
+
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-pause="false">
+	<ol class="carousel-indicators">
+	  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	</ol>
+
+
+	<div class="carousel-inner">
+
+	  <div class="carousel-item active">
+		<div class="banner" style="background-image: url('assets/images/slider/slider-1.jpg')"></div>
+		<div class="carousel-caption d-none d-md-block">
+		   <h3 class="" style="color:#fff">Be The Light of HOPE</h3>
+		   <!-- <h2 class="">PSD TO HTML</h2>
+		   <h3 class="">BOOTSTRAP</h3> -->
+		 </div>
+	  </div>
+	  
+
+	  <div class="carousel-item ">
+		<div class="banner" style="background-image: url('assets/images/slider/slider-2.jpg');background-size: cover;background-repeat: no-repeat;"></div>
+		<div class="carousel-caption d-none d-md-block">
+			<h3 class="" style="color:#fff">Give them a chance.</h3>
+			<!-- <h2 class="">PSD TO HTML</h2>
+			<h3 class="">BOOTSTRAP</h3> -->
+		</div>
+	  </div>
+
+
+	  <div class="carousel-item ">
+		<div class="banner" style="background-image: url('assets/images/slider/slider-3.jpg')"></div>
+		<div class="carousel-caption d-none d-md-block">
+		  <h3 class="" style="color:#fff">Giving is the greatest act of Grace </h3>
+		  <!-- <h2 class="">PSD TO HTML</h2>
+		  <h3 class="">BOOTSTRAP</h3> -->
+		 </div>
+	  </div>
+	 
+
+	  
+
+	</div>
+
+
+	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="index-banner" style="background-image: url('assets/images/slider/slider-1.jpg'); ">
+	<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carousel" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel" data-slide-to="1"></li>
+			<li data-target="#carousel" data-slide-to="2"></li>
+
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item " *ngFor="let item of bannerList, let i = index" [class]="(i === 0) ? 'active' : 'inactive'">
+				<!-- <div class="overlay-banner">
+					<img class="img-fluid img-overlay slider-img" src="assets/images/slider/slider-1.jpg" width="100%">
+				</div> --
+        <div class="index-caption">
+					<h3 class="animated fadeInDown slider-cap cursr-none">{{item.title}}</h3>
+					<p class="animated fadeInUp slider-p cursr-none"> {{item.story.length>70 ? (item.story | slice:0:70)+'..':(item.story)}}</p>
+          -- <button type="" class="donation" style="width:170px" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate To NGO</button> --
+				</div>
+			</div>
+
+
+		</div>
+		<a class="carousel-control left" href="#carousel" data-slide="prev"></a>
+		<a class="carousel-control right" href="#carousel" data-slide="next"></a>
+	</div>
+</div> -->
+
+
+<!-- <div class="sec-views">
+	<div class="container">
+		<div class="view-div-bar">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<div class="view-div">
+						<div class="view-list">
+							<h3>Donate now</h3>
+							<p>Sposoring the education of 6 </p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>Donate now</h3>
+							<p>Sposoring the education of 6 </p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>Donate now</h3>
+							<p>Sposoring the education of 6</p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>Donate now</h3>
+							<p>Sposoring the education of 6 </p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>Donate now</h3>
+							<p>Sposoring the education of 6</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<section class="section-scheme">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 col-8">
+				<div class="page-lbar">
+					<h2 class="left-header cursr-none">Our Fundraisers Scheme</h2>
+					<!-- <li class="left-hd-list">hidden in the middle of text.</li> -->
+				</div>
+			</div>
+			<div class="col-md-6 col-4 text-right">
+        <!-- <div class="scheme-icon-left" (click)="slickController.prev()"><i class="fa fa-angle-left"></i></div>
+        <div class="scheme-icon-right" (click)="slickController.next()" ><i class="fa fa-angle-right"></i></div> -->
+        <div class="scheme-icon-left" (click)="previous()"><i class="fa fa-angle-left"></i></div>
+        <div class="scheme-icon-right" (click)="next()"  ><i class="fa fa-angle-right"></i></div>
+            </div>
+		</div>
+    <div class="row">
+		
+			<div class="col-md-12">
+		      <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of fundRaiserList">
+                <div>
+                  <div class="">
+                    <img src="{{baseUrl}}{{item.image_url}}" style="cursor: pointer;" class="img-fluid img-new" routerLink="/fund-raiser-detail/{{item.id}}" >
+                    <div class="scheme-subject">
+                      <h5 class="h3-txt">{{item.title.length>70 ? (item.title | slice:0:70)+'..':(item.title)}}</h5>
+                      <span>₹{{item.fund_raised}}</span> raised out of <span>₹{{item.fund_required}}</span>
+                      <div class="progress mb-2" style="height: 5px;">
+                        <!-- <div class="progress-bar progress-bar-red" role="progressbar" style="width:{{raisedAmountInPercentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+                        <div class="progress-bar progress-bar-red" role="progressbar" style="width:{{item.fund_raised*100/item.fund_required}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="social-link">
+                        <li class="mt-1 cursr-pointer">share now</li>
+                        <share-buttons [theme]="'modern-dark'"
+                        [include]="['facebook','twitter','linkedin','whatsapp']"
+                        [show]="4"
+                        [size]="1"
+                        [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + item.id"
+                        [description]="story"
+                        [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+                        [autoSetMeta]="false"
+                        ></share-buttons>
+                      </div>
+                      <a href="" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i>Donate Now</a>
+                    </div>
+                    </div>
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+			</div>
+		</div>
+  </div>
+</section>
+
+<section class="section-campaigns campaigns-bc">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="page-hd cursr-none">
+					<h2 class="txt-white">Our campaigns</h2>
+					<li class="txt-white">Please select the category that you want to donate.</li>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-12">
+				<div class="row">
+					<div class="col-md-3" *ngFor="let item of campaignList" style="cursor: pointer;" >
+						<div class="camp-div camp-hvr" routerLink="/campaign/{{item.id}}">
+							<div class="camp-img">
+                <img src="{{baseUrl1}}{{item.icon_url}}"  class="img-fluid" ></div>
+							<div class="cmp-div-p">
+								<p>{{item.title}}</p>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-supports cursr-none">
+	<div class="container">
+		<div class="row" style="padding: 45px 10px 0px 10px;">
+			<div class="col-12">
+				<div class="page-hd">
+					<h2>why crowd works india foundation?</h2>
+					<!-- <li>Lorem Ipsum.</li> -->
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-11 col-12 ml-auto mr-auto">
+				<div class="row">
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/industry.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>Industry best fundrasing sucess rate</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/supported.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>Supported by donors</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/easy-manage.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>Easy to manage tools to boost result</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/payment.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>Received donation via all popular payment modes</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/ge-experts.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>Get experts support 24*7</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/dashboard.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+									<p>A dedicated smart dashboard</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/withdraw.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>Withdraw fund without hassle</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-6 col-7 mx-auto">
+						<div class="supports-div">
+							<img src="assets/images/supports/international.png" class="img-fluid crowd-image">
+							<div class="sup-div-p">
+								<p>International payment support</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-media">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12" style="cursor: pointer;">
+        <a href="https://{{facebook}}" target="_blank" >
+				<div class="media-li gn-Fb">
+					<img src="assets/images/media/facebook-02.png">
+					<p>Facebook</p>
+				</div>
+      </a>
+      <a href="https://{{instagram}}" target="_blank" >
+				<div class="media-li gn-In">
+					<img src="assets/images/media/instagram-02.png">
+					<p>instagram</p>
+				</div></a>
+        <a href="https://{{whatsapp}}" target="_blank" >
+				<div class="media-li gn-Wp">
+					<img src="assets/images/media/whatsapp-02.png">
+					<p>whatsapp</p>
+				</div>
+        </a>
+        <a href="https://{{linkedin}}" target="_blank" >
+				<div class="media-li gn-Ln">
+					<img src="assets/images/media/linkedin-02.png">
+					<p>linkedin</p>
+				</div></a>
+        <a href="https://{{twitter}}" target="_blank" >
+				<div class="media-li gn-Tw">
+					<img src="assets/images/media/twiter-02.png">
+					<p>Twitter</p>
+				</div>
+        </a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+

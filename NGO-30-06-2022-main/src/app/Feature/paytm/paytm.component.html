@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>CheckoutJS Demo</title>
+    </head>
+    <body>
+        <div id="paytm-checkoutjs"></div>
+        <script type="application/javascript" crossorigin="anonymous" src="https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/dummyExampleMIDIdentifier.js" onload="onScriptLoad();"></script>
+        <script>
+            function onScriptLoad(){
+                if(window.Paytm && window.Paytm.CheckoutJS){
+                    window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
+                      // merchant start using checkoutjs functionality from here onwards
+                    });
+                }   
+            }   
+        </script>
+    </body>
+</html>

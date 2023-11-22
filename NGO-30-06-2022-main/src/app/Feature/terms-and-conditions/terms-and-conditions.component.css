@@ -1,0 +1,26 @@
+#PrivacyPolicy.container {
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 0 0 8.5px;
+}
+#PrivacyPolicy.container[_ngcontent-dfd-c133] h2[_ngcontent-dfd-c133] {
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+#PrivacyPolicy.container[_ngcontent-cfn-c133] {
+  margin-bottom: 15px;
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#PrivacyPolicy.container h3 {
+  font-weight: 400;
+}
+#PrivacyPolicy.container p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 6px;
+}

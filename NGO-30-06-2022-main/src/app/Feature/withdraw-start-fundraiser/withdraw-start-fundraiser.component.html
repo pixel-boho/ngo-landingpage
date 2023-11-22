@@ -1,0 +1,1060 @@
+<!--details section start-->
+<div class="section-details">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-6 col-sm-12 col-12">
+				<div class="dtp-banner" >
+          <img src="{{baseUrl}}{{image_url}}" class="img-fluid" style="width: 600px !important;">
+          <button class="btn" routerLink="/edit-fundraiser/{{fundraiser_id}}" routerLinkActive="router-link-active" *ngIf="is_cancelled == 0" >Edit</button>			</div>
+			</div>
+			<div class="col-md-12 col-lg-6 col-sm-12 col-12">
+				<div class="dtp-adv">
+					<h3>{{title}}</h3>
+					<div class="sl-md-links" style="display: flex;" *ngIf="is_cancelled == 0">
+						<button class=""  style="color:#c3313e;background-color: white; cursor: context-menu !important;
+            ">share now</button>
+						<div class="sl-md-link-img">
+						  <share-buttons [theme]="'modern-dark'"
+            [include]="['facebook','twitter','linkedin','whatsapp']"
+            [show]="4"
+            [size]="1"
+            [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + fundraiser_id"
+            [description]="story"
+            [image] ="'https://crowdworksindia.org/favicon.png'"
+            [autoSetMeta]="false"
+            ></share-buttons>
+						</div>
+						<!-- <div class="assured-logo">
+							<a href="#crwd-assured-modal" data-toggle="modal" title="Quick View">
+							<img src="assets/images/icons/asuure-logo.png" class="img-fluid"></a>
+						</div> -->
+					</div>
+					<div class="dtp-payment">
+						<p>₹ {{fund_required}}</p>
+					</div>
+
+          <div class="progress-rpt">
+						<h5 class="mb-1">Raised <span>₹{{fund_raised}}</span> Goals</h5>
+						<div class="progress mb-2" style="height: 5px;">
+						  	<div class="progress-bar progress-bar-red" role="progressbar" style="width:{{raisedAmountInPercentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						<div class="dtp-totals">
+							<li><span style="font-size:15px">{{noOfSupporters}} supporters</span></li>
+							<li><span style="font-size:14px">Closing Date: {{close_date| date: 'dd/MM/yyyy'}}</span></li>
+						</div>
+					</div>
+          <!-- <div class="row">
+            <div class="col-6">
+              <button class="btn-w100-rd" (click)="withDrawFundRaiserModal()">WithDraw</button>
+
+            </div>
+            <div class="col-6">
+              <button class="btn-w100-rd" (click)="donatenowModal()" style="background-color: white;
+              color: brown;">Transfer Amount</button>
+
+            </div>
+          </div> -->
+
+          <div class="row" >
+            <!-- <div class="col-12">
+              <button class="btn-w100-rd"  *ngIf="this.show==0"   (click)="donatenowModal()">Donate Now</button>
+            </div> -->
+            <div class="col-12">
+              <button class="btn-w100-rd"  *ngIf="this.stat==1 && this.is_approved==1"  (click)="TransferAmountModal()">Transfer Amount</button>
+            </div>
+            </div>
+            <div class="row mt-2
+            " *ngIf="is_cancelled == 0">
+            <div class="col-12">
+              <button class="btn-w100-rd"  (click)="cancelCampaignModal()">Cancel</button>
+            </div>
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-clients">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-7 col-12">
+				<div class="dtp-clt-review">
+					<div class="row">
+						<div class="col-md-6 col-sm-12 col-12 dtp-rw">
+							<div class="dtp-campaign">
+								<div class="dtp-cmp-pic">
+									<img src="{{baseUrl}}{{beneficiary_image}}">
+									<p><span>Campainer details</span><br>
+									{{campaignerName}}</p>
+								</div>
+								<div class="dtp-cmp-desc">
+									<p>{{campagineremail}}</p>
+									<li><i class="fa fa-heart" aria-hidden="true"></i>{{campaignerphone_number}}</li>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12 col-12">
+							<div class="dtp-campaign">
+								<div class="dtp-cmp-pic">
+									<img src="{{baseUrl}}{{beneficiary_image}}">
+									<p><span>Beneficiary details</span><br>
+									{{name}}</p>
+								</div>
+								<div class="dtp-cmp-desc">
+									<p>{{patientemail}}</p>
+									<li><i class="fa fa-heart" aria-hidden="true"></i>{{patientphone_number}}</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-lg-5 col-sm-12 col-12">
+				<div class="dtp-bank">
+					<div class="dtp-bank-pic">
+						<h3 class="gn-h3"><i class="fa fa-bank" aria-hidden="true"></i> transfer to the bank account</h3>
+					</div>
+					<div class="dtp-cmp-desc table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class=""><p>account number</p></td>
+                        <td><p>{{virtual_account_number}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>account name</p></td>
+                        <td><p>{{virtual_account_name}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>account type</p></td>
+                        <td><p>{{virtual_account_type}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>IFSC</p></td>
+                        <td><p>{{virtual_account_ifsc}}</p></td>
+                    </tr>
+
+                </tbody>
+            </table>
+</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-story">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="dtp-story">
+					<h3 class="gn-h3 txt-black mb-10">Story</h3>
+					<p class="sm-txt">{{story}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-story">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="dtp-story">
+					<h3 class="gn-h3 txt-black mb-10">Donors</h3>
+
+
+          <div class="fd-table table-responsive mb-30" style="overflow-y: scroll;
+          height: 350px;">
+            <table class="table">
+                <tbody>
+                  <tr  *ngFor="let item of donorList">
+                    <td class="pro-thumbnail">
+
+                      <img *ngIf="item.image_url != null" src="{{donation_baseUrl}}{{item.image_url}}" alt="Product" class="img-fluid donor-img">
+                      <img *ngIf="item.image_url == '' " src="assets/images/profile/demoimage.jpg" alt="Product" class="img-fluid donor-img">
+
+                      <!-- <img  src="{{donation_baseUrl}}{{item.image_url}}" style="cursor: pointer;" routerLink="/withdraw-fundraiser/14" alt="Product" class="img-fluid donor-img"> -->
+                  </td>
+                    <td class="pro-title" *ngIf="item.show_donor_information === 1" >
+                      <p>Anonymous</p>
+                    </td>
+                    <td class="pro-title" *ngIf="item.show_donor_information === 0">
+                      <p>{{item.name}}</p>
+                    </td>
+                    <td class="pro-btn">
+                      <a href=""> ₹ {{item.amount}}</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #cecbcb;padding: 10px;">
+        <div class="row">
+          <div class="col-md-8 col-12"></div>
+          <div class="col-md-2 col-6"><h6>Total :</h6></div>
+          <div class="col-md-2 col-6"> ₹ {{totalCollectedAmount}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-12"></div>
+          <div class="col-md-2 col-6">
+            <h4>Remaining</h4></div>
+          <div class="col-md-2 col-6"> ₹ {{RemainingAmount}}</div>
+        </div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="section-comments">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-6">
+				<div class="row">
+          <div class="col-md-12 img-width">
+            <!-- <div class="wrap-gallery" *ngIf="fundraiserDocumentsLength > 0"> -->
+              <div class="wrap-gallery"  >
+
+                <h3 class="gn-h3 txt-black mb-10">documents</h3>
+                    <div class="product-details-img">
+              <div class="zoompro-wrap product-zoom-right pr-20">
+              <div class="zoompro-border zoompro-span">
+                <div *ngIf="(type == 'png') || (type == 'jpg')">
+                  <img src="{{documentBaseUrl}}{{typeUrl}}" class="zoompro"   alt=""  (click)="openImage(documentBaseUrl,typeUrl,type)" style="width: 100%; height:333px; cursor: pointer;"/>
+
+                </div>
+                <div class="col-md-12" style="width: 100%; height:333px; " *ngIf="(type == 'pdf') || (type == 'docx')">
+                  <img src="assets/images/pdf.png"  alt=""  (click)="openImage(documentBaseUrl,typeUrl,type)" style="cursor: pointer;"/>
+                </div>
+                </div>
+                    </div>
+                    <div id="gallery" class="product-dec-slider-2">
+                          <a *ngFor="let item of fundraiserDocuments" [attr.data-image]="documentBaseUrl+ item.doc_url" [attr.data-zoom-image]="documentBaseUrl+ item.doc_url">
+                          <img src="{{documentBaseUrl}}{{item.doc_url}}" alt="" *ngIf="type == 'png' || 'jpg'" (click)="changeUrl(item.file_type, item.doc_url)"/>
+                            <div class="col-md-12"  style="width: 112px; height: 112px;" *ngIf="(item.file_type == 'pdf') || (item.file_type == 'docx')" (click)="changeUrl(item.file_type, item.doc_url)">
+                              <img src="assets/images/pdf.png"  alt=""/>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <input type="file" id="actual-btn" #attachments (change)="uploadImage($event)" hidden/>
+                <label for="actual-btn"><i class="fa" [ngClass]="{'fa-spin fa-spinner': loading}"></i>Upload</label>
+                </div>
+        </div>
+
+          <div class="modal fade payed-modal" id="successdocModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="background-color: white;">
+                <div class="modal-body">
+                  <div class="col-lg-12 col-lg-12">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12">
+                        <div class="payd-msg">
+                          <p class="mt-4" style="color: black;text-transform: none;">
+                            Document uploaded successfully!</p>
+                          <div class="row">
+                            <div class="col-md-2 col-12"></div>
+                            <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                              <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" >OK</button>
+                            </div>
+
+                            <div class="col-md-2 col-12"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+					<div class="col-md-12 img-width" *ngIf="is_approved === 1">
+						<div class="wrap-comments">
+						<h3 class="gn-h3 txt-black mb-10">comments</h3>
+							<div class="row">
+								<div class="col-md-12 col-12">
+									<div class="comment-dtp-box">
+                    <form [formGroup]="commentForm">
+
+										<div class="row">
+											<div class="col-md-9 col-12">
+												<div class="form-group">
+							                      <input type="text" class="form-control cmt-clients inp-backcolor" formControlName="comment"  [ngClass]="{ 'is-invalid': submitted && f2.comment.errors }"   placeholder="write something">
+                                    <div *ngIf="submitted && f2.comment.errors" class="invalid-feedback">
+                                      <div *ngIf="f2.comment.errors.required">This field is required</div>
+
+                                      </div>
+                                  </div>
+											</div>
+											<div class="col-md-3 col-5">
+												<button class="btn-w100-rd" (click)="submitComment()"><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoading}"></i>post</button>
+											</div>
+										</div>
+                  </form>
+									</div>
+								</div>
+								<div class="col-md-12 col-12" >
+									<div class="dtp-comments" *ngFor="let item of commentList">
+										<div class="dtp-cts-pics">
+											<img *ngIf="item.image_url != null" src="{{comment_baseUrl}}{{item.image_url}}">
+                      <img *ngIf="item.image_url === null"src="assets/images/profile/demoimage.jpg">
+											<p>{{item.name}}<br><span>{{item.created_date}}</span></p>
+										</div>
+										<div class="dtp-cts-info">
+											<p class="sm-txt">{{item.comment}}</p>
+										</div>
+									</div>
+                  <div class="row">
+                    <div class="col-md-12" (click)="getCommentsByPagination()" *ngIf="hasNextPage === true"><span style="float: right; cursor: pointer;">see more</span> </div>
+                    </div>
+								</div>
+
+		</div>
+						</div>
+					</div>
+				</div>
+			</div>
+       <div class="col-lg-1 col-md-12 col-12 img-width">
+				<div class="row">
+					<div class="col-12">
+            </div>
+            </div>
+            </div>
+			<div class="col-md-12 col-lg-5 col-12 img-width">
+				<div class="row">
+					<div class="col-12">
+						<div class="wrap-payement">
+							<div class="support-pic">
+								<h3 class="gn-h3"><img src="assets/images/icons/payment.png">
+									you can also pay via google pay/ paytm/ phonepe
+								</h3>
+							</div>
+							<div class="payment-img">
+								<img src="assets/images/icons/google-pay.png" class="img-fluid" style="width: 50px !important;
+                height: 50px !important;
+                object-fit: cover !important;">
+								<img src="assets/images/icons/paytm.png" class="img-fluid" style="width: 50px !important;
+                height: 50px !important;
+                object-fit: cover !important;">
+								<img src="assets/images/icons/phone-pe.png" class="img-fluid" style="width: 50px !important;
+                height: 50px !important;
+                object-fit: cover !important;">
+							</div>
+							<div class="row">
+								<div class="col-md-5 col-6 scan-code">
+									<img src="assets/images/icons/bar-code.jpg" class="img-fluid mt-4">
+								</div>
+								<div class="col-md-7 col-6">
+									<div class="upi-bar" *ngIf="is_cancelled == 0">
+										<img src="assets/images/icons/upi.png" class="img-fluid"><br>
+                    <input type="text" value="464646@sbibank" readonly style="border: none;max-width: 128px;
+                    min-width: 128px;"  #userinput  id="myInput">
+										<button class="btn-w100-rd" (click)="copyUpinumber(userinput)">copy</button>
+									</div>
+								</div>
+							</div>
+			            </div>
+					</div>
+					<div class="col-12">
+						<div class="wrap-support">
+							<div class="support-pic">
+								<h3 class="gn-h3"><img src="assets/images/icons/supporters.png" class="img-fluid"> {{noOfSupporters}} supporters</h3>
+							</div>
+						    <div class="support-items-bar owl-carousel">
+								<div class="Tdonor-div-list">
+									<div class="supports-custom-li" *ngFor="let item of supportersList">
+										<div class="pro-thumbnail">
+                    <img src="{{supporter_baseUrl}}{{image_url}}" alt="Product" class="img-fluid donor-img">
+										</div>
+                    <div class="pro-title" *ngIf="item.show_donor_information === 1" >Anonymous
+                    </div>
+                    <div class="pro-title" *ngIf="item.show_donor_information === 0" >{{item.name}}
+                    </div>
+										<div class="pro-btn">{{item.amount}}</div>
+									</div>
+								</div>
+							</div>
+
+				            <div class="spt-arrow-list">
+				            	<a class="spt-icon-left"><i class="fa fa-angle-left"></i></a>
+                				<a class="spt-icon-right"><i class="fa fa-angle-right"></i></a>
+				            </div>
+			            </div>
+					</div>
+					<div class="col-12">
+						<div class="wrap-support">
+							<div class="support-pic">
+								<h3 class="gn-h3"><img src="assets/images/icons/donors.png" class="img-fluid"> Top donors</h3>
+							</div>
+                      <div class="donor-items-bar owl-carousel">
+                        <div class="Tdonor-div-list">
+                          <div class="supports-custom-li" *ngFor="let item of donorList">
+                            <div class="pro-thumbnail" >
+                              <img src="{{donation_baseUrl}}{{image_url}}"  alt="Product" class="img-fluid donor-img">
+                            </div>
+                            <div class="pro-title" *ngIf="item.show_donor_information === 1" >Anonymous
+                            </div>
+                            <div class="pro-title" *ngIf="item.show_donor_information === 0" >{{item.name}}
+                            </div>
+                            <div class="pro-btn">{{item.amount}}</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="donor-arrow-list">
+                        <a class="donor-icon-left"><i class="fa fa-angle-left"></i></a>
+                          <a class="donor-icon-right"><i class="fa fa-angle-right"></i></a>
+                      </div>
+			            </div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade wizard-tab-modal " id="wizard-up-modal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeModal()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="secondFormGroupNgo" >
+              <form [formGroup]="secondFormGroupNgo">
+                <h3 class="wz-h3 mb-20" style="padding: 10px 0px 0px 0px;">Donate Now</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="donate-form">
+                        <div class="form-row">
+                          <div class="form-group col-md-12 mb-10">
+                            <input type="text" class="form-control donor-txt-box" formControlName="amount"  minlength="1" placeholder="* Amount"  [ngClass]="{ 'is-invalid': submitted && f5.amount.errors }">
+                            <div *ngIf="submitted && f5.amount.errors" class="invalid-feedback errr-msg-white">
+                              <div *ngIf="f5.amount.errors.required">This field is required</div>
+                              <div *ngIf="f5.amount.pattern">Please, Enter valid  Amount.</div>
+                              </div>
+                          
+                          </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col-md-6">
+                              <div class="form-group mt-2">
+                                <input type="checkbox" (click)="show80gFormNgo($event)" formControlName="show_80g_form">
+                                <span style="color: white;font-size:14px" class="ml-2">Do you want 80G Form ?</span>
+                                 </div>
+                            </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                              <input type="text" class="form-control donor-txt-box " formControlName="pancard_no" style="text-transform: uppercase" placeholder="* Pan Card Number" [ngClass]="{ 'is-invalid': submitted && f5.pancard_no.errors }">
+                              <div *ngIf="submitted && f5.pancard_no.errors" class="invalid-feedback">
+                                <div *ngIf="f5.pancard_no.errors.required" class="errr-msg-white">This field is required</div>
+                                <div *ngIf="f5.pancard_no.errors.pattern" class="errr-msg-white">Invalid pan card number.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                              <input type="text" class="form-control donor-txt-box " formControlName="certificate_address"  placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f5. certificate_address.errors }">
+                              <div *ngIf="submitted && f5. certificate_address.errors" class="invalid-feedback">
+                                <div *ngIf="f5. certificate_address.errors.required" class="errr-msg-white">This field is required</div>
+                                <div *ngIf="f5. certificate_address.pattern" class="errr-msg-white">Invalid Address number.</div>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="form-row">
+                       
+                        <div class="form-group col-12 mb-20">
+                          <!-- <button  id="jsCheckoutPayment" class="btn-wz-wt w-100" (click)="submitDonationDetailsNgo()"> proceed to pay ₹{{firstFormGroupNGO.value.amount}}</button> -->
+                            <button   class="btn-wz-wt w-100"> Pay Now <i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoading}"></i></button>
+                
+                          </div>
+                          <!-- <div *ngIf="this.errorMsg" style="color:#fff"><b>{{this.errorMsg}}</b></div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </form> 
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ==================================================== -->
+
+<div class="modal fade assured-modal" id="crwd-assured-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-modal-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12">
+          <div class="assured-hd">
+              <img src="images/icons/asuure-logo.png" class="img-fluid">
+              <p class="sm-txt">Our promise that this NGO can be trusted with your donation and will utilize the funds raised to provide benefits to the right people.,</p>
+              <div class="asuured-divider"></div>
+          </div>
+          <h3 class="gn-h3 txt-black mb-20"> Our due deligence process includes the following</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="images/how-it-works/startfundraiser/step-04.png"/>
+             		<h4 class="gn-h4 txt-white">Legal </h4>
+             		<p class="gn-font txt-white"> NGO is verified as valid tax exempted organization.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="images/how-it-works/startfundraiser/step-04.png"/>
+             		<h4 class="gn-h4 txt-white">Compliance </h4>
+             		<p class="gn-font txt-white"> NGO has submitted audited financials,file tax returns and meets statutory norms.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="images/how-it-works/startfundraiser/step-04.png"/>
+             		<h4 class="gn-h4 txt-white">Monitoring and Evaluation</h4>
+             		<p class="gn-font txt-white">NGO is verified as valid tax exempted organization.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="images/how-it-works/startfundraiser/step-04.png"/>
+             		<h4 class="gn-h4 txt-white">Costing and Validation</h4>
+             		<p class="gn-font txt-white">Crowd works india foundation has validated that the donation ask is based on actual expenses.
+             		</p>
+             	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade wizard-tab-modal " id="wizard-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeDonateModal()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="firstFormGroup" >
+              <form [formGroup]="firstFormGroup">
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="1000" [(ngModel)]="donationAmount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                     <div class="form-row">
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block btn-color" (click)="donAmount($event)" value="1000">₹1000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmount($event)" value="2000">₹2000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmount($event)" value="3000">₹3000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                            <button class="btn-block rs-block" (click)="donAmount($event)" value="4000">₹4000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                          <button class="btn-block rs-block" (click)="donAmount($event)" value="4000">₹5000</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button class="pull-right btn-wz-wt btn-next" mat-button matStepperNext>NEXT</button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" >
+              <form [formGroup]="secondFormGroup">
+                <h3 class="wz-h3 mb-20">Donor informations</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="donate-form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box " formControlName="name"  placeholder="Full name" [ngClass]="{ 'is-invalid': submitted && f3.name.errors }">
+                          <div *ngIf="submitted && f3.name.errors" class="invalid-feedback">
+                            <div *ngIf="f3.name.errors.required" class="errr-msg-white">This field is required</div>
+                            </div>
+
+                            <div class="login-toggle-btn">
+                                <input type="checkbox" (click)="showinfo($event)" formControlName="show_donor_information">
+                                <label>make my donation anonymous</label>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box inp-backcolor" id="" [email]="true"  formControlName="email"  placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f3.email.errors }">
+                          <div *ngIf="submitted && f3.email.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f3.email.errors.required">This field is required</div>
+                            <div *ngIf="f3.email.errors.pattern">Please, Enter valid email.</div>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-30">
+                          <input type="hidden" class="form-control donor-txt-box" id="inputPassword4" placeholder="phone number">
+                        </div>
+                        <div class="form-group col-md-6 mb-20">
+                            <button class="btn-wz-wt w-100" (click)="submitDonationDetails()"> proceed to pay {{firstFormGroup.value.amount}}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <!-- <button mat-button matStepperPrevious class="btn-wz-wt">Back</button> -->
+                  <!-- <button mat-button matStepperNext></button> -->
+                </div>
+              </form>
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade payed-modal" id="gmFormmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Do you want a 80g form?</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="open80gForm()">Yes</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit">No</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="modal fade eighty-gmform-modal" id="80gmFormmodal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width">
+			<div class="modal-header">
+				<button type="button" class="close" (click)="close80gForm()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+      <div class="modal-body">
+        <form [formGroup]="eightygmForm">
+          <h3 class="wz-h3 mb-20">80g Form</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="donate-form">
+                <div class="form-row" >
+                  <div class="form-group col-md-6 mb-10" style="padding-bottom: 20px;">
+                    <input type="text" class="form-control donor-txt-box " formControlName="pancard_no" id="inputEmail4" placeholder="Pan Card Number" [ngClass]="{ 'is-invalid': submittedgmForm && f4.pancard_no.errors }">
+                    <div *ngIf="submittedgmForm && f4.pancard_no.errors" class="invalid-feedback">
+                      <div *ngIf="f4.pancard_no.errors.required" class="errr-msg-white">This field is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-6 mb-10" style="padding-bottom: 20px;">
+                    <input type="text" class="form-control donor-txt-box inp-backcolor" id="" formControlName="name"  placeholder="Name" [ngClass]="{ 'is-invalid': submittedgmForm && f4.name.errors }">
+                    <div *ngIf="submittedgmForm && f4.name.errors" class="invalid-feedback errr-msg-white">
+                      <div *ngIf="f4.name.errors.required">This field is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group col-md-6 mb-30 " style="padding-bottom: 20px;">
+                    <input type="text" class="form-control donor-txt-box inp-backcolor" id="" formControlName="phone_number"  placeholder="Phone Number" [ngClass]="{ 'is-invalid': submittedgmForm && f4.phone_number.errors }">
+                    <div *ngIf="submittedgmForm && f4.phone_number.errors" class="invalid-feedback errr-msg-white">
+                      <div *ngIf="f4.phone_number.errors.required">This field is required</div>
+                      </div></div>
+                  <div class="form-group col-md-6 mb-20 " style="padding-bottom: 20px;">
+                      <button class="btn-wz-wt w-100" (click)="submit80gForm()" > Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <!-- <button mat-button matStepperPrevious class="btn-wz-wt">Back</button> -->
+            <!-- <button mat-button matStepperNext></button> -->
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="modal fade payed-modal" id="closeDonateModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  I Could Really Use Your Help Right Now.You Can Help Me with a Contribution As Small as ₹300.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" >No, Thanks</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit">SureI'll Help</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- confirmation for cancel fundraiser -->
+
+<div class="modal fade payed-modal" id="canelfundModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Are you sure you want to cancel this fundraiser?</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" >No, Thanks</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="withDrawFundRaiser()" >Yes</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Message popup Modal -->
+
+<div class="modal fade payed-modal" id="successCopyUpiNumber" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  UPI Number Copied Successfully.</p>
+                <div class="row">
+                  <div class="col-md-3 col-12"></div>
+                  <div class="col-md-6 col-12">
+                    <button class="f-btn-border-red" type="submit" data-dismiss="modal" >OK</button>
+                  </div>
+                  <div class="col-md-3 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="modal fade payed-modal" id="trnsferamntModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Are you sure you want to Transfer amount?</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" >No, Thanks</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="transferAmount()" > <i class="fa" [ngClass]="{'fa-spin fa-spinner': trnsferloading}"></i>Yes</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Message popup Modal -->
+<div class="modal fade upi-modal" id="successtrnsfr" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Amount Transfered Successfully.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;">OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Insufficient balance popup Modal -->
+<div class="modal fade upi-modal" id="insuffAmount" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  You have Insufficient Amount To Transfer.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;">OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade upi-modal" id="insuffAmount1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                 Something Went Wrong.Please try again.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;">OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- cancel campaign -->
+<div class="modal fade cancel-modal" id="cancelcampaignModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close close btn-close1"
+          data-dismiss="modal"
+          (click)="closeCancelModal()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <form [formGroup]="cancelForm">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color:black;font-size: 16px;">
+                  Please tell us why you are cancelling this! we would like to hear from you</p>
+                <div class="row">
+                  <div class="form-group col-md-12 col-lg-12 col-sm-6">
+                    <select class="st-fd-tbox"  placeholder="Full name" formControlName="cancel_reason" (change)="chooseReason()" [ngClass]="{ 'is-invalid': submitted && fundr2.cancel_reason.errors }" >
+                      <option value='' style="font-weight: 200 !important;">Choose reason</option>
+                      <option  value="not_fast">Collection of the amount not fast</option>
+                      <option  value="collected">Cash already collected from other sources</option>
+                      <option  value="others">Others</option>
+                    </select>
+                    <div *ngIf="submitted && fundr2.cancel_reason.errors" class="invalid-feedback">
+                      <div *ngIf="fundr2.cancel_reason.errors.required">This field is required</div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-12 col-lg-12 col-sm-6 ml-3" *ngIf="reason === true">
+                    <textarea id="w3review" name="w3review" placeholder="comment" formControlName="comment" rows="4" cols="30"
+                    [ngClass]="{
+                      'is-invalid': submitted && fundr2.comment.errors
+                    }"
+                    >
+
+                      </textarea>
+
+                    <div
+                      *ngIf="submitted && fundr2.comment.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fundr2.comment.errors.required">
+                        This field is required
+                      </div>
+
+                    </div>
+
+                </div>
+</div>
+                  <div class="col-md-12 col-lg-12 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="cancelFundraiser()" > <i class="fa" [ngClass]="{'fa-spin fa-spinner': cancelloading}"></i>Submit</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Message popup Modal -->
+<div class="modal fade payed-modal" id="successCancelModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Admin will contact for further steps in payment and admin will give you balance</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" >OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- cancelled fundraiser popup Modal -->
+<div class="modal fade payed-modal" id="cancelFundModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  This fund raiser has been canelled.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;">OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

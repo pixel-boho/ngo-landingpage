@@ -1,0 +1,306 @@
+<div class="page-banner">
+	<div class="page-1400">
+		<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+			<div class="carousel-inner fund-title">
+        <owl-carousel-o [options]="customOptions2">
+          <ng-template carouselSlide  *ngFor="let item of bannerList ,let i = index" [class]="(i === 0) ? 'active' : 'inactive'">
+            <div class="page-caption" >
+              <h3>{{item.title}}</h3>
+              <button type=""  style="width:170px" class="donation" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate To NGO</button>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section-pabout">
+	<div class="container-fluid" >
+		<div class="page-1400">
+			<div class="row">
+				<div class="col-md-3 col-lg-2 col-sm-12 col-12">
+					<div class="abt-tab nav">
+            			<a  class="active" data-toggle="tab"  href="#fundraiser" >Start a fundraiser</a>
+						<a  data-toggle="tab"  href="#donate"  id="vision-tab">how to donate</a>
+						<a  data-toggle="tab"  href="#pricing" id="mission-tab">how it works</a>
+           				<a  data-toggle="tab"  href="#faq" id="statistics-tab">FAQ</a>
+				
+
+
+					</div>
+				</div>
+				<div class="col-md-9 col-lg-9 col-sm-12 col-12">
+					<div class="tab-pad20">
+						<div class="tab-content">
+              					<div id="fundraiser" class="tab-pane active">
+									<div class="row">
+										<div class="abt-div cursr-none">
+											<div class="col-md-12">
+												<h2 class="sb-headings cursr-none" style="text-align: center;color:#c3313e;padding-top:30px">What is Crowdfunding?</h2>
+												<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+												<p style="text-align: center;padding-left: 30px;padding-right: 30px;">
+													In its simplest form, Crowdfunding is a practice of giving monetary funds to overcome specific social, cultural, or economic hurdles individuals face in their daily lives.
+												</p>
+											</div> 
+										</div>
+										<div class="col-md-12">
+											<div class="row" style="padding-top: 30px;">
+												<div class="col-lg-6 col-md-6 col-12 col-sm-12">
+													<div class="crowd-fund-img"><img src="assets/images/abouts/Group.png" class="img-fluid"></div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-12 col-sm-12">
+													<p style="text-align:justify;padding-top: 30px;padding-left: 20px;">
+														Let us assume an individual, unfortunately, meets with an accident on the road. His medical expenses and hospital bills start piling up. Now he needs ₹5 Lakh to pay his expensive medical bills. Fortunately, his best friend signed up on crowd Work India Foundation's crowdfunding platform, completed the process of submitting valid documents needed for verification. In a few minutes, he created a crowdfunding campaign to raise funds for his friend’s medical expenses. Now, this campaign can be shared with all his near and dear ones through WhatsApp, Instagram, Twitter, Facebook and E-mail. In a matter of few minutes, funds start coming in to support the financial needs of the injured friend.
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12 cursr-none">
+											<h2 class="sb-headings cursr-none" style="text-align: center;color:#c3313e;padding-top:30px;padding-bottom: 30px;">Start a Fundraiser in three simple steps</h2>
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-12 col-sm-12">
+												<mat-vertical-stepper linear #stepper >
+													<mat-step >
+														<ng-template matStepLabel>Start your fundraiser</ng-template>
+														<p>It’ll take only 2 minutes. Just tell us a few details about you and the ones you are raising funds for.</p>
+													</mat-step>
+													<mat-step >
+														<ng-template matStepLabel>Share your fundraiser</ng-template>
+														<p>All you need to do is share the fundraiser with your friends and family. In no time, support will start pouring in.</p>
+													</mat-step>
+													<mat-step >
+														<ng-template matStepLabel>Withdraw Funds</ng-template>
+				
+														<p>The funds raised can be withdrawn without any hassle directly to your bank account.</p>
+													</mat-step>
+													
+												</mat-vertical-stepper>
+												</div>
+
+				
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="c-fund-div">
+												<div class="row">
+													<div class="col-lg-10 col-md-12 ml-auto mr-auto">
+														<div class="row">
+															<div class="col-lg-2 col-md-1 col-sm-12 col-12">
+															</div>
+															<div class="col-md-5 col-lg-4 col-sm-12 col-12">
+																<button class="cwd-fund-btn"  (click)="startaFundraiser()">Start a Fundraiser</button>
+															</div>
+															<div class="col-md-5 col-lg-4 col-sm-12 col-12">
+																<button class="cwd-fund-btn1" (click)="TalkToUs()" >Talk to us</button>
+															</div>
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+					
+							<div id="donate" class="tab-pane ">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="htw-div">
+											<h2 class="sb-headings cursr-none">How Donation Works Section</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+										</div>
+									</div>
+									<div class="col-md-12 cursr-none">
+										<div class="dt-mb30">
+											<div class="row">
+												<div class="col-md-6 col-lg-4 col-sm-12 col-12">
+													<div class="dt-menucell">
+														<div class=""><img src="assets/images/how-it-works/donation/step-01.png" class="img-fluid"></div>
+														<div class="dt-menucell-info">
+															<h3>Step 1</h3>
+															<p>Click Donate Down Button</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6 col-lg-4 col-sm-12 col-12">
+													<div class="dt-menucell">
+														<div class=""><img src="assets/images/how-it-works/donation/step-02.png" class="img-fluid"></div>
+														<div class="dt-menucell-info">
+															<h3>Step 2</h3>
+															<p>Choose a donation amount or type the amount</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6 col-lg-4 col-sm-12 col-12">
+													<div class="dt-menucell">
+														<div class=""><img src="assets/images/how-it-works/donation/step-03.png" class="img-fluid"></div>
+														<div class="dt-menucell-info mt-3">
+															<h3>Step 3</h3>
+															<p>Choose a payment option</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="c-fund-div">
+											<div class="row">
+												<div class="col-md-10 ml-auto mr-auto">
+													<div class="row align-items-center">
+														<div class="col-md-12 col-lg-6 col-sm-12 col-12">
+															<p class="dt-fund-info cursr-none">This Fundraiser is in an urgent need of funds</p>
+														</div>
+														<div class="col-md-12 col-lg-4 col-sm-12 col-12">
+															<button type="" class="dt-fund-btn"  style="font-size: 16px;"routerLink="/campaigns"><i class="fa fa-heart" aria-hidden="true"  routerLinkActive="router-link-active" ></i>&nbsp; Donate To NGO</button>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							
+							</div>
+							<div id="pricing" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="htw-div">
+											<h2 class="sb-headings">Donation</h2>
+											<h3 class="sb-title">Choose an option that suits your crowdfunding needs the most!</h3>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-4 col-lg-4 col-sm-12 col-12" *ngFor="let item of priceList">
+												<div class="price-it" style="min-height: 128px;
+                        max-height: 128px;">
+													<div class=""><img src="assets/images/how-it-works/pricing/self-driven.png" ></div>
+													<div class="price-it-info">
+														<h3>{{item.title}}</h3>
+														<h2>{{item.percentage}} %</h2>
+														<p>{{item.description}}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+			
+							<div id="faq" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="htw-div">
+											<h2 class="sb-headings cursr-none">FAQ</h2>
+											<!-- <h3 class="sb-title">Lorem Ipsum is simply dummy text</h3> -->
+										</div>
+									</div>
+									<div class="col-md-12">
+                    <div class="d-flex justify-content-center" *ngIf="faqList == undefined">
+                      <div class="spinner-border text-success m-5 "  role="status"  >
+                        <span class="sr-only" >Loading...</span>
+                      </div>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <div class="m-5"  role="status" *ngIf="faqLength === 0"  ><h3 style="color:#c3313e;"> No Records Found</h3>
+                        </div>
+                        </div>
+										<div class="row">
+											<div class="col-md-12 col-lg-12 col-sm-12 col-12">
+												<div class="web-forms" *ngFor="let item of faqList">
+													<div class="panel-group" id="hAccordion" role="tablist" aria-multiselectable="true" >
+										                <div class="panel panel-default" >
+										                    <div class="panel-heading" role="tab" id="headingOne" >
+										                        <h4 class="panel-title">
+										                            <a data-toggle="collapse" data-parent="#hAccordion" href="#faq{{item.id}}" aria-expanded="false" aria-controls="collapse1">
+										                               {{item.question}}
+										                            </a>
+										                        </h4>
+										                    </div>
+															<div id="faq{{item.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                        								<div class="panel-body">
+																	<p class="gn-tab-font">{{item.answer}}</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+                  	</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							
+      </div>
+</div>
+
+
+
+
+
+
+
+<!-- //feedback form -->
+<!-- <div class="wd-400" style="display: none;" id="talkToUs" class="chat-imgs" >
+  <div class="" style="text-align: center;">
+    <div class="row">
+      <form  [formGroup]="ChatForm">
+
+      <div class="col-md-12">
+        <div class="chat-box-hd">
+          <h3>Hello dear, how we can help?<i class="fa fa-times close-chat" aria-hidden="true" (click)="closeChatBoxs()"></i>
+          </h3>
+        </div>
+        <div class="chat-box">
+
+          <div class="form">
+            <div class="form-group">
+              <input type="text" class="form-control chat-txt-box" formControlName="name" id="inputPassword4" placeholder="Add your name"  [ngClass]="{ 'is-invalid': submittedfeedback && feedform.name.errors }" >
+              <div *ngIf="submittedfeedback && feedform.name.errors" class="invalid-feedback">
+                <div *ngIf="feedform.name.errors.required">This field is required</div>
+                </div>
+                 </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control chat-txt-box" formControlName="email"  [email]="true" id="inputPassword4" placeholder="Email" [ngClass]="{ 'is-invalid': submittedfeedback && feedform.email.errors }" >
+
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                          </div>
+                          <div *ngIf="submittedfeedback && feedform.email.errors" class="invalid-feedback">
+                            <div *ngIf="feedform.email.errors.required">This field is required</div>
+                            <div *ngIf="feedform.email.errors.pattern">Please, Enter valid email.</div>
+               </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control chat-txt-box" formControlName="message" id="inputPassword4" placeholder="Message"[ngClass]="{ 'is-invalid': submittedfeedback && feedform.message.errors }" >
+
+                      <div class="input-group-prepend">
+                         <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                          </div>
+                          <div *ngIf="submittedfeedback && feedform.message.errors" class="invalid-feedback">
+                            <div *ngIf="feedform.message.errors.required">This field is required</div>
+                            </div>
+                      </div>
+                    </div>
+            <div class="form-group">
+              <button (click)="submitFeedback()"><i class="fa fa-heart" aria-hidden="true"></i><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoadingFeedback}"></i>send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+

@@ -1,0 +1,300 @@
+<!--details section start-->
+<div class="section-details">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+				<div class="dtp-banner">
+          <img src="{{loanbaseUrl}}{{image_url}}" class="img-fluid" style="width: 600px !important;border-radius: 8px;">				</div>
+			</div>
+			<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+				<div class="dtp-adv">
+					<h3>{{title}}</h3>
+          <p>Location: &nbsp; &nbsp;{{location}}</p>
+          <h6>Purpose: &nbsp;&nbsp;{{purpose}}</h6>
+					<div class="sl-md-links" style="display: flex;">
+						<button class="cursr-pointer" style="color:#c3313e;    background-color: white;
+            ">share now</button>
+						<div class="sl-md-link-img">
+						  <share-buttons [theme]="'modern-dark'"
+            [include]="['facebook','twitter','linkedin','whatsapp']"
+            [show]="4"
+            [size]="1"
+            [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + loan_id"
+            [description]="story"
+
+            [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+            [autoSetMeta]="false"
+            ></share-buttons>
+						</div>
+						<div class="assured-logo">
+							<!-- <a href="#crwd-assured-modal" data-toggle="modal" title="Quick View"> -->
+							<img src="assets/images/icons/assured.png" style="width: 201px;
+              height: 42px;margin-left: 28px;
+              object-fit: cover;" class="img-fluid">
+              <!-- </a> -->
+              	<a href="#crwd-assured-modal" data-toggle="modal" title="Quick View">
+              <img src="assets/images/icons/help-button.png" class="ml-2" style="width: 17px;">
+            </a>
+						</div>
+					</div>
+					<div class="dtp-payment">
+						<p>₹ {{totalamount}}</p>
+					</div>
+
+          <div class="progress-rpt" *ngIf="(loginToken | async)">
+						<h5 class="mb-1">Raised <span>₹{{fund_raised}}</span> Goals</h5>
+						<div class="progress mb-2" style="height: 5px;">
+						  	<div class="progress-bar progress-bar-red" role="progressbar" style="width:{{raisedAmountInPercentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						<div class="dtp-totals" *ngIf="(loginToken | async)">
+							<li style="color:white">{{noOfSupporters}} 5742supporters</li>
+							<!-- <li>{{Difference_In_Days}} days left</li> -->
+              <li><span style="font-size:14px">Closing Date: {{closing_date | date: 'dd/MM/yyyy'}}</span></li>
+						</div>
+					</div>
+          <div class="row" *ngIf="(loginToken | async)">
+            <div class="col-12 col-md-6">
+              <button class="btn-w100-rd" (click)="donateLoan()">Lend</button>
+
+            </div>
+            <div class="col-12 col-md-6">
+              <button class="btn-w100-rd" (click)="completeLoan()" style="background-color: #c3313e;
+              color: white;margin: 1px;">Complete The Loan</button>
+
+            </div>
+          </div>
+        		</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section-story">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="dtp-story">
+					<h3 class="gn-h3 txt-black mb-10">Description</h3>
+					<p class="sm-txt">{{description}}
+
+          </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade assured-modal" id="crwd-assured-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-modal-close" data-dismiss="modal" aria-label="Close" style="margin-top: 0px;
+        margin-right: 0px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12">
+          <div class="assured-hd">
+            <img src="assets/images/icons/assured.png"/>
+            <p class="sm-txt">Our promise that this NGO can be trusted with your donation and will utilize the funds raised to provide benefits to the right people.,</p>
+              <div class="asuured-divider"></div>
+          </div>
+          <h3 class="gn-h3 txt-black mb-20"> Our due deligence process includes the following</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="assets/images/icons/legal.png"/>
+             		<h4 class="gn-h4 txt-white">Legal </h4>
+             		<p class="gn-font txt-white"> NGO is verified as valid tax exempted organization.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+                <img src="assets/images/icons/compliance.png"/>
+                <h4 class="gn-h4 txt-white">Compliance </h4>
+             		<p class="gn-font txt-white"> NGO has submitted audited financials,file tax returns and meets statutory norms.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+                <img src="assets/images/icons/monitoring.png"/>
+                <h4 class="gn-h4 txt-white">Monitoring and Evaluation</h4>
+             		<p class="gn-font txt-white">NGO is verified as valid tax exempted organization.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="assets/images/icons/costing.png"/>
+             		<h4 class="gn-h4 txt-white">Costing and Validation</h4>
+             		<p class="gn-font txt-white">Crowd works india foundation has validated that the donation ask is based on actual expenses.
+             		</p>
+             	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="modal fade wizard-tab-modal " id="complete-loan-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" data-dismiss="modal"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="loanfirstFormGroup" >
+              <form [formGroup]="loanfirstFormGroup">
+                <h4 style="color: white;">Complete The Loan</h4>
+
+                <div class="row mt-2">
+                  <div class="col-md-12 mt-1">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr"  aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="1000" readonly [(ngModel)]="remainingLoanAmount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 mt-1">
+                    <div class="form-group">
+                      <div class="form-row">
+                      <div class="form-group col-md-3 col-4">
+                        <img src="{{loanbaseUrl}}{{image_url}}" class="img-fluid">
+                        </div>
+                        <div class="form-group col-md-6 col-8" style="display: inline-grid;color: white;">
+                          <span>{{title}}</span>
+                          <span>₹{{totalamount}}</span>
+                          <span>Raised ₹{{fund_raised}} goals</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-row">
+                        <div class="form-group col-md-3 col-7" style="color: white;">
+                          <span>Total:&nbsp;<b>₹ {{remainingLoanAmount}} </b> </span>
+                        </div>
+                    <div class="form-group col-md-9 col-9">
+                      <button class="pull-right btn-wz-wt btn-next" mat-button matStepperNext (click)="completeLoanAmount()">Pay Now </button>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+
+              </form>
+            </mat-step>
+
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner color="skyblue" type="ball-fussion"><span style="color:white ;">Please wait...</span></ngx-spinner>
+<div class="modal fade wizard-tab-modal " id="loan-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" data-dismiss="modal"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="loanfirstFormGroup" >
+              <form [formGroup]="loanfirstFormGroup">
+                <h4 style="color: white;">Lend</h4>
+
+                <div class="row">
+
+                  <div class="col-md-12 mt-1">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr"  aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder=" " [(ngModel)]="lendAmount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-12">
+                     <div class="form-row">
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block btn-color" (click)="lendAmounts($event)" value="1000">1000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="lendAmounts($event)" value="2000">2000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="lendAmounts($event)" value="3000">3000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                            <button class="btn-block rs-block" (click)="lendAmounts($event)" value="4000">4000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                          <button class="btn-block rs-block" (click)="lendAmounts($event)" value="4000">5000</button>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button class="pull-right btn-wz-wt btn-next" (click)="submitlend()" mat-button matStepperNext>Pay </button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </mat-step>
+
+
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Message popup Modal -->
+ <div class="modal fade payed-modal" id="successPaymentModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Thankyou for donating the amount,receipt will be send to your Phone number/Email id..</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" >OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,310 @@
+
+<!--slider section start-->
+
+<div class="page-banner">
+	<div class="container">
+		<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+
+			</ol>
+			<!-- Carousel items -->
+      <div class="carousel-inner">
+				<div class="carousel-item" *ngFor="let item of bannerList ,let i = index" [class]="(i === 0) ? 'active' : 'inactive'">
+					<div class="page-caption" >
+						<h3>{{item.title}}</h3>
+						<!-- <p>{{item.story}} </p> -->
+						<button type="" class="donation" (click)="donatenowModal(item.id)"><i class="fa fa-heart" aria-hidden="true"></i>Donate Now</button>
+
+					</div>
+				</div>
+			</div>
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#carousel" data-slide="prev"></a>
+			<a class="carousel-control right" href="#carousel" data-slide="next"></a>
+		</div>
+	</div>
+</div>
+<div class="section-p-campaigns">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row" >
+					<div class="col-md-4 col-lg-4 col-sm-4 col-12" *ngFor="let item of fundRaiserList | paginate: {
+            itemsPerPage: 20,
+            currentPage: pageNumber,
+            totalItems: totalCount
+          }">
+						<div class="slide-scheme">
+              <div class="campaign-img">
+                <img src="{{baseUrl}}{{item.image_url}}" class="img-fluid img-new" style="cursor: pointer;" routerLink="/fund-raiser-detail/{{item.id}}" >
+
+              </div>
+							<div class="scheme-subject">
+								<h3 class="h3-txt">{{item.title}}</h3>
+								<span>{{item.fund_required}}</span>
+								<li>Donation/Month(Rs)</li>
+								<div class="social-link">
+									<li class="cursr-pointer">share now</li>
+                  <share-buttons [theme]="'modern-dark'"
+                  [include]="['facebook','twitter','linkedin','whatsapp']"
+                  [show]="4"
+                  [size]="1"
+                  [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + item.id"
+                  [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+                  [autoSetMeta]="false"
+                  ></share-buttons>
+								</div>
+								<a href="" routerLink="/fund-raiser-detail/{{item.id}}" ><i class="fa fa-heart" aria-hidden="true"></i>Donate Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="row" *ngIf="totalCount > 20">
+    <div class="col-md-12">
+    <div class="container d-flex justify-content-center">
+      <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
+    </div>
+    </div>
+</div>
+</div>
+<div id="My-comments" class="tab-pane" *ngIf="fundRaiserList.length === 0">
+  <div class="row">
+    <div class="col-md-4 col-4"></div>
+    <div class="col-md-4">
+      <div class="profile-donation">
+        <div class="pf-sub">
+          <h2 style="color: black; ">No results found!</h2>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4 col-4"></div>
+    <div class="col-md-12 ">
+
+    </div>
+  </div>
+</div>
+<!-- <script src="../../../../src/assets/js/share-buttons.js"></script> -->
+
+<div class="modal fade wizard-tab-modal " id="wizard-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeModal()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="firstFormGroup" >
+              <form [formGroup]="firstFormGroup">
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="1000" [(ngModel)]="donationAmount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                     <div class="form-row">
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block btn-color" (click)="donAmount($event)" value="1000">₹1000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmount($event)" value="2000">₹2000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmount($event)" value="3000">₹3000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                            <button class="btn-block rs-block" (click)="donAmount($event)" value="4000">₹4000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                          <button class="btn-block rs-block" (click)="donAmount($event)" value="4000">₹5000</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button class="pull-right btn-wz-wt btn-next" mat-button matStepperNext>NEXT</button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" >
+              <form [formGroup]="secondFormGroup">
+                <h3 class="wz-h3 mb-20">Donor informations</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="donate-form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box " formControlName="name"  placeholder="Full name" [ngClass]="{ 'is-invalid': submitted && f2.name.errors }">
+                          <div *ngIf="submitted && f2.name.errors" class="invalid-feedback">
+                            <div *ngIf="f2.name.errors.required" class="errr-msg-white">This field is required</div>
+                            </div>
+
+                            <div class="login-toggle-btn">
+                                <input type="checkbox" (click)="showinfo($event)" formControlName="show_donor_information">
+                                <label>make my donation anonymous</label>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box inp-backcolor" id="" [email]="true"  formControlName="email"  placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f2.email.errors }">
+                          <div *ngIf="submitted && f2.email.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f2.email.errors.required">This field is required</div>
+                            <div *ngIf="f2.email.errors.pattern">Please, Enter valid email.</div>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-30">
+                          <input type="hidden" class="form-control donor-txt-box" id="inputPassword4" placeholder="phone number">
+                        </div>
+                        <div class="form-group col-md-6 mb-20">
+                            <button class="btn-wz-wt w-100" (click)="submitDonationDetails()"> proceed to pay ₹{{firstFormGroup.value.amount}}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <!-- <button mat-button matStepperPrevious class="btn-wz-wt">Back</button> -->
+                  <!-- <button mat-button matStepperNext></button> -->
+                </div>
+              </form>
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade payed-modal" id="gmFormmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Do you want a 80g form?</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="open80gForm()">Yes</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit">No</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="modal fade eighty-gmform-modal" id="80gmFormmodal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width">
+			<div class="modal-header">
+				<button type="button" class="close" (click)="close80gForm()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+      <div class="modal-body">
+        <form [formGroup]="eightygmForm">
+          <h3 class="wz-h3 mb-20">80g Form</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="donate-form">
+                <div class="form-row" >
+                  <div class="form-group col-md-6 mb-10" style="padding-bottom: 20px;">
+                    <input type="text" class="form-control donor-txt-box " formControlName="pancard_no" id="inputEmail4" placeholder="Pan Card Number" [ngClass]="{ 'is-invalid': submittedgmForm && f4.pancard_no.errors }">
+                    <div *ngIf="submittedgmForm && f4.pancard_no.errors" class="invalid-feedback">
+                      <div *ngIf="f4.pancard_no.errors.required" class="errr-msg-white">This field is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-6 mb-10" style="padding-bottom: 20px;">
+                    <input type="text" class="form-control donor-txt-box inp-backcolor" id="" formControlName="name"  placeholder="Name" [ngClass]="{ 'is-invalid': submittedgmForm && f4.name.errors }">
+                    <div *ngIf="submittedgmForm && f4.name.errors" class="invalid-feedback errr-msg-white">
+                      <div *ngIf="f4.name.errors.required">This field is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group col-md-6 mb-30 " style="padding-bottom: 20px;">
+                    <input type="text" class="form-control donor-txt-box inp-backcolor" id="" formControlName="phone_number"  placeholder="Phone Number" [ngClass]="{ 'is-invalid': submittedgmForm && f4.phone_number.errors }">
+                    <div *ngIf="submittedgmForm && f4.phone_number.errors" class="invalid-feedback errr-msg-white">
+                      <div *ngIf="f4.phone_number.errors.required">This field is required</div>
+                      </div></div>
+                  <div class="form-group col-md-6 mb-20 " style="padding-bottom: 20px;">
+                      <button class="btn-wz-wt w-100" (click)="submit80gForm()" > Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <!-- <button mat-button matStepperPrevious class="btn-wz-wt">Back</button> -->
+            <!-- <button mat-button matStepperNext></button> -->
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="modal fade payed-modal" id="closeDonateModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  I Could Really Use Your Help Right Now.You Can Help Me with a Contribution As Small as ₹300.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" >No, Thanks</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit">SureI'll Help</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

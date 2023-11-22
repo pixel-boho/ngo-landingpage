@@ -1,0 +1,336 @@
+<section class="start-fundraiser">
+	<div class="container">
+		<div class="row">
+      <form [formGroup]="startFundraiserForm">
+			<div class="col-md-12 col-lg-12">
+				<div class="Fund-hd">
+					<h2>Start a fundraiser</h2>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-12">
+				<div class="st-fd-form">
+					<h3>personal details</h3>
+					<div class="form-row">
+          	  <div class="form-group col-md-6 col-sm-6">
+                <label>Name</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="Name" formControlName="name" [(ngModel)]="fundRaisername" [ngClass]="{ 'is-invalid': submitted && fundr2.name.errors }">
+                <div *ngIf="submitted && fundr2.name.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.name.errors.required">This field is required</div>
+                  </div>
+            	</div>
+            	<div class="form-group col-md-6 col-sm-6">
+                <label>Email</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="Email" formControlName="email" [(ngModel)]="email" [email]="true"  [ngClass]="{ 'is-invalid': submitted && fundr2.email.errors }">
+                <div *ngIf="submitted && fundr2.email.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.email.errors.required">This field is required</div>
+                  <div *ngIf="fundr2.email.errors.pattern">Please, Enter valid email.</div>
+                  </div>
+            	</div>
+            	<div class="form-group col-md-6 col-sm-6">
+                <label>Phone Number</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="Phone number" formControlName="phone_number"  [maxLength]="15" (input)="checkphoneNumValidation()" [(ngModel)]="phone_number" [ngClass]="{ 'is-invalid': submitted && fundr2.phone_number.errors }">
+                <div *ngIf="submitted && fundr2.phone_number.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.phone_number.errors.required">This field is required</div>
+                  </div>
+                  <div *ngIf="phoneerror === true" style="color:#dc3545;font-size: 80%;">Please enter valid phone number</div>
+
+
+              </div>
+            	<div class="form-group col-md-6 col-sm-6">
+                <label>Relation</label>
+            		<select class="st-fd-tbox"  placeholder="Full name" formControlName="relation" [(ngModel)]="relation" [ngClass]="{ 'is-invalid': submitted && fundr2.relation.errors }" >
+            			<!-- <option selected>Relation</option> -->
+            			<option *ngFor="let item of relationList" value="{{item.id}}" [selected]="item.id === relation ">{{item.title}}</option>
+            		</select>
+                <div *ngIf="submitted && fundr2.relation.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.relation.errors.required">This field is required</div>
+                  </div>
+              </div>
+
+          </div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-12">
+				<div class="st-fd-form">
+					<h3>Benificiary informations</h3>
+					<div class="bf-box">
+						<div class="row">
+							<div class="col-md-8 ml-auto mr-auto">
+								<div class="form-row align-items-center">
+
+                  	<div class="col-md-6 col-sm-6">
+                  		<p>Purpose of raising fund</p>
+                  	</div>
+                  	<div class="col-md-6 col-sm-6">
+                      <input type="text" class="st-fd-tbox-cp"  placeholder="purpose" style="cursor: none;" formControlName="category" readonly [(ngModel)]="titleName">
+                  		<!-- <select class="st-fd-tbox"  placeholder="Full name" formControlName="category" (change)="changeCampaign()"    [ngClass]="{ 'is-invalid': submitted && fundr2.category.errors }"  >
+                  			<option value=''>Select Campaign</option>
+                  			<option *ngFor="let item of categoryList" [ngValue]="item" [selected]="item.id == campaign_id"> {{item.title}}</option>
+                  		</select> -->
+                      <div *ngIf="submitted && fundr2.category.errors" class="invalid-feedback">
+                        <div *ngIf="fundr2.category.errors.required">This field is required</div>{{relation}}
+                        </div>
+                  	</div>
+                </div>
+							</div>
+						</div>	</div>
+					<div class="form-row">
+          	  <div class="form-group col-md-6 col-sm-6">
+                <label>Full Name</label>
+            		<input type="text" class="st-fd-tbox-cp"  placeholder="Full Name" formControlName="patient_name" [(ngModel)]="patient_name" [ngClass]="{ 'is-invalid': submitted && fundr2.patient_name.errors }">
+                <div *ngIf="submitted && fundr2.patient_name.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.patient_name.errors.required">This field is required</div>
+                  </div>
+              </div>
+            	<div class="form-group col-md-6 col-sm-6" *ngIf="is_health_case == 1">
+                <label>Health Issue</label>
+            		<input type="text" class="st-fd-tbox-cp" placeholder="What is the health issue?" formControlName="health_issue" [(ngModel)]="health_issue"  [ngClass]="{ 'is-invalid': submitted && fundr2.health_issue.errors }">
+                <div *ngIf="submitted && fundr2.health_issue.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.health_issue.errors.required">This field is required</div>
+                  </div>
+              </div>
+            	<div class="form-group col-md-6 col-sm-6" *ngIf="is_health_case == 1">
+                <label>Hospital Name</label>
+            		<input type="text" class="st-fd-tbox-cp"  placeholder="Which hospital" formControlName="hospital_name" [(ngModel)]="hospital_name"  [ngClass]="{ 'is-invalid': submitted && fundr2.hospital_name.errors }">
+                <div *ngIf="submitted && fundr2.hospital_name.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.hospital_name.errors.required">This field is required</div>
+                  </div>
+              </div>
+            	<div class="form-group col-md-6 col-sm-6" *ngIf="is_health_case == 1">
+                <label>City</label>
+            		<input type="text" class="st-fd-tbox-cp"  placeholder="City" formControlName="city" [(ngModel)]="city"  [ngClass]="{ 'is-invalid': submitted && fundr2.city.errors }">
+                <div *ngIf="submitted && fundr2.city.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.city.errors.required">This field is required</div>
+                  </div>
+              </div>
+            	<div class="form-group col-md-6 col-sm-6">
+                <label>No.of days</label>
+            		<input type="text" class="st-fd-tbox-cp"  placeholder="Minimum Number of days for amount collection" [(ngModel)]="noof_days"  formControlName="noof_days" [ngClass]="{ 'is-invalid': submitted && fundr2.noof_days.errors }">
+                <div *ngIf="submitted && fundr2.noof_days.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.noof_days.errors.required">This field is required</div>
+                  </div>
+              </div>
+              </div>
+            	<div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <label>Amount</label>
+                    <input type="number" class="st-fd-tbox-cp"  placeholder="Rs. 20,000" formControlName="amount" [(ngModel)]="amount"  [ngClass]="{ 'is-invalid': submitted && fundr2.amount.errors }">
+                    <div *ngIf="submitted && fundr2.amount.errors" class="invalid-feedback">
+                      <div *ngIf="fundr2.amount.errors.required">This field is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-6 col-sm-6">
+                    <label>Title</label>
+                    <input type="text" class="st-fd-tbox-cp"  placeholder="Title" formControlName="title" [(ngModel)]="title"  [ngClass]="{ 'is-invalid': submitted && fundr2.title.errors }">
+                    <div *ngIf="submitted && fundr2.title.errors" class="invalid-feedback">
+                      <div *ngIf="fundr2.title.errors.required">This field is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-12 col-sm-12">
+                    <label>Description</label>
+                    <input type="text" class="st-fd-tbox-cp"  placeholder="Description" formControlName="description" [(ngModel)]="title"  [ngClass]="{ 'is-invalid': submitted && fundr2.description.errors }">
+                    <div *ngIf="submitted && fundr2.description.errors" class="invalid-feedback">
+                      <div *ngIf="fundr2.description.errors.required">This field is required</div>
+                      </div>
+                  </div>
+               </div>
+               <div class="row ml-2">
+                <div class="col-md-12 main-img">
+
+                    <p>Main Image <span style="color: white;"> </span>.</p>
+                    <div class="row">
+                        <div class="col-md-4 py-2 px-2" style="height: 140px;border-radius: 10px;
+                        background-color: #e8e5e5;">
+                            <div class="text center"style="border:dashed 1px #000000; height: 100%; width: 100%;position: relative; ">
+
+                                <div class="upload">
+                                    <input type="file" #attachments type="file" formControlName="photo"  (change)="fileProgress($event)" accept=".jpg,.png,.jpeg"  id="exampleInputFile" name="fileName"
+                                    style="margin-top: 6%;width: 50%; margin-left: 19%;opacity: 0; cursor:pointer;position:absolute" [ngClass]="{ 'is-invalid': submitted && fundr2.photo.errors }" >
+                                    <h1 class="file mt-2" style="color:black; width:20%; height:20%; margin-left:40%; cursor: pointer;"><img src="assets/images/icons/upload.png">
+                                    </h1>
+
+                                    <p style="color:black;text-align: center;
+                                  ">Upload  photos of patient </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-8" *ngIf="fileData">
+                          <div class="col-md-3" *ngFor="let list of thumbFile;let index = index">
+                            <span class="close-img img-cls" mat-icon-button (click)="removeSelectedFile(index)"><img src="assets/images/icons/close.png" height="20" width="20" alt=""></span>
+                              <img class="rounded img-box"  [src]="list" alt="" style="margin: 10px;">
+                          </div>
+                        </div>
+                        <div class="col-md-8" *ngIf="patientImage && fileData == undefined">
+                          <div class="col-md-4">
+                            <img class="rounded img-box"  src="{{baseUrl}}{{patientImage}}" style="margin: 10px;" alt="" height="20" width="20">
+                            </div>
+                        </div>
+
+                      </div>
+                      <!-- <div *ngIf="submitted && fundr2.photo.errors" class="invalid-feedback">
+                        <div *ngIf="fundr2.photo.errors.required">This field is required</div>
+                        </div> -->
+                </div>
+            </div>
+            <div class="row ml-2 mt-2">
+              <div class="col-md-12">
+                  <p> Documents</p>
+                  <div class="row">
+                      <div class="col-md-4 py-2 px-2" style="height: 140px;border-radius: 10px;
+                      background-color: #e8e5e5;">
+                          <div class="text center"style="border:dashed 1px #000000; height: 100%; width: 100%;position: relative; ">
+
+                              <div class="upload">
+                                  <input type="file" #attachments type="file" formControlName="documents" (change)="uploadPatientDocuments($event)" accept=".jpg,.png,.jpeg"  id="exampleInputFile" name="fileName" multiple="multiple"
+                                  style="margin-top: 6%;width: 50%; margin-left: 19%;opacity: 0; cursor:pointer;position:absolute"  [ngClass]="{ 'is-invalid': submitted && fundr2.documents.errors }">
+                                  <h1 class="file mt-2" style="color:black; width:20%; height:20%; margin-left:40%; cursor: pointer;"><img src="assets/images/icons/upload.png">
+                                  </h1>
+
+                                  <p style="color:black;text-align: center;
+                                ">  Documents </p>
+                              </div>
+                            </div>
+                      </div>
+                      <!-- <div class="col-md-8" *ngIf="patientfileData">
+                        <div class="col-md-3" *ngFor="let list of documentThumbFile;let index = index">
+                          <span class="close-img img-cls" mat-icon-button (click)="removePatientDocument(index)"><img src="assets/images/icons/close.png" height="20" width="20" alt=""></span>
+                            <img class="rounded img-box"  [src]="list" alt="" style="margin: 10px;" >
+                        </div>
+                      </div> -->
+                      <div class="col-md-8" >
+                        <div class="col-md-3" *ngFor="let item of documentList;let index = index">
+                          <span class="close-img img-cls" mat-icon-button (click)="removeOldPatientDocument(item.id)">
+                            <img src="assets/images/icons/close.png" height="20" width="20" alt=""></span>
+                            <img class="rounded img-box" *ngIf="(item.file_type == 'png') || (item.file_type == 'jpeg') " src="{{documentBaseUrl}}{{item.doc_url}}" alt="" style="margin: 10px;" >
+                            <img class="rounded img-box" *ngIf="(item.file_type == 'pdf') || (item.file_type == 'docx') "  src="assets/images/pdf.png" alt="" style="margin: 10px;" >
+
+                          </div>
+                      </div>
+                    </div>
+                    <!-- <div *ngIf="submitted && fundr2.documents.errors" class="invalid-feedback">
+                      <div *ngIf="fundr2.documents.errors.required">This field is required</div>
+                      </div> -->
+                      <div *ngIf="errorMessagedoc"  style="color: red;">{{errorMessagedoc}}</div>
+
+              </div>
+          </div>
+                <div class="row ml-2">
+                  <div class="col-md-12">
+                      <p style="color: white;">Upload beneficiary image <span style="color: white;"> </span>.</p>
+                      <div class="row">
+                  </div>
+                  </div>
+              </div>
+              <div class="row ml-2">
+                <div class="col-md-12">
+                    <p style="">Upload Benefitiary Image<span style="color: white;"> </span>.</p>
+                    <div class="row">
+                        <div class="col-md-4 py-2 px-2" style="height: 140px;border-radius: 10px;
+                        background-color: #e8e5e5;">
+                            <div class="text center"style="border:dashed 1px #000000; height: 100%; width: 100%;position: relative; ">
+                                <div class="upload">
+                                    <input type="file" #attachments type="file" (change)="uploadBenefitiaryImage($event)" accept=".jpg,.png,.jpeg" formControlName="benefitiary_image"  [ngClass]="{ 'is-invalid': submitted && fundr2.benefitiary_image.errors }"  id="exampleInputFile" name="fileName"
+                                    style="margin-top: 6%;width: 50%; margin-left: 19%;opacity: 0; cursor:pointer;position:absolute">
+                                    <h1 class="file mt-2" style="color:black; width:20%; height:20%; margin-left:40%; cursor: pointer;"><img src="assets/images/icons/upload.png">
+                                    </h1>
+                                    <p style="color:black;text-align: center;
+                                  ">Upload Benefitiary Image </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8" *ngIf="fileData">
+                          <div class="col-md-3" *ngFor="let list of benefitiaryThumbFile;let index = index">
+                            <span class="close-img img-cls" mat-icon-button (click)="removeBenefitiaryImage(index)"><img src="assets/images/icons/close.png" height="20" width="20" alt=""></span>
+                              <img class="rounded img-box"  [src]="list" alt="" style="margin: 10px;">
+                          </div>
+                        </div>
+                        <div class="col-md-8" *ngIf="benefitiary_image && fileData == undefined">
+                          <div class="col-md-4">
+                            <img class="rounded img-box"  src="{{baseUrl}}{{benefitiary_image}}"  alt="" height="20" width="20" alt="">
+                            </div>
+                        </div>
+                      </div>
+                      <!-- <div *ngIf="submitted && fundr2.benefitiary_image.errors" class="invalid-feedback">
+                        <div *ngIf="fundr2.benefitiary_image.errors.required">This field is required</div>
+                        </div> -->
+                </div>
+            </div>
+
+           </div>
+				</div>
+			<div class="col-md-12 col-sm-12 col-12">
+				<div class="st-fd-form">
+					<h3>Benificiary account details</h3>
+					<div class="form-row">
+          	<div class="form-group col-md-6 col-sm-6">
+              <label>Account Holder Name</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="Account holder name" formControlName="account_holder_name"  [(ngModel)]="account_holder_name" [ngClass]="{ 'is-invalid': submitted && fundr2.account_holder_name.errors }">
+                <div *ngIf="submitted && fundr2.account_holder_name.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.account_holder_name.errors.required">This field is required</div>
+                  </div>
+            	</div>
+              <div class="form-group col-md-6 col-sm-6">
+                <label>IFSC Code</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="IFSC Code" [maxLength]="11" style="text-transform: uppercase" formControlName="ifsccode"(input)="getAccountDetails()"  [(ngModel)]="ifsccode" [ngClass]="{ 'is-invalid': submitted && fundr2.ifsccode.errors }">
+                <div *ngIf="submitted && fundr2.ifsccode.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.ifsccode.errors.required">This field is required</div>
+                  <div *ngIf="fundr2.ifsccode.errors.pattern">Please, Enter valid Ifsc code.</div>
+                  </div>
+            	</div>
+            	<div class="form-group col-md-6 col-sm-6">
+                <label>Account Number</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="Account number" formControlName="account_number"  [(ngModel)]="account_number" [ngClass]="{ 'is-invalid': submitted && fundr2.account_number.errors }">
+                <div *ngIf="submitted && fundr2.account_number.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.account_number.errors.required">This field is required</div>
+                  </div>
+            	</div>
+            	<div class="form-group col-md-6 col-sm-6">
+                <label>Bank</label>
+            		<input type="text" class="st-fd-tbox"  placeholder="Bank" formControlName="bank" readonly  [ngClass]="{ 'is-invalid': submitted && fundr2.bank.errors }">
+                <div *ngIf="submitted && fundr2.bank.errors" class="invalid-feedback">
+                  <div *ngIf="fundr2.bank.errors.required">This field is required</div>
+                  </div>
+            	</div>
+
+           </div>
+				</div>
+			</div>
+      <div class="row col-12" >
+        <button class="btn btn-sm fundraiser-btn sbmt-fund"  type="button"(click)="updateFundRaiser()"> <i class="fa" [ngClass]="{'fa-spin fa-spinner': loading}"></i><span>Update</span></button>
+      </div>
+    </form>
+		</div>
+	</div>
+
+</section>
+
+<!-- Message popup Modal -->
+<div class="modal fade payed-modal" id="successFundModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Your Application Updated Successfully.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" (click)="goToProfile()" >OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+

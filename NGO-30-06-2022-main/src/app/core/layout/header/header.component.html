@@ -1,0 +1,1383 @@
+
+  <div class="sec-mob-button" >
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="desk-icons">
+					<!-- <button (click)="donatenowModalforNgo()">Donate now</button> -->
+          	<button  *ngIf="(loginToken | async)"  (click)="donatenowModalforNgo()">Donate now</button>
+            <button  *ngIf="!(loginToken | async)"  (click)="donatenowModalforNgo1()" >Donate now</button>
+
+            <button (click)="startaFundraiser('startFundRaiser')">Start a fundraiser</button>
+					<button routerLink="/volunteer">Volunteer with us</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="top-bar">
+	<div class="pad-1800" style="height: 56px;">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-lg-3 col-12 col-md-6">
+
+				</div>
+				<div class="col-lg-9 col-12 col-sm-12 col-md-12">
+					<div class="md-icons-bar">
+						<div class="row align-items-center">
+							<div class="col-md-4 col-lg-4 col-5">
+
+                <div class="hs-search">
+              <!-- <div class="form-group ">
+                <form [formGroup]="searchForm">
+								<div>
+									<!-- <div class="form-goup hs-search"> -->
+									    <!-- <span class="fa fa-search form-control-feedback"></span> -->
+									    <!-- <input type="text" class="form-control" (input)="searchByKeyWord()" formControlName="searchInput" placeholder="Search"> --
+                      <mat-form-field class="example-full-width" style="width: 100%;">
+                        <input type="text"
+                               placeholder="Search"
+                               aria-label="Number"
+                               matInput
+                               formControlName="searchInput" (input)="searchByKeyWord()"
+                               [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let option of searchResult" [value]="option.title" (click)="selectResult(option.type,option.id)">
+                            {{option.title}}
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+									 </div>
+              </form>
+
+
+            </div> -->
+              </div>
+							</div>
+
+							<div class="col-md-8 col-lg-8 col-7">
+								<div class="s-h-icons">
+                 <div class="row align-items-center">
+                  <div class="col-md-7 col-lg-9">
+                    <a routerLink="/contact-us" data-toggle="modal" class="hdr hidelogOut prof-tab">Contact Us</a>
+                     <a  style="color: #c1c117eb; cursor: default" *ngIf="(loginToken | async)" class="mr-1 hdr align-rght"> {{(points | async)}}</a>
+                    <img src="assets/images/profile/coins-1.png" style="cursor: default;" *ngIf="(loginToken | async)" width="30px" height="30px" class="img-fluid align-rght">
+                    <!-- <a href="#help-link-modal" *ngIf="(loginToken | async)"  class="align-rght"   data-toggle="modal"  title="Quick View"> -->
+                      <a href="#test" *ngIf="(loginToken | async)"  class="align-rght"   data-toggle="modal"  title="Quick View"> 
+
+                      <img src="assets/images/icons/help-button.png" class="hdr" style="width: 17px;">
+                    </a>
+								  	<a href="#sign-in-modal" *ngIf="!(loginToken | async)"  data-toggle="modal" class="hdr align-rght">sign in</a>
+								  	<a href="#sign-up-modal" *ngIf="!(loginToken | async)" data-toggle="modal" class="hdr align-rght" >sign up</a>
+                    <a *ngIf="(loginToken | async)" class="hdr hidelogOut" >
+                      <i routerLink="/profile" class="fa fa-user-circle-o" style="cursor: pointer;" aria-hidden="true" ></i>
+                      <span routerLink="/profile" class="ml-2 prof-tab " >Profile</span></a>
+                    <a href="#logout-modal" *ngIf="(loginToken | async)" data-toggle="modal" class="hdr  align-rght">Logout</a>
+                  </div>
+                  <div id="google_translate_element" class="col-md-3 col-12 g-height"   ></div>
+
+								</div>
+                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="main-navbar " >
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<nav class="navbar navbar-expand-lg">
+					<a class="navbar-brand" routerLink="/home"><img src="assets/images/logo/logo-red.png" class="img-fluid"></a>
+					<button class="navbar-toggler nav-icon" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" ><i class="fa fa-bars"></i></button>
+					 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			                <ul class="navbar-nav menucell ml-auto mr-auto" >
+								<li><a class="nav-link" routerLink="/home" (click)="navclose()" >Home</a></li>
+								<li><a class="nav-link" routerLink="/about-us" (click)="navclose()">about us</a></li>
+								<li><a class="nav-link"routerLink="/campaigns" (click)="navclose()">Our Campaigns</a></li>
+								<li><a class="nav-link" routerLink="/fund-raiser" (click)="navclose()">Browse fundraiser</a></li>
+								<li><a class="nav-link" routerLink="/howItWorks" (click)="navclose()">How it works</a></li>
+								<li><a class="nav-link" routerLink="/lend" (click)="navclose()">Lend</a></li>
+                <li><a class="nav-link contct-tab" routerLink="/contact-us" (click)="navclose()">Contact Us</a></li>
+                <li><a *ngIf="(loginToken | async)" class="nav-link" routerLink="/profile" (click)="navclose()">Profile</a></li>
+							</ul>
+              <form class="form-inline nav-btn ml-auto">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button   *ngIf="(loginToken | async)" class="btn btn-sm btn-active" type="button" (click)="donatenowModalforNgo()" ><i class="fa fa-heart" aria-hidden="true"></i> Donate Now</button>
+                <button *ngIf="!(loginToken | async)"class="btn btn-sm btn-active" type="button" (click)="donatenowModalforNgo1()" ><i class="fa fa-heart" aria-hidden="true"></i> Donate Now</button>
+                <button class="btn btn-sm" type="button"  (click)="startaFundraiser('startFundRaiser')" id="b1">Start a fundraiser</button>
+
+                <button class="btn btn-sm"  type="button" routerLink="/volunteer" id='b1'>Volunteer with us</button>
+
+              </div>
+              </form>
+              <!-- <form class="form-inline nav-btn ml-auto">
+                <div class="d-icons">
+                  <button   *ngIf="(loginToken | async)" class="btn btn-sm btn-active" type="button" (click)="donatenowModalforNgo()" ><i class="fa fa-heart" aria-hidden="true"></i>Donate Now</button>
+                  <button *ngIf="!(loginToken | async)"class="btn btn-sm btn-active" type="button" (click)="donatenowModalforNgo1()" ><i class="fa fa-heart" aria-hidden="true"></i>Donate Now</button>
+  
+                    <!-- <button *ngIf="!(loginToken | async)"class="btn btn-sm btn-active" type="button" (click)="paytmpayment()" ><i class="fa fa-heart" aria-hidden="true"></i>Donate now</button> --
+                    <button class="btn btn-sm" type="button"  (click)="startaFundraiser('startFundRaiser')">Start a fundraiser</button>
+                    <button class="btn btn-sm" type="button" routerLink="/volunteer">Volunteer with us</button>
+  
+                </div>
+              </form> -->
+						</div>
+            
+
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="modal fade sign-in" id="sign-in-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width" style="overflow-y: hidden !important;
+    ">
+			<div class="modal-header">
+				<button type="button" class="close  btn-close1" data-dismiss="modal" (click)="closeLoginModal()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="col-xl-12 col-lg-12">
+           	<div class="row form-group">
+						<div class="col-lg-7 col-md-7">
+							<!-- <div class="sign-in-wrap"> -->
+                <form [formGroup]="loginForm">
+								<div class="row">
+									<div class="col-12 mb-20">
+										<div class="sign-in-form">
+											<h3 class="gn-h2">login</h3>
+											<p class="sm-txt">
+											</p>
+                      <!-- <div>
+
+                      </div> -->
+
+                      <div class="form-row">
+                        <div class="form-group col-md-3">
+                       <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                        [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                        [selectedCountryISO]="CountryISO.India" [maxLength]="15"
+                        [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                        [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone">
+                      </ngx-intl-tel-input>
+
+                      </div>
+                      </div>
+                      <div *ngIf="loginForm.value.phone==null && submittedlogin">
+                        <div style="color: red;">Field is required</div>
+
+                          </div>
+                          <div *ngIf="message=='Phone number is not registered' && submittedlogin">
+                            <div style="color: red;">Phone number is not registered</div>
+
+                              </div>
+
+                              <div>
+                                <input type="checkbox"  formControlName="terms_and_Conditions" (change)="terms($event)" [ngClass]="{ 'is-invalid': submitted && f1.terms_and_Conditions.errors }">
+                                <span style="color: black;font-size: 12px;text-align: center;" target="_blank" class="ml-2"> I read and agree
+  
+                                   <a routerLink="/terms-and-conditions" target="_blank"><span style="color: blue;" target="_blank">Terms of Service  </span></a>and
+                                   <a routerLink="/privacy-policy" target="_blank"><span style="color: blue;" target="_blank"> Privacy Policy. </span></a></span>
+                                <div *ngIf="submitted && f1.terms_and_Conditions.errors" class="invalid-feedback">
+                                  <div *ngIf="f1.terms_and_Conditions.errors.required">This field is required</div>
+                                  </div>
+                              </div>
+										 <button type="submit" class="btn-wd-100 mt-4" (click)="login()"><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoading}"></i>Login</button>
+										</div>
+									</div>
+
+								</div>
+                </form>
+							<!-- </div> -->
+						</div>
+
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div>
+<div class="modal fade otp-modal"   id="varify-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close btn-modal-close " (click)="closeOtpModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+        <button type="button" class="close  btn-close1" data-dismiss="modal" aria-label="Close" style="margin-top: 0px;
+        margin-right: 0px;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12">
+          <div class="otp-dt">
+              <img src="assets/images/how-it-works/startfundraiser/step-04.png">
+              <h3 class="modal-hd text-center"> please enter OTP</h3>
+              <li class="modal-li text-center"> we have sent you one time password to your mobile</li>
+          </div>
+            <div class="row " >
+            <div class="col-lg-10 col-md-12 ml-auto mr-auto">
+              <!-- login form  -->
+              <div class="contact-form-wrap container">
+                  <form class="form-group row" [formGroup]="otpForm">
+
+                  <div class="form-group text-center mb-2 col-3">
+                    <input name="otp"  class="form-control otp-txt-box"  (keyup)="firstNum($event)"  id="first" placeholder="0" [(ngModel)]="otpOne"   maxlength="1" value="0" type="text" formControlName="otpOne" [ngClass]="{ 'is-invalid': submitted && f3.otpOne.errors }">
+                  </div>
+                  <div class="form-group mb-2 col-3">
+                    <input name="otp"  class="form-control otp-txt-box" (keyup)="secondNum()"  id="second" placeholder="0" [(ngModel)]="otpTwo"   maxlength="1" value="0" type="text" formControlName="otpTwo"  [ngClass]="{ 'is-invalid': submitted && f3.otpTwo.errors }">
+                  </div>
+                  <div class="form-group mb-2 col-3">
+                    <input name="otp"  class="form-control otp-txt-box" (keyup)="thirdNum()"   id="third" placeholder="0" [(ngModel)]="otpThree"   maxlength="1" value="0" type="text" formControlName="otpThree" [ngClass]="{ 'is-invalid': submitted && f3.otpThree.errors }">
+                  </div>
+                  <div class="form-group mb-2 col-3">
+                    <input name="otp"  class="form-control otp-txt-box"  id="four" placeholder="0"   maxlength="1" value="0" [(ngModel)]="otpFour" type="text" formControlName="otpFour"  [ngClass]="{ 'is-invalid': submitted && f3.otpFour.errors }">
+                  </div>
+
+                  <div class="form-group mb-2 col-12 text-center">
+                    <p class="otp-p-txt"> Did not get any OTP <span><a style="cursor: pointer;" (click)="ResendOtp(phone,country_code)"> Resend</a></span></p>
+                  </div>
+                  <div class="col-12 text-center" *ngIf="messageverify=='Invalid OTP'">
+                    <div class="text-center" style="padding-bottom: 3px;color:red">{{messageverify}}</div>
+                                      </div>
+                  <div class="form-group mb-2 col-12 text-center">
+                    <button type="submt" class="gn-sm-btn-red" (click)="varifyOtp()"><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoadingVerifyOtp}"></i>verify</button>
+                  </div>
+
+                </form>
+              </div>
+              <!-- close login form  -->
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <!--Product Details Content Start-->
+
+              <!--Product Details Content End-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade assured-modal" id="test" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width">
+			<div class="modal-header">
+				<button type="button" class="close close btn-close1" data-dismiss="modal" (click)="closeSignUpModal()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+        <div class="col-xl-12 col-lg-12">
+          <div class="assured-hd">
+            <img src="assets/images/profile/coins-1.png" width="60px" height="60px" class="img-fluid"><strong ><span class="ml-2">How to Earn Coins?</span></strong>
+            <p class="sm-txt"></p>
+              <div class="asuured-divider"></div>
+          </div>
+          <h3 class="gn-h3 txt-black mb-20"> You can get the coins by the following way</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12" *ngFor="let item of pointDetails">
+             	<div class="point-modal-box">
+               <span style="color: white;"> {{item.point}}</span><img src="assets/images/profile/coins-1.png"  style="width:31px !important"    height="30px" class="img-fluid ml-3"/>
+             		<!-- <h4 class="gn-h4 txt-white">{{item.point}} </h4> -->
+             		<!-- <p class="gn-font txt-white"> {{item.title}} -->
+                  <p class="gn-font txt-white"> {{item.description}}
+
+             		</p>
+             	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+<div class="modal fade sign-up" id="sign-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width">
+			<div class="modal-header">
+				<button type="button" class="close close btn-close1" data-dismiss="modal" (click)="closeSignUpModal()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="col-xl-12 col-lg-12">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
+
+                <form [formGroup]="signUpForm">
+
+                <div class="row">
+									<div class="col-md-12 mb-20">
+										<div class="sign-in-form">
+											<h3 class="gn-h2">Sign Up </h3>
+                      <div class="form-group">
+											<input name="username" class=" form-control sign-up-box  inp-backcolor" formControlName="username" placeholder="Name" type="text" [ngClass]="{ 'is-invalid': submitted && f2.username.errors }" >
+                      <div *ngIf="submitted && f2.username.errors" class="invalid-feedback">
+                        <div *ngIf="f2.username.errors.required">This field is required</div>
+
+
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <input name="email" class=" form-control sign-up-box inp-backcolor " placeholder="Email"formControlName="email" [email]="true" type="email" [ngClass]="{ 'is-invalid': submitted && f2.email.errors }">
+                        <div *ngIf="submitted && f2.email.errors" class="invalid-feedback">
+                          <div *ngIf="f2.email.errors.required">This field is required</div>
+                          <div *ngIf="f2.email.errors.pattern">Please, Enter valid email.</div>
+                          </div>
+                          <div *ngIf="submitted && phnomessage === 'Email already taken'" style="color:#dc3545;font-size: 80%;">This email is already registered</div>
+
+                      </div>
+                       <div class="form-group">
+											<input name="date" class="form-control sign-up-box inp-backcolor" placeholder="Date of Birth" type="date" [max]="datetody" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f2.dob.errors }">
+                      <div *ngIf="submitted && f2.dob.errors" class="invalid-feedback">
+                        <div *ngIf="f2.dob.errors.required">This field is required</div>
+                        </div>
+                    </div>
+                      <div class="form-row">
+                    <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                    [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                    [selectedCountryISO]="CountryISO.India" [maxLength]="15"
+                    [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                    [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone">
+                  </ngx-intl-tel-input>
+                  <div *ngIf="signUpForm.value.phone==null && submitted">
+                    <div style="color:#dc3545;font-size: 80%;">This field is required</div>
+                      </div>
+                      <div *ngIf="phnomessage == 'Phone number already taken'">
+                        <div style="color:#dc3545;font-size: 80%;">This Number is already registered</div>
+                          </div>
+                   </div>
+                   <div>
+                    <input type="checkbox"  formControlName="show_80g_form" formControlName="terms_and_Conditions1" (change)="terms1($event)">
+                    <span style="color: black;font-size: 12px;text-align: center;" target="_blank" class="ml-2"> By clicking signup you agreed
+  
+                      <a routerLink="/terms-and-conditions" target="_blank"><span style="color: blue;" target="_blank">Terms of Service  </span></a>and
+                      <a routerLink="/privacy-policy" target="_blank"><span style="color: blue;" target="_blank"> Privacy Policy. </span></a></span>
+                  
+                    <!-- <span style="color: black;" class="ml-2"  target="_blank">By clicking signup you agreed the terms and conditions.
+                      <a routerLink="/terms-and-conditions" target="_blank"><span style="color: blue;" target="_blank">Click here to view </span></a></span>                   --></div>
+											<button type="submit" class="btn-wd-100 mt-4" (click)="signUp()"><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoadingsignUp}"></i>Submit</button>
+									    <div class="mt-2">
+                        <span >If you are already registered? <b style="color: #c3313e; cursor: pointer;" (click)="goToSinIn()">Sign in</b></span>
+                      </div>
+                    </div>
+									</div>
+								</div>
+                </form>
+
+						</div>
+						<div class="col-lg-6 col-md-6">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- // start a fundraisr modal -->
+<div class="modal fade st-fd-modal" id="start-fundraiser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close  close btn-close1" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12 col-lg-12">
+          <div class="st-fund-hd-bar cursr-none">
+              <h3>Start a fundraiser</h3>
+              <p>purpose of raising fund</p>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-6 col-12 md-fundraiser-box" *ngFor="let item of campaignList" >
+                  <a >
+                  <div class="fd-icons-bar" (click)="getCampaignid(item.id)"   [ngClass]="{ 'selected': item.id == campaignId }">
+                      <div class="fd-icons">
+                        <img src="{{baseUrl1}}{{item.icon_url}}"  class="img-fluid">
+                      </div>
+                      <div class="fd-icons-p">
+                        <p>{{item.title}}</p>
+                      </div>
+                  </div>
+                  </a>
+                </div>
+              </div>
+              <span *ngIf="selectData == true" style="color: white;">Please select a category</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group fund-next">
+                <button class="pull-right btn-fd-modal " (click)="startFundRaiser('startFundRaiser')">NEXT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //feedback form -->
+  <div class="wd-400" style="bottom: 0px !important;right: 0px Im !important;display: none;" id="myChatBox" >
+    <div class="">
+      <div class="row">
+        <form  [formGroup]="feedbackForm">
+
+        <div class="col-md-12 cursr-pointer">
+          <div class="chat-box-hd">
+            <h3>Hello dear, how we can help?<i class="fa fa-times close-chat" style="float: right;cursor: pointer;" aria-hidden="true" (click)="closeChatBox()"></i>
+            </h3>
+          </div>
+          <div class="chat-box">
+
+            <div class="form">
+              <div class="form-group">
+                <div class="input-group">
+                <input type="text" class="form-control chat-txt-box" formControlName="name" id="inputPassword4" placeholder="Add your Name"  [ngClass]="{ 'is-invalid': submittedfeedback && feedform.name.errors }" >
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+                 </div>
+                <div *ngIf="submittedfeedback && feedform.name.errors" class="invalid-feedback">
+                  <div *ngIf="feedform.name.errors.required">This field is required</div>
+                  </div>
+                  </div>
+                   </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control chat-txt-box" formControlName="email"  [email]="true" id="inputPassword4" placeholder="Email" style="text-transform:lowercase"
+                   [ngClass]="{ 'is-invalid': submittedfeedback && feedform.email.errors }" >
+
+                 <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            </div>
+                            <div *ngIf="submittedfeedback && feedform.email.errors" class="invalid-feedback">
+                              <div *ngIf="feedform.email.errors.required">This field is required</div>
+                              <div *ngIf="feedform.email.errors.pattern">Please, Enter valid email.</div>
+
+                          </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control chat-txt-box" formControlName="message" id="inputPassword4" placeholder="Message"[ngClass]="{ 'is-invalid': submittedfeedback && feedform.message.errors }" >
+
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                            </div>
+                            <div *ngIf="submittedfeedback && feedform.message.errors" class="invalid-feedback">
+                              <div *ngIf="feedform.message.errors.required">This field is required</div>
+                              </div>
+                </div>
+              </div>
+              <div class="form-group" (click)="submitFeedback()">
+                <button ><i class="fa fa-heart" aria-hidden="true"></i><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoadingFeedback}"></i>send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+   <div class="row" id=myChatBox>
+     <div>
+            <button class="open-button chat-img" (click)="openFeedBackForm()"><img src="assets/images/icons/chat-icon.png"></button>
+          </div>
+  </div>
+</div>
+<div class="modal fade payed-modal" id="success-modals" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  {{feedbackmessage}}
+                </p>
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <!-- <button class="f-btn-border" type="submit">No, Thanks</button> -->
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="closeFeedbackModal()">OK</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <!-- Message popup Modal -->
+ <div class="modal fade payed-modal" id="success-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Donation Received Successfully
+                </p>
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <!-- <button class="f-btn-border" type="submit">No, Thanks</button> -->
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="closeFeedbackModal()">OK</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <!-- Message popup Modal -->
+ <div class="modal fade payed-modal" id="success-modal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Something Went Wrong.
+                </p>
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <!-- <button class="f-btn-border" type="submit">No, Thanks</button> -->
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="closeFeedbackModal()">OK</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- otpsuccess message -->
+
+ <!-- Message popup Modal -->
+ <div class="modal fade payed-modal" id="login-success-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                OTP verified successfully.
+                </p>
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <!-- <button class="f-btn-border" type="submit">No, Thanks</button> -->
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="closeloginSuccessModal()">OK</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- logout -->
+<div class="modal fade payed-modal" id="logout-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+            Are you sure you want to logout ?
+                         </p>
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal">No, Thanks</button>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="logout()">Yes</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <!-- Message popup Modal -->
+ <div class="modal fade payed-modal" id="successModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                   Successfully registered.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-8 col-12">
+                    <button class="f-btn-border-red" type="submit"  data-dismiss="modal" (click)="gotoSignInModal()" >OK</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!------***************************************************-->
+<!-- Donate Now Updated Code -->
+<div class="modal fade wizard-tab-modal " id="wizard-up-modal-ngo1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeModalNgo()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <!-- <mat-step [stepControl]="firstFormGroupNGO" >
+              <form [formGroup]="firstFormGroupNGO">
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="Enter Amount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-12">
+                     <div class="form-row">
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block btn-color" (click)="donAmountNgo($event)" value="1000">1000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="2000">2000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="3000">3000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                            <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="4000">4000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                          <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="4000">5000</button>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-md-6">
+                    <div class="form-group mt-2">
+                      <input type="checkbox" (click)="show80gFormNgo($event)" formControlName="show_80g_form">
+                      <span style="color: white;" class="ml-2">Do you want 80G Form ?</span>
+                       </div>
+
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <button class="pull-right btn-wz-wt btn-next" mat-button matStepperNext>NEXT</button>
+                    </div>
+
+                  </div>
+                </div>
+              </form>
+            </mat-step> -->
+            <mat-step [stepControl]="secondFormGroupNgo" >
+              <form [formGroup]="secondFormGroupNgo">
+                <h3 class="wz-h3 mb-20">Donor Informations</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="donate-form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box " formControlName="name"  placeholder="* Full Name" [ngClass]="{ 'is-invalid': submitted && f5.name.errors }">
+                          <div *ngIf="submitted && f5.name.errors" class="invalid-feedback">
+                            <div *ngIf="f5.name.errors.required" class="errr-msg-white">This field is required</div>
+                            <div *ngIf="f5.name.errors.pattern" class="errr-msg-white">Please, Enter valid Name.</div>
+
+                            </div>
+                            <!-- <div class="login-toggle-btn" *ngIf="logintoken" style="padding: 10px 0px 0px 0px;">
+                                <input type="checkbox" (click)="showinfoNgo($event)" formControlName="show_donor_information">
+                                <span style="color: white;">Make my Donation anonymous</span>
+                            </div> -->
+                        </div>
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box inp-backcolor"  [email]="true"  formControlName="email"  placeholder="* Email" [ngClass]="{ 'is-invalid': submitted && f5.email.errors }">
+                          <div *ngIf="submitted && f5.email.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f5.email.errors.required">This field is required</div>
+                            <div *ngIf="f5.email.errors.pattern" class="errr-msg-white">Please, Enter valid email.</div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-10">
+                              <input type="text" class="form-control donor-txt-box" [maxLength]="15" formControlName="mob_number_donor" minlength="8"  placeholder="* Phone Number"  [ngClass]="{ 'is-invalid': submitted && f5.mob_number_donor.errors }">
+                              <div *ngIf="submitted && f5.mob_number_donor.errors" class="invalid-feedback errr-msg-white">
+                                <div *ngIf="f5.mob_number_donor.errors.required">This field is required</div>
+                                <div *ngIf="(f5.mob_number_donor.errors.pattern || phoneerror === true) && this.secondFormGroupNgo.value.mob_number_donor ">Please, Enter valid Phone Number.</div>
+                                </div>
+                          </div>
+                          <div class="form-group col-md-6 mb-10">
+                            <input type="text" class="form-control donor-txt-box" formControlName="amount"  minlength="1" placeholder="* Amount"  [ngClass]="{ 'is-invalid': submitted && f5.amount.errors }">
+                            <div *ngIf="submitted && f5.amount.errors" class="invalid-feedback errr-msg-white">
+                              <div *ngIf="f5.amount.errors.required">This field is required</div>
+                              <div *ngIf="f5.amount.pattern">Please, Enter valid  Amount.</div>
+                              </div>
+                            <!-- <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                           
+                            <input class="form-control wz-txt-box required" type="text" placeholder="Enter Amount" formControlName="amount" aria-label="Search"  size="50"> -->
+                          <!-- </div> -->
+                          </div>
+                          </div>
+                        <div class="form-row">
+                        <div class="col-md-6">
+                          <div class="form-group mt-2">
+                            <input type="checkbox" (click)="show80gFormNgo($event)" formControlName="show_80g_form">
+                            <span style="color: white;" class="ml-2">Do you want 80G Form ?</span>
+                             </div>
+      
+                        </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                            <input type="text" class="form-control donor-txt-box " formControlName="pancard_no" style="text-transform: uppercase" placeholder="* Pan Card Number" [ngClass]="{ 'is-invalid': submitted && f5.pancard_no.errors }">
+                            <div *ngIf="submitted && f5.pancard_no.errors" class="invalid-feedback">
+                              <div *ngIf="f5.pancard_no.errors.required" class="errr-msg-white">This field is required</div>
+                              <div *ngIf="f5.pancard_no.errors.pattern" class="errr-msg-white">Invalid pan card number.</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                            <input type="text" class="form-control donor-txt-box " formControlName="certificate_address"  placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f5. certificate_address.errors }">
+                            <div *ngIf="submitted && f5. certificate_address.errors" class="invalid-feedback">
+                              <div *ngIf="f5. certificate_address.errors.required" class="errr-msg-white">This field is required</div>
+                              <div *ngIf="f5. certificate_address.pattern" class="errr-msg-white">Invalid Address number.</div>
+                              </div>
+                          </div>
+                      
+                        <div class="form-group col-md-6 mb-20">
+                          <!-- <button  id="jsCheckoutPayment" class="btn-wz-wt w-100" (click)="submitDonationDetailsNgo()"> proceed to pay ₹{{firstFormGroupNGO.value.amount}}</button> -->
+                            <button  id="paytmWithPaytm"  (click)="submitDonationDetailsNgo()" class="btn-wz-wt w-100"> proceed to pay</button>
+                            <!-- <paytm-checkout *ngIf="isCheckoutVisible"></paytm-checkout> -->
+                            <!-- <script type="text/javascript">
+                              document.getElementById("paytmWithPaytm").addEventListener("click", function(){
+                                onScriptLoad("{{txntoken}}","{{orderId}}","1.00");
+                              });
+                              function onScriptLoad(txntoken, orderId, amount) {
+                                console.log('entry');
+                                var config = {
+                                  "root": "",
+                                  "flow": "WEBSTAGING",
+                                  "merchant":{
+                                     "name":"XYZ Enterprises",
+                                     "logo":"https://developer.paytm.com/demo//static/images/merchant-logo.png?v=1.4"
+                                   },
+                                   "style":{
+                                     "headerBackgroundColor":"#8DD8FF",
+                                     "headerColor":"#3F3F40"
+                                  },
+                                  "data": {
+                                    "orderId": orderId,
+                                    "token": txnToken,
+                                    "tokenType": "TXN_TOKEN",
+                                    "amount": amount
+                                  },
+                                  "handler":{
+                                     // "notifyMerchant": function (eventName, data) {
+                                     //  if(eventName == 'SESSION_EXPIRED'){
+                                     //    alert("Your session has expired!!");
+                                     //    location.reload();
+                                     //  }
+                                     // }
+                                     "notifyMerchant": function (eventName, data) {
+                                      console.log("Handler log");
+                                      if(eventName == 'SESSION_EXPIRED'){
+                                        //alert("Your session has expired!!");
+                                        location.reload();
+                                        console.log("Session Expired");
+                                      }
+                                     }
+                                  }
+                                };
+                                console.log("onscript loaded");
+                               // console.log(window.Paytm);
+                                window.Paytm.CheckoutJS.invoke();
+                                if (window.Paytm && window.Paytm.CheckoutJS) {
+                                  // initialze configuration using init method
+                                  window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+                                    console.log('Before JS Checkout invoke');
+                                    // after successfully update configuration invoke checkoutjs
+                                    window.Paytm.CheckoutJS.invoke();
+                                  }).catch(function onError(error) {
+                                   console.log("Error section");
+                                    console.log("Error => ", error);
+                                  });
+                                }
+                                else{
+                                 console.log("something went wrong");
+                                }
+                              }
+                            </script> -->
+                          </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                </div>
+              </form>
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- DANTE 2 -->
+<div class="modal fade wizard-tab-modal " id="wizard-up-modal-ngo2" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeModalNgo2()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+           
+            <mat-step [stepControl]="FormGroupNgo" >
+              <form [formGroup]="FormGroupNgo">
+                <h3 class="wz-h3 mb-20" style="padding: 10px 0px 0px 0px;">Donate Now</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    
+                    <div class="donate-form">
+                      
+                      <div class="form-row">
+                        
+                          <div class="form-group col-md-12 mb-10">
+                            <input type="text" class="form-control donor-txt-box" formControlName="amount"  minlength="1" placeholder="* Amount"  [ngClass]="{ 'is-invalid': submitted && f5.amount.errors }">
+                            <div *ngIf="submitted && f5.amount.errors" class="invalid-feedback errr-msg-white">
+                              <div *ngIf="f5.amount.errors.required">This field is required</div>
+                              <div *ngIf="f5.amount.pattern">Please, Enter valid  Amount.</div>
+                              </div>
+                            
+                          </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col-md-6">
+                              <div class="form-group mt-2">
+                                <input type="checkbox" (click)="show80gFormNgo($event)" formControlName="show_80g_form">
+                                <span style="color: white;" class="ml-2">Do you want 80G Form ?</span>
+                                 </div>
+          
+                            </div>
+                           </div>
+                           <div class="form-row">
+                            <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                              <input type="text" class="form-control donor-txt-box " formControlName="pancard_no" style="text-transform: uppercase" placeholder="* Pan Card Number" [ngClass]="{ 'is-invalid': submitted && f5.pancard_no.errors }">
+                              <div *ngIf="submitted && f5.pancard_no.errors" class="invalid-feedback">
+                                <div *ngIf="f5.pancard_no.errors.required" class="errr-msg-white">This field is required</div>
+                                <div *ngIf="f5.pancard_no.errors.pattern" class="errr-msg-white">Invalid pan card number.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                              <input type="text" class="form-control donor-txt-box " formControlName="certificate_address"  placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f5. certificate_address.errors }">
+                              <div *ngIf="submitted && f5. certificate_address.errors" class="invalid-feedback">
+                                <div *ngIf="f5. certificate_address.errors.required" class="errr-msg-white">This field is required</div>
+                                <div *ngIf="f5. certificate_address.pattern" class="errr-msg-white">Invalid Address number.</div>
+                                </div>
+                            </div>
+                           
+                          
+                          </div>
+                      
+                      
+                        <div class="form-group col-md-12 mb-20">
+                          <!-- <button  id="jsCheckoutPayment" class="btn-wz-wt w-100" (click)="submitDonationDetailsNgo()"> proceed to pay ₹{{firstFormGroupNGO.value.amount}}</button> -->
+                            <button  id="jsCheckoutPayment" class="btn-wz-wt w-100" (click)="submitDonationDetailsNgo2()">Pay Now<i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoading}"></i></button>
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+                
+              </form>
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ************************************************************************* -->
+<!-- DONATE function start -->
+<!-- DONATE function start -->
+
+<div class="modal fade wizard-tab-modal " id="wizard-up-modal-ngo" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeModalNgo()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <div class="modal-body ">
+      <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Paytm-Nodejs</title>
+  </head>
+  <body style="background-color:#f5f3ef">
+    <div class="row my-5">
+      <div class="col-md-4 offset-md-4">
+        <div class="card">
+          <div class="card-body">
+            <form class="" action="/paynow" method="post">
+              <div class="form-group">
+                <label for="">Name: </label>
+                <input class="form-control" type="text" name="name" value="">
+              </div>
+              <div class="form-group">
+                <label for="">Email: </label>
+                <input class="form-control" type="text" name="email" value="">
+              </div>
+              <div class="form-group">
+                <label for="">Phone: </label>
+                <input class="form-control" type="text" name="phone" value="">
+              </div>
+                <div class="form-group">
+                <label for="">Amount: </label>
+                <input class="form-control" type="text" name="amount" value="">
+              </div>
+              <div class="form-group">
+                <button class="btn form-control btn-primary">Pay Now</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+     <!--      <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="firstFormGroupNGO" >
+              <form [formGroup]="firstFormGroupNGO">
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="1000" [(ngModel)]="donationAmountNgo" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                     <div class="form-row">
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block btn-color" (click)="donAmountNgo($event)" value="1000">1000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="2000">2000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="3000">3000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                            <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="4000">4000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                          <button class="btn-block rs-block" (click)="donAmountNgo($event)" value="4000">5000</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group mt-2">
+                      <input type="checkbox" (click)="show80gFormNgo($event)" formControlName="show_80g_form">
+                      <span style="color: white;" class="ml-2">Do you want 80G Form ?</span>
+                       </div>
+
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <button class="pull-right btn-wz-wt btn-next" mat-button matStepperNext>NEXT</button>
+                    </div>
+
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroupNgo" >
+              <form [formGroup]="secondFormGroupNgo">
+                <h3 class="wz-h3 mb-20" style="padding: 10px 0px 0px 0px;">Donor Informations</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="donate-form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box " formControlName="name"  placeholder="* Full Name" [ngClass]="{ 'is-invalid': submitted && f5.name.errors }">
+                          <div *ngIf="submitted && f5.name.errors" class="invalid-feedback">
+                            <div *ngIf="f5.name.errors.required" class="errr-msg-white">This field is required</div>
+                            </div>
+                            <div class="login-toggle-btn" *ngIf="logintoken" style="padding: 10px 0px 0px 0px;">
+                                <input type="checkbox" (click)="showinfoNgo($event)" formControlName="show_donor_information">
+                                <span style="color: white;">Make my Donation anonymous</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box inp-backcolor"  [email]="true"  formControlName="email"  placeholder="* Email" [ngClass]="{ 'is-invalid': submitted && f5.email.errors }">
+                          <div *ngIf="submitted && f5.email.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f5.email.errors.required">This field is required</div>
+                            <div *ngIf="f5.email.errors.pattern">Please, Enter valid email.</div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-row" style="padding: 36px 0px 0px 0px;">
+                        <div class="form-group col-md-6 mb-30">
+                          <input type="text" class="form-control donor-txt-box" [maxLength]="15" formControlName="mob_number_donor" minlength="8"  placeholder="* Phone Number"  [ngClass]="{ 'is-invalid': submitted && f5.mob_number_donor.errors }">
+                          <div *ngIf="submitted && f5.mob_number_donor.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f5.mob_number_donor.errors.required">This field is required</div>
+                            <div *ngIf="(f5.mob_number_donor.errors.pattern || phoneerror === true) && this.secondFormGroupNgo.value.mob_number_donor ">Please, Enter valid Phone Number.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-30" *ngIf="show_80g_formStatus == 1">
+                          <input type="text" class="form-control donor-txt-box " formControlName="pancard_no" style="text-transform: uppercase" placeholder="* Pan Card Number" [ngClass]="{ 'is-invalid': submitted && f5.pancard_no.errors }">
+                          <div *ngIf="submitted && f5.pancard_no.errors" class="invalid-feedback">
+                            <div *ngIf="f5.pancard_no.errors.required" class="errr-msg-white">This field is required</div>
+                            <div *ngIf="f5.pancard_no.errors.pattern" class="errr-msg-white">Invalid pan card number.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-20">
+                            <button class="btn-wz-wt w-100" (click)="submitDonationDetailsNgo()"> proceed to pay ₹{{firstFormGroupNGO.value.amount}}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                </div>
+              </form>
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade payed-modal" id="closeDonateModalNgo" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="font-size:16px;">
+                  I Could Really Use Your Help Right Now.You Can Help Me with a Contribution As Small as ₹300.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" >No, Thanks</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="sureIwillhelpNgo()" >Sure I'll Help</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- #c3313e -->
+<ngx-spinner color="skyblue" type="ball-fussion"><span style="color:white ;">Please wait...</span></ngx-spinner>
+
+<div class="modal fade payed-modal" id="successPaymentModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Thank you for donating the amount,receipt will be send to your Phone number/Email id..</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" >OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="modal fade wizard-tab-modal " id="newwizard-up-modalNgo" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" (click)="closeDonateModalsNgo()"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="secondFormGroupNgo" >
+              <form [formGroup]="secondFormGroupNgo">
+                <h3 class="wz-h3 mb-20" style="padding: 10px 0px 0px 0px;">Donor informations</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="donate-form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box " formControlName="name"  placeholder="* Full Name" [ngClass]="{ 'is-invalid': submitted && f5.name.errors }">
+                          <div *ngIf="submitted && f5.name.errors" class="invalid-feedback">
+                            <div *ngIf="f5.name.errors.required" class="errr-msg-white">This field is required</div>
+                            </div>
+                            <div class="login-toggle-btn" *ngIf="logintoken" style="padding: 10px 0px 0px 0px;">
+                              <input type="checkbox" (click)="showinfoNgo($event)" formControlName="show_donor_information">
+                                <span style="color: white;">Make my donation anonymous</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-10">
+                          <input type="text" class="form-control donor-txt-box inp-backcolor"  [email]="true"  formControlName="email"  placeholder="* Email" [ngClass]="{ 'is-invalid': submitted && f5.email.errors }">
+                          <div *ngIf="submitted && f5.email.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f5.email.errors.required">This field is required</div>
+                            <div *ngIf="f5.email.errors.pattern">Please, Enter valid email.</div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-row" style="padding: 36px 0px 0px 0px;">
+                        <div class="form-group col-md-6 mb-30" >
+                          <input type="text" class="form-control donor-txt-box" formControlName="mob_number_donor" maxlength="16" minlength="8"  placeholder="* Phone Number"  [ngClass]="{ 'is-invalid': submitted && f5.mob_number_donor.errors }">
+                          <div *ngIf="submitted && f5.mob_number_donor.errors" class="invalid-feedback errr-msg-white">
+                            <div *ngIf="f5.mob_number_donor.errors.required">This field is required</div>
+                            <div *ngIf="f5.mob_number_donor.errors.pattern">Please, Enter valid Phone Number.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-20" >
+                            <button class="btn-wz-wt w-100" (click)="submitSmallDonationNgo()"> Proceed to pay ₹300</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                </div>
+              </form> 
+            </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade assured-modal" id="help-link-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-modal-close" data-dismiss="modal" aria-label="Close" style="margin-top: 0px;
+        margin-right: 0px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12">
+          <div class="assured-hd">
+            <img src="assets/images/profile/coins-1.png" width="60px" height="60px" class="img-fluid"><strong ><span class="ml-2">How to Earn Coins?</span></strong>
+            <p class="sm-txt"></p>
+              <div class="asuured-divider"></div>
+          </div>
+          <h3 class="gn-h3 txt-black mb-20"> You can get the coins by the following way</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12" *ngFor="let item of pointDetails">
+             	<div class="point-modal-box">
+               <span style="color: white;"> {{item.point}}</span><img src="assets/images/profile/coins-1.png"  style="width:31px !important"    height="30px" class="img-fluid ml-3"/>
+             		<!-- <h4 class="gn-h4 txt-white">{{item.point}} </h4> -->
+             		<!-- <p class="gn-font txt-white"> {{item.title}} -->
+                  <p class="gn-font txt-white"> {{item.description}}
+
+             		</p>
+             	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- < scripttype="application/javascript" src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/{{mid}}.js" onload="onScriptLoad();" crossorigin="anonymous"></script> -->
+
+<script>
+function onScriptLoad(){
+var config = {
+"root": "",
+"flow": "DEFAULT",
+"data": {
+"orderId": dtftyh, /* update order id */
+"token": "", /* update token value */
+"tokenType": "TXN_TOKEN",
+"amount": "" /* update amount */
+},
+"handler": {
+"notifyMerchant": function(eventName,data){
+console.log("notifyMerchant handler function called");
+console.log("eventName => ",eventName);
+console.log("data => ",data);
+}
+}
+};
+if(window.Paytm && window.Paytm.CheckoutJS){
+window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
+// initialze configuration using init method
+window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+// after successfully updating configuration, invoke JS Checkout
+window.Paytm.CheckoutJS.invoke();
+}).catch(function onError(error){
+console.log("error => ",error);
+});
+});
+}
+}
+</script>
+<script>
+  $(window).load(function () {
+  $(".goog-logo-link").parent().remove();
+  $(".goog-te-gadget").html(
+    $(".goog-te-gadget").html().replace('&nbsp;&nbsp;Powered by ', '')
+  );
+});
+</script>
+
+
+
+<!-- user alert popup for donation -->
+
+
+<div
+  class="modal fade continue-modal"
+  id="alert-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-width">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close close btn-close1"
+
+          (click)="closeAlertModal()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-8">
+            <div class="row">
+              <div class="col-md-10 col-lg-12 mb-20">
+                <div class="sign-in-form">
+                  <h4 class="">Start your Donation to Save Lives
+                    With your support.</h4>
+                  <button class="btn-w100-rd mt-4" (click)="donatenowModalforNgo()">
+                    <i class="fa fa-heart" aria-hidden="true"></i>Donate Now
+                  </button>
+
+                </div>
+              </div>
+            </div>
+
+          <div class="col-lg-6 col-md-6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+   

@@ -1,0 +1,595 @@
+
+
+<div class="page-banner">
+	<div class="page-1400">
+		<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+			<div class="carousel-inner fund-title">
+        <owl-carousel-o [options]="customOptions2">
+          <ng-template carouselSlide  class="carousel-item" *ngFor="let item of bannerList ,let i = index" [class]="(i === 0) ? 'active' : 'inactive'">
+            <div class="page-caption" >
+              <h3>{{item.title}}</h3>
+              <button type=""  style="width:170px" class="donation" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate Now</button>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section-pabout">
+	<div class="container-fluid" >
+		<div class="page-1400">
+			<div class="row">
+				<div class="col-md-3 col-lg-2 col-sm-12 col-12">
+					<div class="abt-tab nav">
+            <a  class="active" data-toggle="tab"  href="#aboutUs">About Us</a>
+						<a  data-toggle="tab"  href="#vision"  id="vision-tab">vision</a>
+						<a data-toggle="tab"  href="#mission" id="mission-tab">Mission</a>
+            <a data-toggle="tab"  href="#statistics" (click)="counterAnimation()" id="statistics-tab">Statistics</a>
+						<!-- <a data-toggle="tab"  href="#financial">Legal and financial</a> -->
+						<a data-toggle="tab"  href="#teams" id="ourTerms-tab">Our Teams</a>
+						<a data-toggle="tab"  href="#partners" id="partners-tab" (click)="parterRest()">Partners</a>
+						<a data-toggle="tab"  href="#media" id="media-tab">Media</a>
+
+
+					</div>
+				</div>
+				<div class="col-md-9 col-lg-9 col-sm-12 col-12">
+					<div class="tab-pad20">
+						<div class="tab-content">
+              <div id="aboutUs" class="tab-pane active">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">About Us</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+											<p class="gn-font">
+                        What do you do when you see something or someone who needs a change in life? You may consider it for a while and start looking for ways to help those in need. But you simply need to figure out where to start. We've been there too. And with that thought, Crowd Works India Foundation was born.	</p>
+                            <p class="gn-font">
+                              One-third of deaths worldwide, around 18 million people yearly or 50,000 per day, are due to poverty-related causes. Among people in developing nations, women and children are affected by severe poverty. Our focus is on their well-being and rights in marginalized communities. We emphasize promoting quality healthcare, comprehensive education, better living conditions, and disaster preparedness and relief measures.
+
+                               </p>
+                                  <p class="gn-font">
+                                    A large number of people need more enthusiasm for making donations. We set out to find out why. The reason was quite simple. It wasn't that people were not willing to help. They were still determining whether their donations would go to the right people who needed them the most. We serve people by providing a trustworthy and legitimate platform to donate money to the needy people of society. Our overall goal is to alleviate poverty and social injustice.
+                                  </p>
+
+
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div id="vision" class="tab-pane ">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Vision</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+											<!-- <p class="gn-font">
+                What do you do when you see something or someone who need a change in life? Perhaps you think about it for a while and probably start looking for a ways tohelp those in need.
+                But you simply don't know where to start.We've been there too.And with that thought Crowd Works India Foundation were born.
+                      </p> -->
+											<li class="mt-3"><i class="fa fa-circle-o" aria-hidden="true"></i>We <b>aim</b> to find a voice, show our unique work and create a world where people live in dignity and security.</li>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>We <b>believe</b> hope is the best gift ever.</li>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>We <b>pledge</b> we won't give up on our vision</li>
+
+										</div>
+                    
+										<div class="client-testimonials" style="">
+											<div class=""><img src="assets/images/icons/quotes.png" class="quotesf1"></div>
+											<p class="gn-font">
+                        Every act of charity, every thought of sympathy, every action of help, every good deed, is taking so much of self-importance away from our little selves and making us think of ourselves as the lowest and the least, and, therefore, it is all good. Here we find that Jnâna, Bhakti, and Karma - all come to one point.											<div class=""><img src="assets/images/icons/quotes.png" class="quotesf2"></div>
+											<div class="client-pic">
+												<!-- <img *ngIf="image_url != null" src="{{baseUrls}}{{image_url}}" class="img-fluid" style="width: 50px !important;">
+                        <img *ngIf="image_url == null" src="assets/images/profile/demoimage.jpg" class="img-fluid" style="width: 50px !important;">
+                       -->
+                       <div class=""><img src="assets/images/abouts/swami.jpeg" class="img-fluid" style="width: 50px !important;"></div>
+                        <p style="margin-top:10px">Swami Vivekananda</p> 
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div id="mission" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Mission</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+											<p class="gn-font">
+                      Our mission is to make fundraising easier, by keeping the entire process easy and legitimate.To make an impact on society we have adopted the following mission objective.
+											</p>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>To work relentlessly for providing quality health care and medical services for the deprived.</li>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>To help communities who are affected by disasters and emergencies like flood,cyclone,earthquake etc.</li>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>To prevent fake charity approaches who take advantage of the emergency situations.</li>
+                      <li><i class="fa fa-circle-o" aria-hidden="true"></i>To attract volunteers who are passionate about helping the indigent irrespective of any profit and gain.</li>
+
+                      <li><i class="fa fa-circle-o" aria-hidden="true"></i>To transform rural communities to better living condition.</li>
+
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div id="financial" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Legal & financial</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+											<p class="gn-font">
+												 All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words
+											</p>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>Strict and stringent quality measures are to be adopted from raw material</li>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>collection stage to the finished product stage.</li>
+											<li><i class="fa fa-circle-o" aria-hidden="true"></i>International packing standards, materials and specifications are to packing</li>
+
+										</div>
+										<div class="abt-div">
+											<h2 class="sb-headings">Annual reports</h2>
+											<h3 class="sb-title">There are many variations of passages</h3>
+										</div>
+										<div class="row">
+											<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+												<div class="abt-legal-tab">
+													<div class="panel-group" id="abt-Accordion" role="tablist" aria-multiselectable="true">
+										                <div class="panel panel-default">
+										                    <div class="panel-heading" role="tab" id="headingOne">
+										                        <h4 class="panel-title">
+										                            <a data-toggle="collapse" data-parent="#abt-Accordion" href="#abt-tab1" aria-expanded="true" aria-controls="collapse1">
+										                               Annual report 2019-20
+										                            </a>
+										                        </h4>
+										                    </div>
+															<div id="abt-tab1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                        								<div class="panel-body abt-tab-list">
+																	<li><a href="">Balnce sheet</a></li>
+																	<li><a href="">Income and expenditure statement</a></li>
+																	<li><a href="">Receipts and payments- funds flow statement</a></li>
+																	<li><a href="">shedules & notes to the accounts</a></li>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="abt-legal-tab">
+													<div class="panel-group" id="abt-Accordion" role="tablist" aria-multiselectable="true">
+										                <div class="panel panel-default">
+										                    <div class="panel-heading" role="tab" id="headingOne">
+										                        <h4 class="panel-title">
+										                            <a data-toggle="collapse" data-parent="#abt-Accordion" href="#abt-tab2" aria-expanded="true" aria-controls="collapse1">
+										                               Lorem Ipsum is simply dummy text ?
+										                            </a>
+										                        </h4>
+										                    </div>
+															<div id="abt-tab2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                        								<div class="panel-body">
+																	<p class="gn-tab-font">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum  has been the industry Lorem Ipsum Is simply dummmy text</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+												<div class="abt-legal-tab">
+													<div class="panel-group" id="abt-Accordion" role="tablist" aria-multiselectable="true">
+										                <div class="panel panel-default">
+										                    <div class="panel-heading" role="tab" id="headingOne">
+										                        <h4 class="panel-title">
+										                            <a data-toggle="collapse" data-parent="#abt-Accordion" href="#abt-tab3" aria-expanded="true" aria-controls="collapse1">
+										                               Lorem Ipsum is simply dummy text ?
+										                            </a>
+										                        </h4>
+										                    </div>
+															<div id="abt-tab3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                        								<div class="panel-body">
+																	<p class="gn-tab-font">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum  has been the industry Lorem Ipsum Is simply dummmy text</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="abt-legal-tab">
+													<div class="panel-group" id="abt-Accordion" role="tablist" aria-multiselectable="true">
+										                <div class="panel panel-default">
+										                    <div class="panel-heading" role="tab" id="headingOne">
+										                        <h4 class="panel-title">
+										                            <a data-toggle="collapse" data-parent="#abt-Accordion" href="#abt-tab4" aria-expanded="true" aria-controls="collapse1">
+										                               Lorem Ipsum is simply dummy text ?
+										                            </a>
+										                        </h4>
+										                    </div>
+															<div id="abt-tab4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                        								<div class="panel-body">
+																	<p class="gn-tab-font">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum  has been the industry Lorem Ipsum Is simply dummmy text</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="teams" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div">
+											<h2 class="sb-headings cursr-none">Our Teams</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+											<!-- <p class="gn-font">
+												 There are many variations of passages of Lorem Ipsimage_urum available,All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+											</p> -->
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="team-mates-div">
+											<div class="row" >
+												<div class="col-md-4 col-lg-4 col-sm-12 col-12"  *ngFor="let item of teamList"  >
+													<div class="team-mates cursr-none" >
+														<img src="{{teamBaseUrl}}{{item.image_url}}" class="img-fluid">
+														<div class="team-info">
+															<h4 class="gn-h4">{{item.employee_name}}</h4>
+															<p class="gn-li">{{item.designation}}</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div id="partners" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-4 col-lg-5 col-sm-12 col-12">
+												<div class="abt-partners">
+													<img src="assets/images/abouts/Group.png" class="img-fluid">
+												</div>
+											</div>
+											<div class="clear-fix"></div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Become a Partner with us</h2>
+											<!-- <h3 class="sb-title">There are many variations of passages</h3> -->
+											<!-- <p class="gn-font">
+												 All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words
+											</p> -->
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="abt-part-form">
+											<form [formGroup]="partnerForm">
+                        <div class="row">
+                          <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                                    <input type="text" name="" class="part-dt-box form-control inp-backcolor" formControlName="name" placeholder="Name*"  [ngClass]="{ 'is-invalid': submitted && f2.name.errors }">
+                          <div *ngIf="submitted && f2.name.errors" class="invalid-feedback">
+                            <div *ngIf="f2.name.errors.required">This field is required</div>
+
+                            </div>
+                        </div>
+                          <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                             <input type="text" name="" [email]="true" class="part-dt-box form-control inp-backcolor" formControlName="email" placeholder="Email*"  [ngClass]="{ 'is-invalid': submitted && f2.email.errors }" style="text-transform:lowercase">
+
+                            <div *ngIf="submitted && f2.email.errors" class="invalid-feedback">
+                              <div *ngIf="f2.email.errors.required">This field is required</div>
+                              <div *ngIf="f2.email.errors.pattern">Please, Enter valid email.</div>
+
+                              </div>
+                        </div>
+                          <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                                    <input type="text" name="" class="part-dt-box form-control inp-backcolor" formControlName="company" placeholder="Company*"  [ngClass]="{ 'is-invalid': submitted && f2.company.errors }">
+                          <div *ngIf="submitted && f2.company.errors" class="invalid-feedback">
+                            <div *ngIf="f2.company.errors.required">This field is required</div>
+
+                            </div>
+                        </div>
+                                                <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                                    <input type="text" name="" class="part-dt-box form-control inp-backcolor" formControlName="designation" placeholder="Designation*"  [ngClass]="{ 'is-invalid': submitted && f2.designation.errors }">
+                          <div *ngIf="submitted && f2.designation.errors" class="invalid-feedback">
+                            <div *ngIf="f2.designation.errors.required">This field is required</div>
+
+                            </div>
+                        </div>
+                          <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                                    <input type="text" name="" class="part-dt-box form-control inp-backcolor" maxlength="16" minlength="8" formControlName="phone_number" placeholder="Phone Number*"  [ngClass]="{ 'is-invalid': submitted && f2.phone_number.errors }">
+                          <div *ngIf="submitted && f2.phone_number.errors" class="invalid-feedback">
+                            <div *ngIf="f2.phone_number.errors.required">This field is required</div>
+                            <div *ngIf="(f2.phone_number.errors.pattern || phoneerror === true) && this.partnerForm.value.phone_number ">Please, Enter valid Phone Number.</div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                          <button class="btn-wd-100" type="sumit" (click)="submit()"><i class="fa" [ngClass]="{'fa-spin fa-spinner': loading}"></i> Submit</button>
+
+                        </div>
+
+                          </div>
+                    </form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="media" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Media</h2>
+										</div>
+									</div>
+									<div class="col-md-12">
+                    <div class="col-md-12" *ngFor="let item of mediaList | paginate: {
+                      itemsPerPage: 10,
+                      currentPage: pageNumber,
+                      totalItems: totalCount
+                    }">
+                      <h3 class="yr-stories cursr-none">{{item.heading}}</h3>
+                      <div class="media-drpdown">
+                          <div class="panel-group" id="Md-Accordion" role="tablist" aria-multiselectable="true">
+                              <div class="panel panel-default">
+                                  <div class="panel-heading" role="tab" id="headingOne">
+                                      <h4 class="panel-title cursr-none">
+                                          <a data-toggle="collapse" data-parent="#Md-Accordion" href="#md-tab{{item.id}}" aria-expanded="false" aria-controls="collapse1">
+                                             {{item.title}}
+                                          </a>
+                                      </h4>
+                                  </div>
+                                  <div id="md-tab{{item.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                      <div class="panel-body">
+                                          <div class="row align-items-center">
+                                              <div class="col-md-4 col-lg-4 col-sm-6 col-12">
+                                                  <div class="img-media">
+                                                      <img src="{{media_BaseUrl}}{{item.image_url}}" class="img-fluid">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-8 col-lg-8 col-sm-6 col-12">
+                                                  <div class="md-tab-body">
+                                                      <h4 class="tab-title">{{item.title}} </h4>
+                                                      <p class="gn-tab-font">{{item.description}}</p>
+                                                      <li>Read more at:</li>
+                                                      <a href="{{item.link}}" target="_blank">  {{item.link}}</a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row" *ngIf="totalCount > 10">
+                    <div class="col-md-12">
+                    <div class="container d-flex justify-content-center">
+                      <pagination-controls
+                      (pageChange)="pageChanged($event)"
+                    ></pagination-controls>
+                    </div>
+                    </div>
+                </div>
+									</div>
+								</div>
+							</div>
+              <div id="statistics" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Statistics</h2>
+										</div>
+									</div>
+									<div class="col-md-12">
+                  <app-statistics [chartData]="chartData" [chartTitle]="title" [chartColors]="chartColors"  [campaignData]="campaignData" [fundData]="fundData"  [campaignDataExtra]="campaignDataExtra" [allChartData]="allChartData"></app-statistics>
+
+
+									</div>
+								</div>
+
+							</div>
+              	<div id="media" class="tab-pane">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="abt-div cursr-none">
+											<h2 class="sb-headings">Media</h2>
+										</div>
+									</div>
+									<div class="col-md-12">
+                    <div class="col-md-12" *ngFor="let item of mediaList | paginate: {
+                      itemsPerPage: 10,
+                      currentPage: pageNumber,
+                      totalItems: totalCount
+                    }">
+                      <h3 class="yr-stories cursr-none">{{item.heading}}</h3>
+                      <div class="media-drpdown">
+                          <div class="panel-group" id="Md-Accordion" role="tablist" aria-multiselectable="true">
+                              <div class="panel panel-default">
+                                  <div class="panel-heading" role="tab" id="headingOne">
+                                      <h4 class="panel-title cursr-none">
+                                          <a data-toggle="collapse" data-parent="#Md-Accordion" href="#md-tab{{item.id}}" aria-expanded="false" aria-controls="collapse1">
+                                             {{item.title}}
+                                          </a>
+                                      </h4>
+                                  </div>
+                                  <div id="md-tab{{item.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                      <div class="panel-body">
+                                          <div class="row align-items-center">
+                                              <div class="col-md-4 col-lg-4 col-sm-6 col-12">
+                                                  <div class="img-media">
+                                                      <img src="{{media_BaseUrl}}{{item.image_url}}" class="img-fluid">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-8 col-lg-8 col-sm-6 col-12">
+                                                  <div class="md-tab-body">
+                                                      <h4 class="tab-title">{{item.title}} </h4>
+                                                      <p class="gn-tab-font">{{item.description}}</p>
+                                                      <li>Read more at:</li>
+                                                      <a href="{{item.link}}" target="_blank">  {{item.link}}</a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row" *ngIf="totalCount > 10">
+                    <div class="col-md-12">
+                    <div class="container d-flex justify-content-center">
+                      <pagination-controls
+                      (pageChange)="pageChanged($event)"
+                    ></pagination-controls>
+                    </div>
+                    </div>
+                </div>
+									</div>
+								</div>
+
+							</div>
+              <div style="margin-top: 120px;" class="hide-social-txt">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 col-lg-12" style="cursor: pointer;">
+                      <a href="https://{{facebook}}" target="_blank" >
+                      <div class="social-li gn-Fb" >
+                        <img src="assets/images/media/facebook-02.png">
+                        <p>Facebook</p>
+                      </div>
+                    </a>
+                    <a href="https://{{instagram}}" target="_blank" >
+                      <div class="social-li gn-In">
+                        <img src="assets/images/media/instagram-02.png">
+                        <p>instagram</p>
+                      </div></a>
+                      <a href="https://{{whatsapp}}" target="_blank" >
+                      <div class="social-li gn-Wp">
+                        <img src="assets/images/media/whatsapp-02.png">
+                        <p>whatsapp</p>
+                      </div>
+                      </a>
+                      <a href="https://{{linkedin}}" target="_blank" >
+                      <div class="social-li gn-Ln">
+                        <img src="assets/images/media/linkedin-02.png">
+                        <p>linkedin</p>
+                      </div></a>
+                      <a href="https://{{twitter}}" target="_blank" >
+                      <div class="social-li gn-Tw">
+                        <img src="assets/images/media/twiter-02.png">
+                        <p>Twitter</p>
+                      </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+     </div>
+
+     <div style="margin-top: 120px;" class="show-txt">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-12" style="cursor: pointer;">
+            <a href="https://{{facebook}}" target="_blank" >
+            <div class="social-li gn-Fb" >
+              <img src="assets/images/media/facebook-02.png">
+            </div>
+          </a>
+          <a href="https://{{instagram}}" target="_blank" >
+            <div class="social-li gn-In">
+              <img src="assets/images/media/instagram-02.png">
+            </div></a>
+            <a href="https://{{whatsapp}}" target="_blank" >
+            <div class="social-li gn-Wp">
+              <img src="assets/images/media/whatsapp-02.png">
+            </div>
+            </a>
+            <a href="https://{{linkedin}}" target="_blank" >
+            <div class="social-li gn-Ln">
+              <img src="assets/images/media/linkedin-02.png">
+            </div></a>
+            <a href="https://{{twitter}}" target="_blank" >
+            <div class="social-li gn-Tw">
+              <img src="assets/images/media/twiter-02.png">
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+ <!-- Message popup Modal -->
+
+ <!-- Message popup Modal -->
+<div class="modal fade payed-modal" id="successModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Your application submitted successfully. Our representative will contact you soon!                </p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-8 col-12">
+                    <button class="f-btn-border-red" type="submit"  data-dismiss="modal"  >OK</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="modal fade payed-modal" id="successPartnerModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Your application submitted successfully.Our representative will contact you soon.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" >OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+
+</script>

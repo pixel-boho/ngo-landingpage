@@ -1,0 +1,679 @@
+
+.form-control:focus{border-color: #dc3545;;  box-shadow: none; -webkit-box-shadow: none;}
+.has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
+
+.inp-backcolor{
+  background-color: transparent;
+  color: white;
+
+}
+::ng-deep  .sb-button{
+  width: 36px;
+    margin: 0px 0px 10px 0px;
+    padding: 5px 0px 0px 0px;
+    display: inline-block !important;
+}
+::ng-deep .sb-facebook{
+background-color: #4267B2;
+color: white;
+height: 30px;
+
+
+}
+::ng-deep .sb-twitter{
+  background-color:#00acee;
+  color: white;
+  height: 30px;
+
+
+  }
+  ::ng-deep .sb-linkedin{
+    background-color: #00acee;
+    color: white;
+    height: 30px;
+
+
+    }
+    ::ng-deep .sb-whatsapp{
+      background-color: #4FCE5D;
+      color: white;
+      height: 30px;
+
+      }
+
+    ::ng-deep .sb-wrapper {
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+      transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .share-btn > a {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 12px;
+    font-family: Verdana, Arial;
+}
+.share-btn > a:hover {
+    cursor: pointer;
+}
+
+.campaign-img{
+  display: flex;
+  height: 225px;
+}
+
+.campaign-img img{
+  flex-shrink: 63;
+    min-width: 100%;
+    min-height: 225px;
+    max-height: 225px;
+    object-fit: cover;
+    align-items: center;
+}
+.img-new{
+  height: 250px;
+  object-fit: cover;
+
+}
+.h3-txt{
+  min-height: 80px !important;
+}
+
+/* // donate now wizard */
+
+.wizard-tab-modal {
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  font-family: 'Montserrat', sans-serif;
+}
+.wizard-tab-modal.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 99999;
+}
+.wizard-tab-modal .modal-header .close{
+  padding: 0px;
+  margin: 0rem 1rem -1rem auto;
+}
+.wizard-tab-modal .modal-dialog {
+  max-width: 50%;
+}
+.wizard-tab-modal .modal-content {
+  border-radius: 0;
+  min-height: 300px;
+  overflow: auto;
+  border-radius: 0px;
+  background-color: #32374a;
+  background: linear-gradient(100deg, rgba(195,49,62,1) 65%, rgba(50,55,74,1) 65%);
+}
+.wizard-tab-modal .modal-header {
+  border: none;
+  padding-bottom: 10px;
+}
+.wizard-tab-modal .modal-width{
+  max-width: 800px;
+}
+.wizard-tab-modal .modal-body {
+  padding: 30px 20px;
+}
+.form-wizard fieldset {
+  display: none;
+  text-align: left;
+  border:0px !important
+}
+
+.wz-h3{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+  font-size: 24px;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  margin: 0px 0px 10px 0px;
+}
+.wz-txt-box{
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  border: none;
+  border-radius: 0px !important;
+  color:#000;
+  font-size: 16px;
+  font-weight: 500;
+}
+.wz-ip-grp{
+  border-radius: 0px !important;
+  border:none;
+  background-color: #32374a;
+  color:#fff;
+}
+.rs-block{
+  width: 100%;
+  padding: 12px 10px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color:#000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  border:none;
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: -1px 1px 8px 5px rgb(0 0 0 / 20%);
+}
+.btn-wz-wt{
+  width: 200px;
+  padding: 8px 20px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color:#c3313e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border:none;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.dt-amount-form ::placeholder  {
+  color: #32374a;
+  opacity: .8;
+}
+.donor-info-form ::placeholder  {
+  color: #fff;
+  opacity: .8;
+}
+.donor-txt-box {
+    width: 100%;
+    background: 0 0;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.8);
+    border-radius: 0;
+    color: #fff;
+    text-transform: lowercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 991px) {
+  .wizard-tab-modal .modal-dialog {
+    max-width: 80%;
+}
+  .wizard-tab-modal .modal-body {
+    padding: 20px 20px;
+}
+}
+@media only screen and (max-width: 767px) {
+  .wizard-tab-modal .modal-dialog {
+    max-width: 100%;
+}
+  .wizard-tab-modal .modal-body {
+    padding: 20px 10px;
+}
+.donor-txt-box {
+  padding: 8px 5px;
+  }
+  .donor-info-form .mb-30{
+    margin: 0px 0px 20px 0px !important;
+  }
+}
+.login-toggle-btn input[type="checkbox"] {
+  height: 15px;
+  margin: 0;
+  position: relative;
+  top: 2px;
+  width: 17px;
+  background-color: transparent !important;
+}
+.login-toggle-btn {
+  padding: 0px;
+}
+.login-toggle-btn label {
+  text-transform: capitalize;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+ }
+
+ .errr-msg-white{
+   color: #dbd9d9;
+ }
+
+ ::ng-deep .mat-stepper-horizontal{
+background-color: transparent;
+ }
+ ::ng-deep .mat-horizontal-stepper-header-container {
+
+display: none !important;
+ }
+
+.btn-color{
+  background-color: #32374a;
+    color: white;
+}
+::placeholder  {
+  color: #fff !important;
+  opacity: .8 !important;
+}
+
+
+@media only screen and (max-width: 991px){
+    .h3-txt{
+    min-height: 0px !important;
+
+  }
+
+}
+
+
+/* // donate now wizard */
+
+.wizard-tab-modal {
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  font-family: 'Montserrat', sans-serif;
+}
+.wizard-tab-modal.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 99999;
+}
+.wizard-tab-modal .modal-header .close{
+  padding: 0px;
+  margin: 0rem 1rem -1rem auto;
+}
+.wizard-tab-modal .modal-dialog {
+  max-width: 50%;
+}
+.wizard-tab-modal .modal-content {
+  border-radius: 0;
+  min-height: 300px;
+  overflow: auto;
+  border-radius: 0px;
+  background-color: #32374a;
+  background: linear-gradient(100deg, rgba(195,49,62,1) 65%, rgba(50,55,74,1) 65%);
+}
+.wizard-tab-modal .modal-header {
+  border: none;
+  padding-bottom: 10px;
+}
+.wizard-tab-modal .modal-width{
+  max-width: 800px;
+}
+.wizard-tab-modal .modal-body {
+  padding: 30px 20px;
+}
+.form-wizard fieldset {
+  display: none;
+  text-align: left;
+  border:0px !important
+}
+
+.wz-h3{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+  font-size: 24px;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  margin: 0px 0px 10px 0px;
+}
+.wz-txt-box{
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  border: none;
+  border-radius: 0px !important;
+  color:#000;
+  font-size: 16px;
+  font-weight: 500;
+}
+.wz-ip-grp{
+  border-radius: 0px !important;
+  border:none;
+  background-color: #32374a;
+  color:#fff;
+}
+.rs-block{
+  width: 100%;
+  padding: 12px 10px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color:#000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  border:none;
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: -1px 1px 8px 5px rgb(0 0 0 / 20%);
+}
+.btn-wz-wt{
+  width: 200px;
+  padding: 8px 20px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color:#c3313e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border:none;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.dt-amount-form ::placeholder  {
+  color: #32374a;
+  opacity: .8;
+}
+.donor-info-form ::placeholder  {
+  color: #fff;
+  opacity: .8;
+}
+.donor-txt-box {
+    width: 100%;
+    background: 0 0;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.8);
+    border-radius: 0;
+    color: #fff;
+    text-transform: lowercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 991px) {
+  .wizard-tab-modal .modal-dialog {
+    max-width: 80%;
+}
+  .wizard-tab-modal .modal-body {
+    padding: 20px 20px;
+}
+}
+@media only screen and (max-width: 767px) {
+  .wizard-tab-modal .modal-dialog {
+    max-width: 100%;
+}
+  .wizard-tab-modal .modal-body {
+    padding: 20px 10px;
+}
+.donor-txt-box {
+  padding: 8px 5px;
+  }
+  .donor-info-form .mb-30{
+    margin: 0px 0px 20px 0px !important;
+  }
+}
+.login-toggle-btn input[type="checkbox"] {
+  height: 15px;
+  margin: 0;
+  position: relative;
+  top: 2px;
+  width: 17px;
+  background-color: transparent !important;
+}
+.login-toggle-btn {
+  padding: 0px;
+}
+.login-toggle-btn label {
+  text-transform: capitalize;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+ }
+
+ .errr-msg-white{
+   color: #dbd9d9;
+ }
+
+ ::ng-deep .mat-stepper-horizontal{
+background-color: transparent;
+ }
+ ::ng-deep .mat-horizontal-stepper-header-container {
+
+display: none !important;
+ }
+
+.btn-color{
+  background-color: #32374a;
+    color: white;
+}
+::placeholder  {
+  color: #fff !important;
+  opacity: .8 !important;
+}
+
+/* // 80gFormYesOrNoModal */
+.input-box,.textarea-div {
+  color: black !important;
+}
+.payed-modal {
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+.payed-modal.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 99999;
+}
+.payed-modal .modal-dialog {
+  max-width: 40%;
+}
+.payed-modal .modal-content {
+  border-radius: 0;
+  max-height: 300px;
+  overflow: auto;
+  /* border-radius: 20px; */
+  background-color: #32374a;
+}
+.payed-modal .modal-body {
+  padding: 30px 30px;
+}
+.payd-msg{
+  display: block;
+}
+.payd-msg p{
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+  font-size:18px;
+  color:#fff;
+  text-align: center;
+  margin: 0px 0px 20px 0px;
+}
+.f-btn-border,.f-btn-border-red{
+  width: 100%;
+  padding: 8px 0px;
+  border: none;
+  border: solid 2px #fff;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  /* border-radius: 40px; */
+   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0px 0px 10px 0px;
+}
+.f-btn-border-red{
+  background-color: #c3313e;
+  border: solid 2px #c3313e;
+}
+@media only screen and (max-width: 991px) {
+  .payed-modal .modal-dialog {
+    max-width: 60%;
+  }
+  .payd-msg p{
+  font-size:14px;
+}
+}
+
+@media only screen and (max-width: 767px) {
+  .payed-modal .modal-dialog {
+    max-width: 70%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .payed-modal .modal-dialog {
+    max-width: 100%;
+  }
+}
+
+
+/* 80gmForm */
+
+/* // donate now wizard */
+
+.eighty-gmform-modal {
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  font-family: 'Montserrat', sans-serif;
+}
+.eighty-gmform-modal.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 99999;
+}
+.eighty-gmform-modal .modal-header .close{
+  padding: 0px;
+  margin: 0rem 1rem -1rem auto;
+}
+.eighty-gmform-modal .modal-dialog {
+  max-width: 50%;
+}
+.eighty-gmform-modal .modal-content {
+  border-radius: 0;
+  min-height: 300px;
+  overflow: auto;
+  border-radius: 0px;
+  background-color: #32374a;
+  background: linear-gradient(100deg, rgba(195,49,62,1) 65%, rgba(50,55,74,1) 65%);
+}
+.eighty-gmform-modal .modal-header {
+  border: none;
+  padding-bottom: 10px;
+}
+.eighty-gmform-modal .modal-width{
+  max-width: 800px;
+}
+.eighty-gmform-modal .modal-body {
+  padding: 30px 20px;
+}
+.form-wizard fieldset {
+  display: none;
+  text-align: left;
+  border:0px !important
+}
+
+.wz-h3{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+  font-size: 24px;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  margin: 0px 0px 10px 0px;
+}
+.wz-txt-box{
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  border: none;
+  border-radius: 0px !important;
+  color:#000;
+  font-size: 16px;
+  font-weight: 500;
+}
+.wz-ip-grp{
+  border-radius: 0px !important;
+  border:none;
+  background-color: #32374a;
+  color:#fff;
+}
+.rs-block{
+  width: 100%;
+  padding: 12px 10px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color:#000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  border:none;
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: -1px 1px 8px 5px rgb(0 0 0 / 20%);
+}
+.btn-wz-wt{
+  width: 200px;
+  padding: 8px 20px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  color:#c3313e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border:none;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.dt-amount-form ::placeholder  {
+  color: #32374a;
+  opacity: .8;
+}
+.donor-info-form ::placeholder  {
+  color: #fff;
+  opacity: .8;
+}
+.donor-txt-box {
+    width: 100%;
+    background: 0 0;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.8);
+    border-radius: 0;
+    color: #fff;
+    /* text-transform: lowercase; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 991px) {
+  .eighty-gmform-modal .modal-dialog {
+    max-width: 80%;
+}
+.eighty-gmform-modal .modal-body {
+    padding: 20px 20px;
+}
+}
+@media only screen and (max-width: 767px) {
+  .eighty-gmform-modal .modal-dialog {
+    max-width: 100%;
+}
+.eighty-gmform-modal .modal-body {
+    padding: 20px 10px;
+}
+}
+
+.inpt-txt{
+  padding: 40px 10px;
+}
+.profile-donation{
+  background-color: white;
+}
+
+

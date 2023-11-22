@@ -1,0 +1,29 @@
+.sbmt-fund{
+    margin: 0 auto;
+    width: 350px;
+    height: 54px;
+}
+
+::ng-deep .invalid-feedback {
+  display: block !important;
+}
+.img-box{
+  margin: 10px;
+  object-fit: cover;
+  height: 100px;
+  width: 100%;
+}
+.img-cls{
+  position: absolute;
+  top: 0;
+  padding: 0;
+  /* float: right; */
+  right: 0;
+
+}
+.col-md-3{
+  float: left;
+}
+
+
+

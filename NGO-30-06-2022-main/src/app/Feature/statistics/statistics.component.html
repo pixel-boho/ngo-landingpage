@@ -1,0 +1,90 @@
+
+ <div class="container" >
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-12 col-sm-12">
+      <div class="" style="display: flex;">
+        <button type="button" class="donation create-btn" id="userdta" (click)="userData()">All</button>
+        <button type="button" class="donation create-btn" id="campgDta" (click)="campaignStatistics()">Campaign</button>
+        <button type="button" class="donation create-btn" id="funddta" (click)="funds()">Funds</button>
+
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+
+<div class="row legend-style" >
+  <div class="col s6">
+
+    <div class="col s6">
+      <svg viewBox="0 0 36 36 " id="allUser">
+        <g *ngFor="let data of chartData;let i=index">
+          <path  class='circle' [attr.d]="circleArray[i].vector"
+           fill="none" [style.stroke]="chartColors[i]" stroke-linecap="square" stroke-width="1.5" [style.strokeDasharray]="dashArray[i]"
+          /> </g>
+          <g fill="#000A12" class="total-display">
+              <text x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="5" id="countuserValue" akhi="1000">0</text>
+          </g>
+          <text x="16.91549431" y="20" alignment-baseline="central" text-anchor="middle" font-family="OpenSans-Regular, Open Sans"
+           font-size="2" fill="#888888">Users</text>
+      </svg>
+</div>
+<div class="col s6" id="campagin">
+
+  <svg viewBox="0 0 36 36 " >
+        <g *ngFor="let data of campaignData;let i=index">
+          <path  class='circle' [attr.d]="circleArray[i].vector"
+           fill="none" [style.stroke]="chartColors[i]" stroke-linecap="square" stroke-width="1.5" [style.strokeDasharrays]="dashArrays[i]"
+          /> </g>
+          <g fill="#000A12" class="total-display">
+              <text x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="5"  akhi="1000">{{campaignUsers}}</text>
+          </g>
+          <text x="16.91549431" y="20" alignment-baseline="central" text-anchor="middle" font-family="OpenSans-Regular, Open Sans"
+           font-size="2" fill="#888888">Campaigns</text>
+      </svg>
+</div>
+<div class="col s6" id="fund">
+
+  <svg viewBox="0 0 36 36 " >
+        <g *ngFor="let data of fundData;let i=index">
+          <path  class='circle' [attr.d]="circleArray[i].vector"
+           fill="none" [style.stroke]="chartColors[i]" stroke-linecap="square" stroke-width="1.5" [style.strokeDasharray]="dashArray[i]"
+          /> </g>
+          <g fill="#000A12" class="total-display">
+              <text x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="5" id="countuserValue" akhi="1000">{{fundrequired}}</text>
+          </g>
+          <text x="16.91549431" y="20" alignment-baseline="central" text-anchor="middle" font-family="OpenSans-Regular, Open Sans"
+           font-size="2" fill="#888888">Fund Required</text>
+      </svg>
+</div>
+
+  </div>
+  <div class="col s6">
+    <div class="col s12" id="allUsers">
+      <div class=" row" *ngFor="let data of chartData;let i=index">
+        <div class="col s2 col-lg-4 col-md-4 legend-box " [style.backgroundColor]="chartColors[i]"><span class="legend-text">100%</span></div>
+          <div class="col s7 col-12 col-sm-12 col-lg-4 col-md-4 legend-labelbox ">{{data.Name}}</div>
+          <div class="col s3 col-12 col-sm-12 col-lg-4 col-md-4  legend-value ">{{data.Value}}</div>
+      </div>
+  </div>
+<div class="col 12" id="campagins">
+      <div class=" row" *ngFor="let data of campaignData;let i=index">
+          <div class="col s2 col-lg-4 col-md-4 legend-box " [style.backgroundColor]="chartColors[i]"><span class="legend-text">100%</span></div>
+          <div class="col s7 col-12 col-sm-12 col-lg-4 col-md-4 legend-labelbox ">{{data.Name}}</div>
+          <div class="col s3 col-12 col-sm-12 col-lg-4 col-md-4  legend-value ">{{data.Value}}</div>
+      </div>
+  </div>
+<div class="col 12" id="funds">
+      <div class=" row" *ngFor="let data of fundData;let i=index">
+        <div class="col s2  col-lg-4 col-md-4 legend-box " [style.backgroundColor]="chartColors[i]"><span class="legend-text">100%</span></div>
+        <div class="col s7 col-12 col-sm-12 col-lg-4 col-md-4 legend-labelbox ">{{data.Name}}</div>
+        <div class="col s3 col-12 col-sm-12 col-lg-4 col-md-4  legend-value ">{{data.Value}}</div>
+      </div>
+  </div>
+
+  </div>
+
+
+
+</div>

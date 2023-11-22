@@ -1,0 +1,158 @@
+.slider-img{
+  max-height: 800px;
+  object-fit: cover;
+
+}
+@media only screen and  (max-width: 600px){
+  .slider-img{
+    max-height: 250px;
+    object-fit: cover;
+  }
+}
+::ng-deep .owl-nav{
+  display: none !important;
+}
+.img-div{
+  max-height: 250px;
+  min-height: 250px;
+}
+.img-new{
+  height: 250px;
+  object-fit: cover;
+}
+::ng-deep  .sb-button{
+  width: 37px;
+    margin: 0px 0px 10px 0px;
+    padding: 5px 0px 0px 0px;
+    display: inline-block !important;
+}
+::ng-deep .sb-facebook{
+  background-color: #4267B2;
+  color: white;
+  height: 25px;
+
+
+  }
+  a:hover {
+color: white !important;
+  }
+  a.hvrclr:hover {
+    color: green !important;
+    }
+    a.hvrclpendingr:hover {
+      color: orange !important;
+        }
+        a.hvrclrej:hover {
+          color: red !important;
+            }
+
+
+  ::ng-deep .sb-twitter{
+    background-color:#00acee;
+    color: white;
+    height: 25px;
+
+
+    }
+    ::ng-deep .sb-linkedin{
+      background-color: #00acee;
+      color: white;
+      height: 25px;
+
+
+      }
+      ::ng-deep .sb-whatsapp{
+        background-color: #4FCE5D;
+        color: white;
+        height: 25px;
+
+        }
+    ::ng-deep .sb-wrapper {
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+      transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .share-btn > a {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 12px;
+    font-family: Verdana, Arial;
+}
+.share-btn > a:hover {
+    cursor: pointer;
+}
+
+.campaign-img{
+  display: flex;
+  height: 225px;
+}
+
+.campaign-img img{
+  flex-shrink: 63;
+    min-width: 100%;
+    min-height: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    align-items: center;
+}
+.file-inpt{
+  padding: 0 0 16px 0;
+}
+.form-control:focus{border-color: #dc3545;;  box-shadow: none; -webkit-box-shadow: none;}
+.has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
+
+.inp-backcolor{
+  background-color: transparent;
+  /* color: white; */
+
+}
+.file-border{
+  border: none;
+}
+.h3-txt{
+  /* min-height: 80px !important; */
+  min-height: 54px !important;
+  font-size: 17px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 991px){
+  .h3-txt{
+  min-height: 0px !important;
+
+}
+}
+/* //profile page loader */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+::ng-deep .close:hover {
+  color: #ed0c0c !important;
+}
+::ng-deep .slick-dots{
+  display: none !important;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.scroll {
+  overflow-y:scroll;
+height: 400px;
+  /* background-color: #333; */
+  /* scrollbar-width: thin; */
+}

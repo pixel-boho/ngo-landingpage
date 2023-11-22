@@ -1,0 +1,175 @@
+<!--slider section start-->
+<!-- <div class="page-banner">
+	<div class="container">
+		<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel" data-slide-to="1"></li>
+				<li data-target="#carousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner fund-title">
+				<div class="carousel-item" *ngFor="let item of bannerList ,let i = index" [class]="(i === 0) ? 'active' : 'inactive'">
+					<div class="page-caption" >
+						<h3>{{item.title}}</h3>
+            <button type="" class="donation" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate Now</button>
+
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control left" href="#carousel" data-slide="prev"></a>
+			<a class="carousel-control right" href="#carousel" data-slide="next"></a>
+		</div>
+	</div>
+</div> -->
+<div class="page-banner">
+	<div class="page-1400">
+		<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+			<div class="carousel-inner fund-title">
+        <owl-carousel-o [options]="customOptions2">
+          <ng-template carouselSlide  *ngFor="let item of bannerList ,let i = index" [class]="(i === 0) ? 'active' : 'inactive'">
+            <div class="page-caption" >
+              <h3>{{item.title}}</h3>
+              <button type=""  style="width:170px" class="donation" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate To NGO</button>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="sec-views">
+	<!-- <div class="container">
+		<div class="view-div-bar">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<div class="view-div">
+						<div class="view-list text-red">
+							<h3 class="text-red">₹1500 +Cr*</h3>
+							<p class="text-red">Sposoring the education of 6 </p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>5 lakh +</h3>
+							<p>live impact acroos the globe </p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>165 +</h3>
+							<p>No.of countries raised funds from</p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>₹ 30 Lakh</h3>
+							<p>No.of countries raised in 24hr</p>
+						</div>
+					</div>
+					<div class="view-div">
+						<div class="view-list">
+							<h3>80G</h3>
+							<p>80G Tax benefits for indian donors</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div> -->
+</div>
+<div class="fund-search">
+	<div class="container">
+    <form [formGroup]="filterForm">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-5 col-lg-7 col-sm-12 col-12">
+						<input type="text" class="search-fund-box" formControlName="seachKeyword" (input)="searchFundRaiserByKeword()" placeholder="Search">
+					</div>
+					<div class="col-md-3 col-lg-2 col-sm-12 col-12">
+						<select class="search-fund-box" formControlName="amount" [(ngModel)]="sortrVal"  (change)="sortFundRaiser()">
+              <option value="" >Sort</option>
+							<option value="asc" selected="selected" >Low To High</option>
+              <option value="desc" >High To Low</option>
+						</select>
+					</div>
+          <div class="col-md-4 col-lg-3 col-sm-12 col-12">
+                  <select class="search-fund-box" formControlName="category_id" (change)="categoryVal()">
+                    <option value="">Filter</option>
+                    <option value="{{item.id}}" selected="selected" *ngFor="let item of categoryList"  >{{item.title}}</option>
+                  </select>
+
+					</div>
+				</div>
+			</div>
+		</div>
+    </form>
+	</div>
+</div>
+<div class="section-fundraiser">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+        <div class="d-flex justify-content-center" *ngIf="fundRaiserList == undefined">
+          <div class="spinner-border text-success m-5 "  role="status"  >
+            <span class="sr-only" >Loading...</span>
+          </div>
+          </div>
+        <div class="d-flex justify-content-center">
+          <div class="m-5"  role="status" *ngIf="fundRaiserlength === 0"  ><h3 style="color:#c3313e;"> No Records Found</h3>
+          </div>
+          </div>
+				<div class="row" >
+					<div class="col-md-6 col-lg-4" *ngFor="let item of fundRaiserList | paginate: {
+            itemsPerPage: 18,
+            currentPage: pageNumber,
+            totalItems: totalCount
+          }">
+						<div class="slide-scheme-sec">
+              <div class="campaign-img">
+
+							<img src="{{baseUrl}}{{item.image_url}}" class="img-fluid" style="cursor: pointer;" (click)="fundRaiserDetail(item.id,item.created_by)" ></div>
+							<div class="scheme-subject">
+								<h5 class="h3-txt">{{item.title.length>70 ? (item.title | slice:0:70)+'..':(item.title)}}</h5>
+                <span>₹{{item.fund_raised}}</span> raised out of <span>₹{{item.fund_required}}</span>
+                <div class="progress mb-2" style="height: 5px;">
+                  <div class="progress-bar progress-bar-red" role="progressbar" style="width:{{(item.fund_raised*100)/(item.fund_required)}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+								<!-- <li>Donation/Month(Rs)</li> -->
+								<div class="social-link">
+                  <li class="mt-1 cursr-pointer">share now</li>
+                  <share-buttons [theme]="'modern-dark'"
+                  [include]="['facebook','twitter','linkedin','whatsapp']"
+                  [show]="4"
+                  [size]="1"
+                  [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + item.id"
+                  [description]="story"
+
+                  [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+                  [autoSetMeta]="false"
+                  ></share-buttons>
+								</div>
+								<a href="" routerLink="/fund-raiser-detail/{{item.id}}" ><i class="fa fa-heart" aria-hidden="true"></i>Donate</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="row" *ngIf="totalCount > 18">
+    <div class="col-md-12">
+    <div class="container d-flex justify-content-center">
+      <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
+    </div>
+
+    </div>
+
+</div>
+</div>
+

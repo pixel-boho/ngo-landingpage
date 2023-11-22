@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" style="overflow-x: hidden;" prefix="og: https://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crowd Works India Foundations</title>
+  <meta property="og:title" content="Crowd Works India Foundation" />
+  <meta property="og:type" content="video.movie" />
+  <meta property="og:url" content="https://crowdworksindia.org/" />
+  <meta property="og:image" content="https://crowdworksindia.org/favicon.png" />
+  <base href="/">
+  <!-- <base href="/ngo-web/ngo/"> -->
+    <!-- <base href="/ngo/"> --><link rel="manifest" href=”manifest.json” crossorigin="use-credentials" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.png" style="width: 100%; height: 100%;">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./assets/css/iconfont.min.css"/>
+    <link rel="stylesheet" href="./assets/css/slick.css">
+    <link rel="stylesheet" href="./assets/css/slick-theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <!-- ONE SIGNAL -->
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script id="context" type="text/javascript" src="https://sandbox-payments.open.money/layer"></script>
+
+<!--OR-->
+
+<!--For Production-->
+<script id="context" type="text/javascript" src="https://payments.open.money/layer"></script>
+
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "28633676-3bf9-460d-bb1c-3de2aedec358",
+          // requiresUserPrivacyConsent: true,
+          // autoResubscribe: false,
+          // notifyButton: {
+          //   enable: true,
+          // }
+        });
+        OneSignal.showNativePrompt();
+      });
+    </script>
+    <!-- ONE SIGNAL END -->
+</head>
+<body class="">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+  </div>
+  </div>
+  </div>
+  </div>
+  <app-root></app-root>
+  <script type=”text/javascript” crossorigin=”anonymous” src=”https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/.js”></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <!-- razerpay cdn -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript">
+    
+
+  function googleTranslateElementInit() {
+  console.log("jhjgkjh")
+  setTimeout(function(){
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  console.log("settimeout")
+  }, 3000);
+
+    }
+  </script>
+  <script>
+  </script>
+    <script>
+      function submitQuery(){
+        var settings = {
+    "url": "https://www.cocoalabs.in/ngo/api/web/v1/setting/add-visitor",
+    "method": "GET",
+    "timeout": 0,
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+      });    }
+
+   submitQuery();
+
+
+    </script>
+   </body>
+  </html>
+  <link
+  rel="stylesheet"
+  />
+  <script>
+    //  $('.file-upload').file_upload();
+    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+      const dropZoneElement = inputElement.closest(".drop-zone");
+    
+      dropZoneElement.addEventListener("click", (e) => {
+        inputElement.click();
+      });
+    
+      inputElement.addEventListener("change", (e) => {
+        if (inputElement.files.length) {
+          updateThumbnail(dropZoneElement, inputElement.files[0]);
+        }
+      });
+    
+      dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+      });
+    
+      ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, (e) => {
+          dropZoneElement.classList.remove("drop-zone--over");
+        });
+      });
+    
+      dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+    
+        if (e.dataTransfer.files.length) {
+          inputElement.files = e.dataTransfer.files;
+          updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+        }
+    
+        dropZoneElement.classList.remove("drop-zone--over");
+      });
+    });
+    
+    /**
+     * Updates the thumbnail on a drop zone element.
+     *
+     * @param {HTMLElement} dropZoneElement
+     * @param {File} file
+     */
+    function updateThumbnail(dropZoneElement, file) {
+      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    
+      // First time - remove the prompt
+      if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+        dropZoneElement.querySelector(".drop-zone__prompt").remove();
+      }
+    
+      // First time - there is no thumbnail element, so lets create it
+      if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+      }
+    
+      thumbnailElement.dataset.label = file.name;
+    
+      // Show thumbnail for image files
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+    
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+        };
+      } else {
+        thumbnailElement.style.backgroundImage = null;
+      }
+    }
+    
+          
+    </script>
+
+
+
+

@@ -1,0 +1,14 @@
+.form-control:focus{border-color: #dc3545;;  box-shadow: none; -webkit-box-shadow: none;}
+.has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
+
+.inp-backcolor{
+  background-color: transparent;
+  color: white;
+
+}
+::ng-deep .form-control {
+  border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0;
+}

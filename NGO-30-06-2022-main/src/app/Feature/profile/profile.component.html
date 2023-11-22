@@ -1,0 +1,659 @@
+<!-- <div class="loader" style="margin:  0 auto;" *ngIf="userDetails == undefined"></div> -->
+<div class="d-flex justify-content-center" *ngIf="userDetails == undefined">
+<div class="spinner-border text-success m-5 "  role="status"  >
+  <span class="sr-only" >Loading...</span>
+</div>
+</div>
+<div class="section-profile" *ngIf="userDetails !== undefined">
+	<div class="container-fluid">
+		<div class="page-1400">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row align-items-center">
+						<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+							<div class="profile-bar cursr-none">
+								<div class="profile-img" >
+									<img *ngIf="image_url != ''||image_url !=null" src="{{baseUrls}}{{image_url}}" class="img-fluid">
+                  <img *ngIf="image_url == ''|| image_url ==null" src="assets/images/profile/demoimage.jpg" class="img-fluid" style="width: 100% !important;">
+
+								</div>
+								<div class="profile-dt">
+									<h3> {{name}}</h3>
+									<p>{{email}}</p>
+								</div>
+                <div >
+                  <img src="assets/images/profile/coins-1.png" width="60px" height="60px" class="img-fluid">
+                  <p class="m-1" style="color: white;">{{points}} coins</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-lg-4 col-sm-12 col-12 cursr-none">
+							<div class="pf-info-table table-responsive">
+			                    <table class="table">
+			                        <tbody>
+			                            <tr>
+			                                <td class=""><p><i class="fa fa-phone"></i> Phone number</p></td>
+			                                <td><p>+{{country_code}} &nbsp;{{phone_number}}</p></td>
+			                            </tr>
+			                            <!-- <tr>
+			                                <td><p><i class="fa fa-map-marker"></i> Country</p></td>
+			                                <td><p>India</p></td>
+			                            </tr> -->
+			                            <tr>
+			                                <td><p><i class="fa fa fa-calendar"></i> Date of birth</p></td>
+			                                <td><p>{{date_of_birth | date: 'dd'}}-{{date_of_birth | date:'MM'}}-{{date_of_birth | date: 'yyyy'}}</p></td>
+			                            </tr>
+			                        </tbody>
+			                    </table><img *ngIf="pancard_image != null" src="{{panUrls}}{{pancard_image}}" width="60px" height="60px" class="img-fluid">
+                          
+			                </div>
+						</div>
+						<div class="col-md-2 col-lg-2 col-sm-12 col-12">
+							<div class="">
+								<button class="btn-w100-bd mb-10" data-toggle="modal" data-target="#edit-profile-modal">Edit profile</button>
+								<!-- <button class="btn-w100-rd mb-10">Update password</button> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-pabout">
+	<div class="container-fluid" >
+		<div class="page-1400">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 col-sm-12 col-12">
+              <div class="abt-tab nav">
+                      <a  class="active" data-toggle="tab"   href="#My-donation" (click)="payment()">My donations</a>
+                      <a  data-toggle="tab"  href="#My-fundraisers" (click)="myFundRaiser()">My Fundraisers</a>
+                      <a data-toggle="tab"   href="#My-comments" (click)="myFundComments()">My Comments</a>
+                      <a data-toggle="tab"   href="#My-Loans" (click)="myLoans()">My Loans</a>
+                      <a data-toggle="tab"  href="#My-Documents" >My Documents</a>
+                      <a data-toggle="tab"  href="#payment"  (click)="payment()">Payment History</a>
+            
+
+
+              </div>
+            </div>
+            <div class="col-md-9 col-lg-9 col-sm-12 col-12">
+              <div class="tab-pad20">
+                <div class="tab-content">
+                            <div id="My-donation" class="tab-pane active">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="profile-donation">
+                                    <div class="pf-sub">
+                                       <!-- <h4>We use cookies</h4> -->
+                                     <p class="sm-txt-mb0 txt-white" style="text-align: center;">Check Out Our Latest Fundraiser
+                                      </p>
+                                    </div>
+                                    <div class="pf-sub-btn" style="text-align: center;">
+                                      <button class="gn-sm-btn" routerLink="/fund-raiser">Browse Fundraiser</button>
+                                    </div>
+                                  </div>
+                                </div>
+              
+                                <div class="col-md-12" class="scroll"  *ngIf="donate.length>0">
+                                  <table class="table" >
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Sl.No</th>
+                                        <th scope="col">Donation</th>
+                                        <th scope="col">Amount</th>
+                                        <!-- <th scope="col">Transaction-id</th> -->
+                                      </tr>
+                                      
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let item of donate;let i=index">
+                                        <td>{{i+1}}</td>
+                                       <td>{{item.show_donor_information}}</td>
+                                       <td>{{item.amount}}</td>
+                                       <!-- <td>{{item.transaction_id}}</td> -->
+                                     </tr>
+                                    </tbody>
+                                  </table>
+                                  <!-- <div class="d-flex justify-content-center" *ngIf="donationList == undefined">
+                                    <div class="spinner-border text-success m-5 "  role="status"  >
+                                      <span class="sr-only" >Loading...</span>
+                                    </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                      <div class="m-5"  role="status" *ngIf="dontLength === 0"  ><h3 style="color:#c3313e;"> No Records Found</h3>
+                                      </div>
+                                      </div> -->
+                                  <!-- <div class="dt-table table-responsive mb-30">
+                                              <table class="table">
+                                                  <tbody>
+                                                      <tr *ngFor="let item of donationList| paginate: {
+                                                        itemsPerPage: 5,
+                                                        currentPage: pageNumber,
+                                                        totalItems: totalCount
+                                                      }">
+                                                          <td class="pro-thumbnail" routerLink="/fund-raiser-detail/{{item.id}}" style="cursor: pointer;">
+                                                            <img src="{{imagebaseUrl}}{{item.image_url}}" alt="Product" class="img-fluid">
+                                                        </td>
+              
+                                                          <td class="pro-title" style="width: 641px;cursor: pointer;" routerLink="/withdraw-fundraiser/{{item.id}}">
+                                                            <p>{{item.title}}</p>
+                                                          </td>
+                                                           <td class="pro-btns" (click)="removeSubscriptionModal(item.subscribe_id)" *ngIf="item.subscribed === true">
+                                                            <a >Remove Subscription</a>
+                                                          </td>
+                                                          <td class="pro-btns" (click)="removeSubscriptionModal(item.subscribe_id)" *ngIf="item.subscribed === false">
+                                                          </td>
+                                                          <td class="pro-btn" style="cursor:pointer" routerLink="/withdraw-fundraiser/{{item.id}}">
+                                                            <a >₹{{item.amount}}</a>
+                                                          </td>
+                                                      </tr>
+              
+              
+                                                  </tbody>
+                                              </table>
+                                          </div> -->
+                                </div>
+              <div *ngIf="donate.length==0">
+                <p style="color: #c3313e; margin-left:30px;text-align:center;margin-top: 20px;font-weight:bold">No Records Found</p></div>
+                              </div>
+                              <div class="row" *ngIf="totalCount > 5">
+                                <div class="col-md-12">
+                                <div class="container d-flex justify-content-center">
+                                  <pagination-controls
+                                  (pageChange)="pageChanged($event)"
+                                ></pagination-controls>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div id="My-fundraisers" class="tab-pane">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="profile-donation">
+                                    <div class="pf-sub">
+                                      <!-- <h4>We use cookies</h4>
+                                      <p class="sm-txt-mb0 txt-white">All the Lorem Ipsum generators on the Internet
+                                      </p> -->
+                                      <p class="sm-txt-mb0 txt-white" style="text-align: center;">Check Out Our Latest Fundraiser
+              
+                                    </div>
+                                    <div class="pf-sub-btn" style="text-align: center;">
+                                      <button class="gn-sm-btn" (click)="startaAfundRaiser()">Start a fundraiser</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                   <div class="d-flex justify-content-center" *ngIf="MyFundRaiserList == undefined">
+                                    <div class="spinner-border text-success m-5 "  role="status"  >
+                                      <span class="sr-only" >Loading...</span>
+                                    </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                      <div class="m-5"  role="status" *ngIf="MyFundRaiserList.length === 0"  ><h3 style="color:#c3313e;"> No Records Found</h3>
+                                      </div>
+                                      </div>
+                                  <div class="fd-table table-responsive mb-30">
+                                              <table class="table">
+                                                  <tbody>
+                                                      <tr *ngFor="let item of MyFundRaiserList | paginate: {
+                                                        itemsPerPage: 5,
+                                                        currentPage: pageNumber,
+                                                        totalItems: FundRaisertotalCount
+                                                      }">
+                                                          <td class="pro-thumbnail" routerLink="/withdraw-fundraiser/{{item.id}}">
+                                                            <img src="{{fundimagebaseUrl}}{{item.image_url}}" style="cursor: pointer;"  alt="Product" class="img-fluid">
+                                                        </td>
+                                                          <td class="pro-title" routerLink="/withdraw-fundraiser/{{item.id}}" style="width: 851px;max-width: 851px !important;">
+                                                            <p>{{item.title}}</p>
+                                                          </td>
+                                                        
+                                                          <td class="pro-title" *ngIf="item.is_approved == '1'">
+                                                            <a class="hvrclr" style="color: green;cursor: default;" >Approved</a>
+                                                          </td>
+                                                          <td class="pro-title" *ngIf="item.is_approved == '0'">
+                                                            <a  class="hvrclpendingr" style="color: orange;cursor: default;">Pending</a>
+                                                          </td>
+                                                          <td class="pro-title" *ngIf="item.is_approved == '-1'">
+                                                            <a  class="hvrclrej" style="color: red;cursor: default;
+                                                            ">Rejected</a>
+                                                          </td>
+                                                          <td class="pro-btn" routerLink="/withdraw-fundraiser/{{item.id}}">
+                                                            <a > ₹ {{item.fund_required}}</a>
+                                                          </td>
+                                                      </tr>
+              
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                </div>
+                              </div>
+                              <div class="row" *ngIf="FundRaisertotalCount > 5">
+                                <div class="col-md-12">
+                                <div class="container d-flex justify-content-center">
+                                  <pagination-controls
+                                  (pageChange)="pageChangedMyFundRaiser($event)"
+                                ></pagination-controls>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div id="My-comments" class="tab-pane">
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <div class="profile-donation">
+                                        <div class="pf-sub">
+                                        </div>
+            
+                                        <div class="pf-sub-btn" style="text-align: center;">
+                                            <button class="gn-sm-btn">Browse Fundraiser</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <div class="d-flex justify-content-center" *ngIf="MyCommentList == undefined">
+                                    <div class="spinner-border text-success m-5 "  role="status"  >
+                                      <span class="sr-only" >Loading...</span>
+                                    </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                      <div class="m-5"  role="status" *ngIf="MyCommentList.length === 0"  ><h3 style="color:#c3313e;"> No Records Found</h3>
+                                      </div>
+                                      </div>
+                                  <div class="col-md-12 col-12"  >
+                                  <div class="dtp-comments" *ngFor="let item of MyCommentList | paginate: {
+                                    itemsPerPage: 10,
+                                    currentPage: pageNumber,
+                                    totalItems: commentTotalCount
+                                  }">
+                                    <div class="dtp-cts-pics" routerLink="/fund-raiser-detail/{{item.fundraiser_id}}" style="cursor: pointer;">
+                                      <img *ngIf="item.image_url != null" src="{{fundimagebaseUrl}}{{item.image_url}}">
+                                      <img *ngIf="item.image_url === null" src="assets/images/profile/demoimage.jpg">
+            
+                                      <p>{{item.name}}<br><span>{{item.created_date}}</span></p>
+                                    </div>
+                                    <div class="dtp-cts-info" routerLink="/fundraiser-detail/{{item.fundraiser_id}}" style="cursor: pointer;">
+                                      <p class="sm-txt">{{item.comment}}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+            
+                            </div>
+                            <div class="row" *ngIf="commentTotalCount > 5">
+                              <div class="col-md-12">
+                              <div class="container d-flex justify-content-center">
+                                <pagination-controls
+                                (pageChange)="pageChangedMyComments($event)"
+                              ></pagination-controls>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                            <div id="My-Loans" class="tab-pane">
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <div class="">
+                                            <h4>Loan History</h4>
+                                        </div>
+                                        <div class="pf-sub-btn">
+                                        </div>
+                                    </div>
+                                </div>
+              
+                                <div class="col-md-12">
+              
+                                    <div class="fd-table table-responsive mb-30">
+                                        <table class="table" style="cursor: pointer;">
+                                            <tbody>
+                                                <tr *ngFor="let item of MyLoanList  | paginate: {
+                                      itemsPerPage: 5,
+                                      currentPage: pageNumber,
+                                      totalItems: loantotalCount
+                                    }">
+                                     <td class="pro-thumbnail">
+                                      <img src="{{loanbaseUrl}}{{item.image_url}}" alt="Product" class="img-fluid">
+
+                                         <!-- <img src="{{loanbaseUrl}}{{item.image_url}}" routerLink="/edit-loan/14" alt="Product" class="img-fluid"> -->
+                                        </td>
+                                      <td class="pro-title">
+                                        <p>{{item.title}}</p>
+                                        <span style="color: #c3313e;">₹{{item.amount}}</span>
+                                      </td>
+                                      </tr>
+                                      </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                    <div class="row" *ngIf="loantotalCount > 5">
+                                    <div class="col-md-12">
+                                    <div class="container d-flex justify-content-center">
+                                    <pagination-controls
+                                    (pageChange)="pageChangedMyLoans($event)"
+                                    ></pagination-controls>
+                                    </div>
+                                    </div>
+                                    </div>
+                                        </div>
+                                    <hr>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="">
+                                              <div class="">
+                                                  <h4>Lend History</h4>
+                                              </div>
+                                              <div class="pf-sub-btn">
+                                              </div>
+                                          </div>
+                                      </div>
+                                  <div class="col-md-12">
+              
+                                          <div class="fd-table table-responsive mb-30" style="overflow-x: hidden;">
+                                              <table class="table" style="cursor: pointer;"
+                                              >
+                                                  <tbody>
+                                        <tr *ngFor="let item of MyLendList  | paginate: {
+                                          itemsPerPage: 5,
+                                          currentPage: pageNumber,
+                                          totalItems: lendotalCount
+                                        }">
+                                            <td class="pro-thumbnail">
+                                              <img src="{{lendbaseUrl}}{{item.image_url}}"  alt="Product" class="img-fluid">
+                                          </td>
+                                            <td class="pro-title">
+                                              <p>{{item.title}}</p>
+                                              <span style="color: #c3313e;">₹{{item.amount}}</span>
+                                            </td>
+                                              <td class="pro-btn">
+                                                              <a href="">₹{{item.loan_amount}}</a>
+                                                          </td>
+              
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                              <div class="row" *ngIf="lendotalCount > 5">
+                                              <div class="col-md-12">
+                                              <div class="container d-flex justify-content-center">
+                                                  <pagination-controls
+                                                  (pageChange)="pageChangedMyLend($event)"
+                                              ></pagination-controls>
+                                              </div>
+                                              </div>
+                                              </div>
+                                          </div>
+                                  <hr>
+                                   </div>
+                                  </div>
+                            </div>
+                            <div id="My-Documents" class="tab-pane">
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <div class="profile-donation">
+                                        <div class="pf-sub">
+                                        </div>
+            
+                                        <div class="pf-sub-btn" style="text-align: center;">
+                                            <button class="gn-sm-btn">Browse Fundraiser</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                   <form [formGroup]="uploadPancard" >
+                                    <div class="col-md-6 col-lg-6 col-xl-6">
+                                       Upload Pancard : 
+                                  
+                                      <input type="file"  class="form-control"[(ngModel)]="upload" (change)="onFileChange($event)" [formControl]="upload" placeholder="upload">
+                                      <button type="button" (click)="UploadPAN()" style="margin-top:10px;border:none;background-color:#c3313e;color:#fff;width:100px">Upload</button>
+                                    </div>
+                                   
+                                
+                                   </form>
+                                  </div>
+                                  <div class="col-md-6 col-lg-6 col-sm-12 col-12">	
+                                  
+                                      <div class="profile-bar cursr-none">
+                                       <div class="profile-img" >
+                                       <img src="{{baseUrl}}{{pancard_image}}" class="img-fluid">
+                                    </div>
+                                    </div>
+                                  </div>
+                          </div>
+                            </div>
+                            <div id="payment" class="tab-pane">
+                              <div *ngIf="payment_hist.length==0">
+                                <p style="color: #c3313e; text-align:center;margin-top: 20px;font-weight:bold">No Records Found</p></div>
+                                            
+                                <div class="row">
+                                  <div class="col-md-6 col-lg-6 col-sm-12 col-12" class="scroll" *ngIf="payment_hist.length>0">
+                                    <p style="color: #c3313e; text-align: center;margin-top: 20px;font-weight:bold">Payment History</p>
+                                  
+                                    <table class="table">
+                                      <thead class="thead-dark">
+                                        <tr>
+                                          <th scope="col">Sl.No</th>
+                                          <th scope="col">Donation</th>
+                                          <th scope="col">Amount</th>
+                                          <!-- <th scope="col">Transaction-id</th> -->
+                                        </tr>
+                                       
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let item of payment_hist;let i=index">
+                                          <td>{{i+1}}</td>
+                                         <td>{{item.show_donor_information}}</td>
+                                         <td>{{item.amount}}</td>
+                                         <!-- <td>{{item.transaction_id}}</td> -->
+                                       </tr>
+                                      </tbody>
+                                    </table>
+                                  
+                                     
+                                    <tr *ngFor="let item of MyLendList  | paginate: {
+                                      itemsPerPage: 5,
+                                      currentPage: pageNumber,
+                                      totalItems: lendotalCount
+                                    }">
+                                  </div>
+                                  
+                                  </div>
+                          </div>
+                            </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<section class="section-related">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 col-8">
+				<div class="page-lbar">
+					<h2 class="left-header">Related</h2>
+					<!-- <li class="left-hd-list">hidden in the middle of text.</li> -->
+				</div>
+			</div>
+			<div class="col-md-6 col-4 text-right">
+        <div class="scheme-icon-left" (click)="previous()" ><i class="fa fa-angle-left"></i></div>
+        <div class="scheme-icon-right" (click)="next()"  ><i class="fa fa-angle-right"></i></div>
+            </div>
+		</div>
+
+
+    <div class="row">
+			<div class="col-md-12">
+		      <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of campaignList">
+                <div class="col ">
+                  <div class="slide-scheme">
+                    <img src="{{baseUrl}}{{item.image_url}}" style="cursor: pointer;" class="img-fluid img-new" routerLink="/fund-raiser-detail/{{item.id}}" >
+                    <div class="scheme-subject">
+                      <h5 class="h3-txt">{{item.title.length>70 ? (item.title | slice:0:70)+'..':(item.title)}}</h5>
+                      <span>₹{{item.fund_raised}}</span> raised out of <span>₹{{item.fund_required}}</span>
+                      <div class="progress mb-2" style="height: 5px;">
+                        <div class="progress-bar progress-bar-red" role="progressbar" style="width:{{item.fund_raised*100/item.fund_required}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                      <div class="social-link">
+                        <li class="mt-1 cursr-pointer">share now</li>
+                        <share-buttons [theme]="'modern-dark'"
+                        [include]="['facebook','twitter','linkedin','whatsapp']"
+                        [show]="4"
+                        [size]="1"
+                        [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + item.id"
+                        [description]="story"
+                        [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+                        [autoSetMeta]="false"
+                        ></share-buttons>
+                      </div>
+                      <a href="" routerLink="/fund-raiser-detail/{{item.id}}"><i class="fa fa-heart" aria-hidden="true"></i>Donate To NGO</a>
+                    </div>
+                    </div>
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="modal fade sign-up" id="edit-profile-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width">
+			<div class="modal-header">
+				<button type="button" class="close close btn-close1" (click)="closeEditPrfModal()" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="col-xl-12 col-lg-12">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
+
+                 <form [formGroup]="editProfileForm">
+
+                <div class="row">
+									<div class="col-md-12 mb-20">
+										<div class="sign-in-form">
+											<h3 class="gn-h2">Update Profile</h3>
+                      <div class="form-group">
+											<input name="username" class=" form-control sign-up-box  inp-backcolor"  formControlName="username" placeholder="Name" type="text" [ngClass]="{ 'is-invalid': submitted && f2.username.errors }" >
+                      <div *ngIf="submitted && f2.username.errors" class="invalid-feedback">
+                        <div *ngIf="f2.username.errors.required">This field is required</div>
+
+
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <input name="email" class=" form-control sign-up-box " placeholder="Email"  formControlName="email" [email]="true" type="email" [ngClass]="{ 'is-invalid': submitted && f2.email.errors }">
+                        <div *ngIf="submitted && f2.email.errors" class="invalid-feedback">
+                          <div *ngIf="f2.email.errors.required">This field is required</div>
+                          <div *ngIf="f2.email.errors.pattern">Please, Enter valid email.</div>
+                          </div>
+                          <div *ngIf="submitted && phnomessage === 'Email already taken'" style="color:#dc3545;font-size: 80%;">This email is already registered</div>
+
+                      </div>
+                       <div class="form-group">
+											<input name="date" class="form-control sign-up-box" placeholder="Date of Birth"  type="date" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f2.dob.errors }">
+                      <div *ngIf="submitted && f2.dob.errors" class="invalid-feedback">
+                        <div *ngIf="f2.dob.errors.required">This field is required</div>
+
+
+                        </div>
+                    </div>
+                      <div class="form-row">
+                      <input name="email" class=" form-control sign-up-box " placeholder="phone Number" type="number"  formControlName="phone_number" [ngClass]="{ 'is-invalid': submitted && f2.phone_number.errors }">
+                      <div *ngIf="submitted && f2.phone_number.errors" class="invalid-feedback">
+                        <div *ngIf="f2.phone_number.errors.required">This field is required</div>
+                    </div>
+                    <div *ngIf="phnomessage == 'Phone number already taken'">
+                      <div style="color:#dc3545;font-size: 80%;">This Number is already registered</div>
+                        </div>
+                  </div>
+                  <div class="file-inpt">
+                    <input type="file" class="form-control file-border"   #attachments   (change)="onFileChanged($event)" #fileInput formControlName="image"  [ngClass]="{ 'is-invalid': submitted && f2.image.errors }">
+                    <div *ngIf="submitted && f2.dob.errors" class="invalid-feedback">
+                      <div *ngIf="f2.dob.errors.required">This field is required</div>
+
+
+                      </div>
+                  </div>
+											<button type="submit" class="btn-wd-100" (click)="updateProfile()"><i class="fa" [ngClass]="{'fa-spin fa-spinner': editprfloading}"></i>Submit</button>
+										</div>
+									</div>
+								</div>
+                </form>
+
+						</div>
+						<div class="col-lg-6 col-md-6">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="modal fade payed-modal" id="canelsubscModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                  Are you sure you want to cancel subscription?</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" >No, Thanks</button>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="cancelSubscription()" >  <i class="fa" [ngClass]="{'fa-spin fa-spinner': subsccanloading}"></i>Yes</button>
+                  </div>
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Message popup Modal -->
+<div class="modal fade payed-modal" id="successeditPrfModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: white;">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4" style="color: black;text-transform: none;">
+                  Your Profile Updated Successfully.</p>
+                <div class="row">
+                  <div class="col-md-2 col-12"></div>
+                  <div class="col-md-4 col-12" style=" margin: 0 auto;">
+                    <button class="f-btn-border" type="submit" data-dismiss="modal" style="background-color: #32374a;" >OK</button>
+                  </div>
+
+                  <div class="col-md-2 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

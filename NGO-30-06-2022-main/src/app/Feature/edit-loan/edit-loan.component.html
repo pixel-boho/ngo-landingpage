@@ -1,0 +1,408 @@
+<!--details section start-->
+<div class="section-details">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+				<div class="dtp-banner">
+          <img src="{{loanbaseUrl}}{{image_url}}" class="img-fluid" style="width: 600px !important;">
+          <button class="btn"  routerLinkActive="router-link-active" (click)="openEditlendModal()" >Edit</button>
+
+        </div>
+			</div>
+			<div class="col-md-6 col-lg-6 col-sm-12 col-12">
+				<div class="dtp-adv">
+					<h3>{{title}}</h3>
+          <p>location: {{location}}</p>
+          <h6>Purpose:{{purpose}}</h6>
+					<div class="sl-md-links" style="display: flex;">
+						<button class="" style="color:#c3313e;background-color: white; cursor: context-menu;
+            ">share now</button>
+						<div class="sl-md-link-img">
+						  <share-buttons [theme]="'modern-dark'"
+            [include]="['facebook','twitter','linkedin','whatsapp']"
+            [show]="4"
+            [size]="1"
+            [url]="'https://crowdworksindia.org/#/fund-raiser-detail/' + loan_id"
+            [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+            [autoSetMeta]="false"
+            ></share-buttons>
+						</div>
+						<div class="assured-logo">
+							<a href="#crwd-assured-modal" data-toggle="modal" title="Quick View">
+							<img src="assets/images/icons/assured.png" style="width: 201px;
+              height: 42px;
+              object-fit: cover;" class="img-fluid"></a>
+						</div>
+					</div>
+					<div class="dtp-payment">
+						<p>₹ {{amount}}</p>
+					</div>
+
+          <div class="progress-rpt">
+						<h5 class="mb-1">Raised <span>₹{{fund_raised}}</span> Goals</h5>
+						<div class="progress mb-2" style="height: 5px;">
+						  	<div class="progress-bar progress-bar-red" role="progressbar" style="width:{{raisedAmountInPercentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						<div class="dtp-totals">
+							<li style="color:white">{{noOfSupporters}} 5742supporters</li>
+							<li>{{Difference_In_Days}} days left</li>
+						</div>
+					</div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <button class="btn-w100-rd" (click)="donateLoan()">Lend</button>
+
+            </div>
+            <div class="col-12 col-md-6">
+              <button class="btn-w100-rd" (click)="completeLoan()" style="background-color: #c3313e;
+              color: white;margin: 1px;">Complete The Loan</button>
+
+            </div>
+          </div>
+        		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-story">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="dtp-story">
+					<h3 class="gn-h3 txt-black mb-10">Description</h3>
+					<p class="sm-txt">{{description}}
+
+          </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade assured-modal" id="crwd-assured-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-modal-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12">
+          <div class="assured-hd">
+            <img src="assets/images/icons/assured.png"/>
+            <p class="sm-txt">Our promise that this NGO can be trusted with your donation and will utilize the funds raised to provide benefits to the right people.,</p>
+              <div class="asuured-divider"></div>
+          </div>
+          <h3 class="gn-h3 txt-black mb-20"> Our due deligence process includes the following</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="assets/images/icons/legal.png"/>
+             		<h4 class="gn-h4 txt-white">Legal </h4>
+             		<p class="gn-font txt-white"> NGO is verified as valid tax exempted organization.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+                <img src="assets/images/icons/compliance.png"/>
+                <h4 class="gn-h4 txt-white">Compliance </h4>
+             		<p class="gn-font txt-white"> NGO has submitted audited financials,file tax returns and meets statutory norms.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+                <img src="assets/images/icons/monitoring.png"/>
+                <h4 class="gn-h4 txt-white">Monitoring and Evaluation</h4>
+             		<p class="gn-font txt-white">NGO is verified as valid tax exempted organization.
+             		</p>
+             	</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+             	<div class="assured-modal-box">
+             		<img src="assets/images/icons/costing.png"/>
+             		<h4 class="gn-h4 txt-white">Costing and Validation</h4>
+             		<p class="gn-font txt-white">Crowd works india foundation has validated that the donation ask is based on actual expenses.
+             		</p>
+             	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="modal fade wizard-tab-modal " id="complete-loan-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" data-dismiss="modal"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="loanfirstFormGroup" >
+              <form [formGroup]="loanfirstFormGroup">
+                <h4 style="color: white;">Complete The Loan</h4>
+
+                <div class="row mt-2">
+                  <div class="col-md-12 mt-1">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr"  aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="1000" readonly [(ngModel)]="remainingLoanAmount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 mt-1">
+                    <div class="form-group">
+                      <div class="form-row">
+                      <div class="form-group col-md-3 col-4">
+                        <img src="{{loanbaseUrl}}{{image_url}}" class="img-fluid">
+                        </div>
+                        <div class="form-group col-md-6 col-8" style="display: inline-grid;color: white;">
+                          <span>{{title}}</span>
+                          <span>₹{{amount}}</span>
+                          <span>Raised ₹{{fund_raised}} golas</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-row">
+                        <div class="form-group col-md-3 col-7" style="color: white;">
+                          <span>Total:&nbsp;<b>₹ {{remainingLoanAmount}} </b> </span>
+                        </div>
+                    <div class="form-group col-md-9 col-9">
+                      <button class="pull-right btn-wz-wt btn-next" mat-button matStepperNext>Pay Now </button>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+
+              </form>
+            </mat-step>
+
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade wizard-tab-modal " id="loan-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close btn-close1" data-dismiss="modal"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-md-12 col-lg-12 form-wizard">
+          <mat-horizontal-stepper linear #stepper >
+            <mat-step [stepControl]="loanfirstFormGroup" >
+              <form [formGroup]="loanfirstFormGroup">
+                <h4 style="color: white;">Lend</h4>
+
+                <div class="row">
+
+                  <div class="col-md-12 mt-1">
+                      <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text wz-ip-grp"><i class="fa fa-inr"  aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control wz-txt-box required" type="text" placeholder="1000" [(ngModel)]="lendAmount" formControlName="amount" aria-label="Search"  size="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                     <div class="form-row">
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block btn-color" (click)="lendAmounts($event)" value="1000">1000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="lendAmounts($event)" value="2000">2000</button>
+                        </div>
+                        <div class="form-group col-md-2 col-4">
+                            <button class="btn-block rs-block" (click)="lendAmounts($event)" value="3000">3000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                            <button class="btn-block rs-block" (click)="lendAmounts($event)" value="4000">4000</button>
+                        </div>
+                        <div class="form-group col-md-3 col-4">
+                          <button class="btn-block rs-block" (click)="lendAmounts($event)" value="4000">5000</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <button class="pull-right btn-wz-wt btn-next" (click)="submitlend()" mat-button matStepperNext>Pay {{loanfirstFormGroup.value.amount}} </button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </mat-step>
+
+            </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Message popup Modal -->
+ <div class="modal fade payed-modal" id="lend-success-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-lg-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="payd-msg">
+                <p class="mt-4">
+                Donation received  successfully.
+                </p>
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <!-- <button class="f-btn-border" type="submit">No, Thanks</button> -->
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="f-btn-border-red" type="submit" (click)="closelendSuccessModal()">OK</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="modal fade lend" id="edit-lend-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content modal-width">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="col-xl-12 col-lg-12">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-12 ">
+
+              <form [formGroup]="createLendForm">
+                <div class="row">
+									<div class="col-md-12 mb-20">
+										<div class="sign-in-form">
+											<h3 class="gn-h2" style="color: white !important;"></h3>
+
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                          <!-- <div class="col-md-12  mt-5"> -->
+                            <!-- <p style="color: #32374a;">Upload Documents <span style="color: #32374a;"> pictures and videos of you Experience (rental or lesson). All photos and videos are required
+                                to be yours. Drag to reorder</span>.</p> -->
+                            <div class="row">
+                                <div class="col-md-5 py-2 px-2" style="height: 140px;border-radius: 10px;
+                                background-color: lightgray;">
+                                    <div class="text center"style="border:dashed 1px #1583DD; height: 100%; width: 100%;position: relative; ">
+
+                                        <div class="upload">
+                                            <input type="file" #attachments type="file" formControlName="image" (change)="uploadImage($event)" accept=".jpg,.png,.jpeg"  id="exampleInputFile" name="fileName"
+                                            style="margin-top: 6%;width: 50%; margin-left: 19%;opacity: 0; cursor:pointer;position:absolute">
+                                            <h1 class="file mt-2" style="color:black; width:20%; height:20%; margin-left:40%; cursor: pointer;"><img src="assets/images/icons/upload.png">
+                                            </h1>
+
+                                            <p style="color:black;text-align: center;
+                                          ">Upload photo </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-7"  *ngIf="fileData">
+                                  <div class="col-md-7" *ngFor="let list of thumbFile;let index = index">
+                                    <!-- <span class="close-img img-cls" mat-icon-button (click)="removeSelectedFile(index)"><img src="assets/images/icons/close.png" height="15" width="15" alt=""></span> -->
+                                      <img class="rounded"  [src]="list" alt="" style="margin: 10px;" height="70"  width="70">
+                                  </div>
+                                </div>
+                                <div class="col-md-7"  *ngIf="image_url && fileData == undefined">
+                                  <div class="col-md-7" >
+                                    <!-- <span class="close-img img-cls" mat-icon-button (click)="removeSelectedFile(index)"><img src="assets/images/icons/close.png" height="15" width="15" alt=""></span> -->
+                                    <img class="rounded img-box"  src="{{loanbaseUrl}}{{image_url}}" style="margin: 10px;" height="70"  width="70">
+                                  </div>
+                                </div>
+
+                              <!-- </div> -->
+                        </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                  <input name="username" class=" form-control lend-box  inp-backcolor" formControlName="title" [(ngModel)]="title" placeholder="Title" type="text" [ngClass]="{ 'is-invalid': submitted && f2.title.errors }" >
+                  <div *ngIf="submitted && f2.title.errors" class="invalid-feedback">
+                    <div *ngIf="f2.title.errors.required">This field is required</div>
+                    </div>
+                  <input name="username" class=" form-control lend-box  inp-backcolor" formControlName="purpose" [(ngModel)]="purpose" placeholder="Purpose" type="text" [ngClass]="{ 'is-invalid': submitted && f2.purpose.errors }" >
+                  <div *ngIf="submitted && f2.purpose.errors" class="invalid-feedback">
+                    <div *ngIf="f2.purpose.errors.required">This field is required</div>
+                    </div>
+                  <input name="username" class=" form-control lend-box  inp-backcolor" formControlName="amount" [(ngModel)]="amount" placeholder="Amount" type="number" [ngClass]="{ 'is-invalid': submitted && f2.amount.errors }" >
+                  <div *ngIf="submitted && f2.amount.errors" class="invalid-feedback">
+                    <div *ngIf="f2.amount.errors.required">This field is required</div>
+                    </div>
+
+                </div>
+                </div>
+
+                        <div class="row">
+                          <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+											<input name="username" class=" form-control lend-box  inp-backcolor" formControlName="location" [(ngModel)]="location" placeholder="Location" type="text" [ngClass]="{ 'is-invalid': submitted && f2.location.errors }" >
+                      <div *ngIf="submitted && f2.location.errors" class="invalid-feedback">
+                        <div *ngIf="f2.location.errors.required">This field is required</div>
+                        </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                    <input name="username" class=" form-control lend-box  inp-backcolor" formControlName="no_of_days" [(ngModel)]="no_of_days" placeholder="Minimum Number of Days For Amount Collection" type="number" [ngClass]="{ 'is-invalid': submitted && f2.no_of_days.errors }" >
+                    <div *ngIf="submitted && f2.no_of_days.errors" class="invalid-feedback">
+                      <div *ngIf="f2.no_of_days.errors.required">This field is required</div>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                <input name="username" class=" form-control lend-box  inp-backcolor" formControlName="description" [(ngModel)]="description" placeholder="Description" type="text" [ngClass]="{ 'is-invalid': submitted && f2.description.errors }" >
+                <div *ngIf="submitted && f2.description.errors" class="invalid-feedback">
+                  <div *ngIf="f2.description.errors.required">This field is required</div>
+                  </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+              <button type="submit" class="btn-wd-100" (click)="createLend()"> Create</button>
+            </div>
+            </div>
+                    </div>
+
+										</div>
+									</div>
+                </form>
+						</div>
+						<div class="col-lg-6 col-md-6">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
